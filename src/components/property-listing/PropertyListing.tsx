@@ -76,21 +76,21 @@ export const PropertyListing = () => {
   };
   
   return (
-    <section className="py-12 md:py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <p className="text-blue-600 text-sm font-semibold tracking-wider uppercase mb-2">
+    <section className="py-16 md:py-24 bg-gray-50">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-16">
+          <p className="text-blue-600 text-sm font-semibold tracking-wider uppercase mb-3">
             {t('caption')}
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
             {t('title')}
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          </h1>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             {t('subtitle')}
           </p>
         </div>
         
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Step indicator */}
           <StepByStep
             currentStep={currentStep}
@@ -111,6 +111,7 @@ export const PropertyListing = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
+              className="shadow-xl rounded-xl overflow-hidden"
             >
               {currentStep === 1 && (
                 <PropertyDetailsForm

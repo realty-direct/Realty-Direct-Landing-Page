@@ -1,4 +1,3 @@
-import { LocaleSwitcher } from '@/components/LocaleSwitcher';
 import { BaseTemplate } from '@/templates/BaseTemplate';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
@@ -46,7 +45,12 @@ export default async function Layout(props: {
             {t('contact_link')}
           </Link>
           
-          <LocaleSwitcher />
+          <Link
+            href="/sell-your-property/"
+            className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md font-medium"
+          >
+            {t('fsbo_link')}
+          </Link>
         </>
       )}
     >

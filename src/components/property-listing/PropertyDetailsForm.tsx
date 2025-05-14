@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -36,7 +35,7 @@ export const PropertyDetailsForm = ({
     register,
     handleSubmit,
     control,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<PropertyDetailsFormValues>({
     resolver: zodResolver(propertyDetailsSchema),
     defaultValues: initialValues || {
@@ -51,19 +50,26 @@ export const PropertyDetailsForm = ({
     },
   });
   
+  // Common class for form inputs
+  const inputClass = "w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200";
+  const labelClass = "block text-sm font-medium text-gray-700 mb-2";
+  const errorClass = "mt-1 text-sm text-red-600 font-medium";
+  
   return (
-    <div className="w-full max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="w-full bg-white p-8 rounded-lg">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('step_1_title')}</h2>
+      
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8">
           {/* Property Type */}
           <div className="col-span-1 md:col-span-2">
-            <label htmlFor="propertyType" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="propertyType" className={labelClass}>
               {t('form_property_type')}
             </label>
             <select
               id="propertyType"
               {...register('propertyType')}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className={`${inputClass} ${errors.propertyType ? 'border-red-500' : ''}`}
             >
               <option value="">{t('form_property_type_placeholder')}</option>
               <option value="house">{t('form_property_type_house')}</option>
@@ -73,13 +79,13 @@ export const PropertyDetailsForm = ({
               <option value="commercial">{t('form_property_type_commercial')}</option>
             </select>
             {errors.propertyType && (
-              <p className="mt-1 text-sm text-red-600">{errors.propertyType.message}</p>
+              <p className={errorClass}>{errors.propertyType.message}</p>
             )}
           </div>
 
           {/* Property Address */}
           <div className="col-span-1 md:col-span-2">
-            <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="address" className={labelClass}>
               {t('form_address')}
             </label>
             <input
@@ -87,16 +93,16 @@ export const PropertyDetailsForm = ({
               type="text"
               {...register('address')}
               placeholder={t('form_address_placeholder')}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className={`${inputClass} ${errors.address ? 'border-red-500' : ''}`}
             />
             {errors.address && (
-              <p className="mt-1 text-sm text-red-600">{errors.address.message}</p>
+              <p className={errorClass}>{errors.address.message}</p>
             )}
           </div>
 
           {/* Bedrooms */}
           <div>
-            <label htmlFor="bedrooms" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="bedrooms" className={labelClass}>
               {t('form_bedrooms')}
             </label>
             <Controller
@@ -110,18 +116,18 @@ export const PropertyDetailsForm = ({
                   {...field}
                   value={field.value === 0 ? '' : field.value}
                   onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value, 10) : 0)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className={`${inputClass} ${errors.bedrooms ? 'border-red-500' : ''}`}
                 />
               )}
             />
             {errors.bedrooms && (
-              <p className="mt-1 text-sm text-red-600">{errors.bedrooms.message}</p>
+              <p className={errorClass}>{errors.bedrooms.message}</p>
             )}
           </div>
 
           {/* Bathrooms */}
           <div>
-            <label htmlFor="bathrooms" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="bathrooms" className={labelClass}>
               {t('form_bathrooms')}
             </label>
             <Controller
@@ -135,18 +141,18 @@ export const PropertyDetailsForm = ({
                   {...field}
                   value={field.value === 0 ? '' : field.value}
                   onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value, 10) : 0)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className={`${inputClass} ${errors.bathrooms ? 'border-red-500' : ''}`}
                 />
               )}
             />
             {errors.bathrooms && (
-              <p className="mt-1 text-sm text-red-600">{errors.bathrooms.message}</p>
+              <p className={errorClass}>{errors.bathrooms.message}</p>
             )}
           </div>
 
           {/* Parking */}
           <div>
-            <label htmlFor="parking" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="parking" className={labelClass}>
               {t('form_parking')}
             </label>
             <Controller
@@ -160,18 +166,18 @@ export const PropertyDetailsForm = ({
                   {...field}
                   value={field.value === 0 ? '' : field.value}
                   onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value, 10) : 0)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className={`${inputClass} ${errors.parking ? 'border-red-500' : ''}`}
                 />
               )}
             />
             {errors.parking && (
-              <p className="mt-1 text-sm text-red-600">{errors.parking.message}</p>
+              <p className={errorClass}>{errors.parking.message}</p>
             )}
           </div>
 
           {/* Asking Price */}
           <div>
-            <label htmlFor="price" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="price" className={labelClass}>
               {t('form_price')}
             </label>
             <input
@@ -179,16 +185,16 @@ export const PropertyDetailsForm = ({
               type="text"
               {...register('price')}
               placeholder={t('form_price_placeholder')}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className={`${inputClass} ${errors.price ? 'border-red-500' : ''}`}
             />
             {errors.price && (
-              <p className="mt-1 text-sm text-red-600">{errors.price.message}</p>
+              <p className={errorClass}>{errors.price.message}</p>
             )}
           </div>
 
           {/* Description */}
           <div className="col-span-1 md:col-span-2">
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="description" className={labelClass}>
               {t('form_description')}
             </label>
             <textarea
@@ -196,16 +202,16 @@ export const PropertyDetailsForm = ({
               rows={4}
               {...register('description')}
               placeholder={t('form_description_placeholder')}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className={`${inputClass} resize-none ${errors.description ? 'border-red-500' : ''}`}
             />
             {errors.description && (
-              <p className="mt-1 text-sm text-red-600">{errors.description.message}</p>
+              <p className={errorClass}>{errors.description.message}</p>
             )}
           </div>
 
           {/* Features */}
           <div className="col-span-1 md:col-span-2">
-            <label htmlFor="features" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="features" className={labelClass}>
               {t('form_features')}
             </label>
             <input
@@ -213,21 +219,22 @@ export const PropertyDetailsForm = ({
               type="text"
               {...register('features')}
               placeholder={t('form_features_placeholder')}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              className={`${inputClass} ${errors.features ? 'border-red-500' : ''}`}
             />
             {errors.features && (
-              <p className="mt-1 text-sm text-red-600">{errors.features.message}</p>
+              <p className={errorClass}>{errors.features.message}</p>
             )}
           </div>
         </div>
 
-        <div className="flex justify-end mt-6">
+        <div className="flex justify-end pt-4">
           <button
             type="submit"
-            className="inline-flex items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            disabled={isSubmitting}
+            className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200 disabled:opacity-70"
           >
             {t('next_button')}
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <ArrowRight className="ml-2 h-5 w-5" />
           </button>
         </div>
       </form>
