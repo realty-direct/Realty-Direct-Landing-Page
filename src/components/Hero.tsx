@@ -7,20 +7,19 @@ import { useState } from 'react';
 
 export const Hero = () => {
   const t = useTranslations('Hero');
-  const [email, setEmail] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, we would send this to an API endpoint
-    alert(`Thank you! We'll keep you updated at ${email}`);
-    setEmail('');
+    // In a real app, we would redirect to search results
+    alert(`Searching for: ${searchTerm}`);
   };
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-r from-blue-800 to-indigo-900 py-16 sm:py-24">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
-        <svg className="h-full w-full" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+        <svg className="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
           <defs>
             <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
               <circle cx="3" cy="3" r="1" fill="white" />
@@ -35,45 +34,59 @@ export const Hero = () => {
           {/* Left side content */}
           <div className="md:max-w-2xl lg:max-w-xl mb-12 md:mb-0 text-center md:text-left">
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl mb-6">
-              {t('title')}
+              A Smarter Way to Buy & Sell Property in Queensland
             </h1>
-            <p className="mx-auto md:mx-0 max-w-3xl text-xl text-blue-100 mb-10">
+            <p className="mx-auto md:mx-0 max-w-3xl text-xl text-blue-100 mb-6">
+              {t('slogan')}
+            </p>
+            <p className="mx-auto md:mx-0 max-w-3xl text-lg text-blue-100 mb-10">
               {t('subtitle')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Link 
-                href="/contact" 
-                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-900 bg-white hover:bg-blue-50 transition duration-150"
-              >
-                {t('contact_us')}
-              </Link>
-              <Link 
-                href="/services" 
-                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition duration-150"
-              >
-                {t('explore_services')}
-              </Link>
+            
+            {/* Two-column options */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+              <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20 hover:bg-white/20 transition">
+                <h3 className="text-xl font-bold text-white mb-2">For Independent Agents</h3>
+                <p className="text-blue-50 mb-4">Access our infrastructure and listing services without costly portal agreements.</p>
+                <Link 
+                  href="/agents" 
+                  className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-blue-900 bg-white hover:bg-blue-50 transition duration-150"
+                >
+                  Agent Solutions
+                </Link>
+              </div>
+              <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20 hover:bg-white/20 transition">
+                <h3 className="text-xl font-bold text-white mb-2">For Property Owners</h3>
+                <p className="text-blue-50 mb-4">Sell your property directly with professional listing services and support.</p>
+                <Link 
+                  href="/fsbo" 
+                  className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-blue-900 bg-white hover:bg-blue-50 transition duration-150"
+                >
+                  FSBO Solutions
+                </Link>
+              </div>
             </div>
             
-            {/* Newsletter signup */}
-            <div className="mt-12">
-              <p className="text-base text-blue-100 mb-4">{t('newsletter_prompt')}</p>
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+            {/* Property search */}
+            <div className="relative">
+              <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-2">
                 <input
-                  type="email"
-                  required
-                  placeholder={t('email_placeholder')}
-                  className="px-4 py-3 rounded-md w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  type="text"
+                  placeholder="Search properties by location, type, or features..."
+                  className="flex-grow px-4 py-3 rounded-md w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <button
                   type="submit"
                   className="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition"
                 >
-                  {t('subscribe')}
+                  Search
                 </button>
               </form>
+              <p className="mt-2 text-sm text-blue-200">
+                Popular: Gold Coast, Brisbane, Residential, Commercial
+              </p>
             </div>
           </div>
           
@@ -85,7 +98,7 @@ export const Hero = () => {
               <div className="relative w-full h-full">
                 <Image
                   src="/assets/images/rd-hero-illustration.svg"
-                  alt="R&D Innovation"
+                  alt="Realty Direct Property Solutions"
                   width={400}
                   height={400}
                   className="drop-shadow-xl"

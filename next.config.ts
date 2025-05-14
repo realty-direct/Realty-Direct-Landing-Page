@@ -12,6 +12,9 @@ const baseConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   serverExternalPackages: ['@electric-sql/pglite'],
+  images: {
+    domains: ['randomuser.me', 'images.unsplash.com'],
+  },
 };
 
 // Initialize the Next-Intl plugin
