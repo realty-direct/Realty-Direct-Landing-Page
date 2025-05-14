@@ -4,8 +4,8 @@ const sentryOptions: Sentry.NodeOptions | Sentry.EdgeOptions = {
   // Sentry DSN
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
 
-  // Enable Spotlight in development
-  spotlight: process.env.NODE_ENV === 'development',
+  // Enable Spotlight only when explicitly enabled
+  spotlight: process.env.NODE_ENV === 'development' && process.env.ENABLE_SPOTLIGHT === 'true',
 
   // Adds request headers and IP for users, for more info visit
   sendDefaultPii: true,

@@ -33,7 +33,8 @@ try {
     });
   }
 
-  if (process.env.NODE_ENV === 'development') {
+  // Only initialize Spotlight if explicitly enabled
+  if (process.env.NODE_ENV === 'development' && process.env.ENABLE_SPOTLIGHT === 'true') {
     try {
       Spotlight.init();
     } catch (error) {
