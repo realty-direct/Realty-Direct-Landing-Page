@@ -1,7 +1,6 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 
 type Step = {
@@ -67,11 +66,9 @@ export const StepByStep = ({
       </div>
       
       <div className="w-full h-2 bg-gray-200 mt-6 mb-10 rounded-full overflow-hidden">
-        <motion.div 
-          className="h-full bg-blue-600 rounded-full"
-          initial={{ width: `${((currentStep - 1) / (steps.length - 1)) * 100}%` }}
-          animate={{ width: `${((currentStep - 1) / (steps.length - 1)) * 100}%` }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+        <div 
+          className="h-full bg-blue-600 rounded-full transition-all duration-500 ease-in-out"
+          style={{ width: `${((currentStep - 1) / (steps.length - 1)) * 100}%` }}
         />
       </div>
     </div>

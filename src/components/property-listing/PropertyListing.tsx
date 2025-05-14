@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { motion, AnimatePresence } from 'framer-motion';
 
 import { StepByStep } from './StepByStep';
 import { PropertyDetailsForm } from './PropertyDetailsForm';
@@ -104,41 +103,34 @@ export const PropertyListing = () => {
           />
           
           {/* Step content */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentStep}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="shadow-xl rounded-xl overflow-hidden"
-            >
-              {currentStep === 1 && (
-                <PropertyDetailsForm
-                  initialValues={propertyDetails}
-                  onSubmit={handlePropertyDetailsSubmit}
-                />
-              )}
-              
-              {currentStep === 2 && (
-                <AgentSelection
-                  selectedAgentId={selectedAgentId}
-                  onSelect={handleAgentSelect}
-                  onBack={() => setCurrentStep(1)}
-                  onNext={() => setCurrentStep(3)}
-                />
-              )}
-              
-              {currentStep === 3 && (
-                <ReviewSubmit
-                  propertyDetails={propertyDetails}
-                  selectedAgentId={selectedAgentId}
-                  onBack={() => setCurrentStep(2)}
-                  onSubmit={handleSubmit}
-                />
-              )}
-            </motion.div>
-          </AnimatePresence>
+          <div
+            className="shadow-xl rounded-xl overflow-hidden"
+          >
+            {currentStep === 1 && (
+              <PropertyDetailsForm
+                initialValues={propertyDetails}
+                onSubmit={handlePropertyDetailsSubmit}
+              />
+            )}
+            
+            {currentStep === 2 && (
+              <AgentSelection
+                selectedAgentId={selectedAgentId}
+                onSelect={handleAgentSelect}
+                onBack={() => setCurrentStep(1)}
+                onNext={() => setCurrentStep(3)}
+              />
+            )}
+            
+            {currentStep === 3 && (
+              <ReviewSubmit
+                propertyDetails={propertyDetails}
+                selectedAgentId={selectedAgentId}
+                onBack={() => setCurrentStep(2)}
+                onSubmit={handleSubmit}
+              />
+            )}
+          </div>
         </div>
       </div>
     </section>
