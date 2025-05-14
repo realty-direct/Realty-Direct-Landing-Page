@@ -7,6 +7,9 @@ import { notFound } from 'next/navigation';
 import '@/styles/global.css';
 
 export const metadata: Metadata = {
+  title: 'Realty Direct | Queensland Real Estate Platform',
+  description: 'Realty Direct provides flexible real estate services for property transactions in Queensland, Australia.',
+  viewport: 'width=device-width, initial-scale=1',
   icons: [
     {
       rel: 'apple-touch-icon',
@@ -37,9 +40,9 @@ export function generateStaticParams() {
 
 export default async function RootLayout(props: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: { locale: string };
 }) {
-  const { locale } = await props.params;
+  const { locale } = props.params;
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
