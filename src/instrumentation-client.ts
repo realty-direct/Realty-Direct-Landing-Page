@@ -4,36 +4,45 @@
 import * as Sentry from '@sentry/nextjs';
 import * as Spotlight from '@spotlightjs/spotlight';
 
-if (!process.env.NEXT_PUBLIC_SENTRY_DISABLED) {
-  Sentry.init({
-    dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+try {
+  if (!process.env.NEXT_PUBLIC_SENTRY_DISABLED) {
+    Sentry.init({
+      dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
 
-    // Add optional integrations for additional features
-    integrations: [
-      Sentry.replayIntegration(),
-    ],
+      // Add optional integrations for additional features
+      integrations: [
+        Sentry.replayIntegration(),
+      ],
 
-    // Adds request headers and IP for users, for more info visit
-    sendDefaultPii: true,
+      // Adds request headers and IP for users, for more info visit
+      sendDefaultPii: true,
 
-    // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
-    tracesSampleRate: 1,
+      // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
+      tracesSampleRate: 1,
 
-    // Define how likely Replay events are sampled.
-    // This sets the sample rate to be 10%. You may want this to be 100% while
-    // in development and sample at a lower rate in production
-    replaysSessionSampleRate: 0.1,
+      // Define how likely Replay events are sampled.
+      // This sets the sample rate to be 10%. You may want this to be 100% while
+      // in development and sample at a lower rate in production
+      replaysSessionSampleRate: 0.1,
 
-    // Define how likely Replay events are sampled when an error occurs.
-    replaysOnErrorSampleRate: 1.0,
+      // Define how likely Replay events are sampled when an error occurs.
+      replaysOnErrorSampleRate: 1.0,
 
-    // Setting this option to true will print useful information to the console while you're setting up Sentry.
-    debug: false,
-  });
+      // Setting this option to true will print useful information to the console while you're setting up Sentry.
+      debug: false,
+    });
+  }
 
   if (process.env.NODE_ENV === 'development') {
-    Spotlight.init();
+    try {
+      Spotlight.init();
+    } catch (error) {
+      console.log('Spotlight initialization error:', error);
+    }
   }
+} catch (error) {
+  // Prevent any instrumentation errors from breaking the app
+  console.log('Sentry initialization error:', error);
 }
 
 export const onRouterTransitionStart = Sentry.captureRouterTransitionStart;

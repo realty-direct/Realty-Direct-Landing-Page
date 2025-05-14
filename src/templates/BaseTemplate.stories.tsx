@@ -26,7 +26,7 @@ type Story = StoryObj<typeof meta>;
 export const BaseWithReactComponent = {
   args: {
     children: <div>Children node</div>,
-    leftNav: (
+    navItems: (
       <>
         <li>Link 1</li>
         <li>Link 2</li>
@@ -38,7 +38,7 @@ export const BaseWithReactComponent = {
 export const BaseWithString = {
   args: {
     children: 'String',
-    leftNav: (
+    navItems: (
       <>
         <li>Link 1</li>
         <li>Link 2</li>
@@ -51,7 +51,7 @@ export const BaseWithString = {
 export const BaseWithHomeLink: Story = {
   args: {
     children: <div>Children node</div>,
-    leftNav: (
+    navItems: (
       <>
         <li>Link 1</li>
         <li>Link 2</li>

@@ -2,74 +2,48 @@
   "RootLayout": {
     "home_link": "Home",
     "about_link": "About",
-    "counter_link": "Counter",
-    "portfolio_link": "Portfolio",
-    "sign_in_link": "Sign in",
-    "sign_up_link": "Sign up"
+    "services_link": "Services",
+    "contact_link": "Contact"
   },
   "BaseTemplate": {
-    "description": "Starter code for your Nextjs Boilerplate with Tailwind CSS",
-    "made_with": "Made with <author></author>."
+    "description": "Innovative Research & Development Solutions",
+    "quick_links": "Quick Links",
+    "contact_us": "Contact Us",
+    "made_with": "Made with innovation and dedication."
   },
   "Index": {
-    "meta_title": "Next.js Boilerplate Presentation",
-    "meta_description": "Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework.",
-    "sponsors_title": "Sponsors"
+    "meta_title": "R&D Solutions - Innovative Research & Development",
+    "meta_description": "Empowering innovation through advanced research and development solutions. Expert consulting, custom software, and technical optimization."
   },
-  "Counter": {
-    "meta_title": "Counter",
-    "meta_description": "An example of DB operation",
-    "loading_counter": "Loading counter...",
-    "security_powered_by": "Security, bot detection and rate limiting powered by"
+  "Hero": {
+    "title": "Transforming Ideas Into Innovation",
+    "subtitle": "We help organizations accelerate their research and development with cutting-edge technology solutions and expert consulting.",
+    "contact_us": "Contact Us",
+    "explore_services": "Our Services",
+    "newsletter_prompt": "Stay updated with the latest in R&D innovation:",
+    "email_placeholder": "Enter your email",
+    "subscribe": "Subscribe"
   },
-  "CounterForm": {
-    "presentation": "The counter is stored in the database and incremented by the value you provide.",
-    "label_increment": "Increment by",
-    "button_increment": "Increment"
-  },
-  "CurrentCount": {
-    "count": "Count: {count}"
+  "Features": {
+    "caption": "OUR SERVICES",
+    "title": "Accelerate Your R&D Process",
+    "subtitle": "We provide comprehensive solutions to help you innovate faster and more efficiently.",
+    "innovation_title": "Innovation Consulting",
+    "innovation_description": "Strategic guidance to help you identify new opportunities and develop groundbreaking products and services.",
+    "research_title": "Advanced Research",
+    "research_description": "Data-driven research methodologies to explore new technologies and validate concepts with scientific rigor.",
+    "development_title": "Product Development",
+    "development_description": "End-to-end development services to transform research findings into market-ready products.",
+    "consulting_title": "Technical Consulting",
+    "consulting_description": "Expert advice on technology selection, architecture design, and implementation strategies.",
+    "optimization_title": "Process Optimization",
+    "optimization_description": "Streamline your R&D workflows to reduce costs and accelerate time-to-market.",
+    "quality_title": "Quality Assurance",
+    "quality_description": "Comprehensive testing and validation procedures to ensure product reliability and performance."
   },
   "About": {
-    "meta_title": "About",
-    "meta_description": "About page description",
-    "about_paragraph": "Welcome to our About page! We are a team of passionate individuals dedicated to creating amazing software.",
-    "translation_powered_by": "Translation powered by"
-  },
-  "Portfolio": {
-    "meta_title": "Portfolio",
-    "meta_description": "Welcome to my portfolio page!",
-    "presentation": "Welcome to my portfolio page! Here you will find a carefully curated collection of my work and accomplishments. Through this portfolio, I'm to showcase my expertise, creativity, and the value I can bring to your projects.",
-    "portfolio_name": "Portfolio {name}",
-    "error_reporting_powered_by": "Error reporting powered by",
-    "coverage_powered_by": "Code coverage powered by"
-  },
-  "PortfolioSlug": {
-    "meta_title": "Portfolio {slug}",
-    "meta_description": "Portfolio {slug} description",
-    "header": "Portfolio {slug}",
-    "content": "Created a set of promotional materials and branding elements for a corporate event. Crafted a visually unified theme, encompassing a logo, posters, banners, and digital assets. Integrated the client's brand identity while infusing it with a contemporary and innovative approach. Garnered favorable responses from event attendees, resulting in a successful event with heightened participant engagement and increased brand visibility.",
-    "code_review_powered_by": "Code review powered by"
-  },
-  "SignIn": {
-    "meta_title": "Sign in",
-    "meta_description": "Seamlessly sign in to your account with our user-friendly login process."
-  },
-  "SignUp": {
-    "meta_title": "Sign up",
-    "meta_description": "Effortlessly create an account through our intuitive sign-up process."
-  },
-  "Dashboard": {
-    "meta_title": "Dashboard",
-    "hello_message": "Hello {email}!",
-    "alternative_message": "Want to build your SaaS faster using the same stack? Try <url></url>."
-  },
-  "UserProfile": {
-    "meta_title": "User Profile"
-  },
-  "DashboardLayout": {
-    "dashboard_link": "Dashboard",
-    "user_profile_link": "Manage your account",
-    "sign_out": "Sign out"
+    "meta_title": "About Us | R&D Solutions",
+    "meta_description": "Learn about our team of experts dedicated to advancing research and development through innovation.",
+    "about_paragraph": "At R&D Solutions, we're passionate about helping organizations transform their ideas into innovative products and services. With our team of experienced researchers, engineers, and consultants, we provide comprehensive R&D solutions tailored to your specific needs."
   }
 }
