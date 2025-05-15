@@ -2,97 +2,158 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { CheckCircle, XCircle, HelpCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle, XCircle, HelpCircle, ArrowRight, Info } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export const Pricing = () => {
   const t = useTranslations('Pricing');
+  const [selectedFeature, setSelectedFeature] = useState<string | null>(null);
 
-  // Define features for each plan
+  // Prevent scrolling when modal is open
+  useEffect(() => {
+    if (selectedFeature) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Clean up on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedFeature]);
+
+  // Define features for each plan with full descriptions
   const features = [
     {
-      id: 'portal_listing',
-      name: t('feature_portal_listing'),
-      fsbo: true,
-      standard: true,
-      premium: true,
-      traditional: true,
+      id: 'realestate_premier',
+      shortName: 'Realestate.com.au Premiere+ Listing',
+      fullDescription: 'Premiere+ is the best listing available on realestate.com.au. Your property appears at the top of search results with unlimited listing duration. Premiere+ listings receive 2.6x more email enquiries, 2.9x more views, and sell 12 days faster compared to standard listings. Your listing automatically rotates to the top of search results every 15 days for maximum exposure.',
+      marketing: true,
+      fullService: true,
     },
     {
-      id: 'photos',
-      name: t('feature_photos'),
-      fsbo: 'optional',
-      standard: true,
-      premium: true,
-      traditional: true,
+      id: 'domain_unlimited',
+      shortName: 'Domain.com.au Unlimited Listing',
+      fullDescription: 'Get your property listed on Domain.com.au with unlimited duration. Your property receives premium placement with #1 ranking in search results and weekly rotation to maintain top visibility. This ensures maximum exposure to Domain\'s extensive audience of property seekers.',
+      marketing: true,
+      fullService: true,
     },
     {
-      id: 'marketing',
-      name: t('feature_marketing'),
-      fsbo: false,
-      standard: true,
-      premium: true,
-      traditional: true,
+      id: 'coming_soon',
+      shortName: 'Pre-Market "Coming Soon" Campaign',
+      fullDescription: 'Build buyer interest before your property officially hits the market with our comprehensive 14-day pre-market campaign. Includes Coming Soon Buyer Notifications, Coming Soon Premiere Listing on realestate.com.au to realestate.com.au\'s most engaged consumers, and exposure on property.com.au. This creates anticipation and can lead to better offers when your property goes live.',
+      marketing: true,
+      fullService: true,
     },
     {
-      id: 'support',
-      name: t('feature_support'),
-      fsbo: true,
-      standard: true,
-      premium: true,
-      traditional: true,
+      id: 'property_com',
+      shortName: 'Property.com.au Listing',
+      fullDescription: 'Get your property listed on property.com.au, Australia\'s 3rd largest real estate platform. This additional exposure increases your chances of finding the right buyer by reaching a different audience segment.',
+      marketing: true,
+      fullService: true,
     },
     {
-      id: 'dashboard',
-      name: t('feature_dashboard'),
-      fsbo: true,
-      standard: true,
-      premium: true,
-      traditional: false,
+      id: 'targeted_buyer_email',
+      shortName: 'Targeted Buyer Email Campaign',
+      fullDescription: 'Target buyers in their inbox as soon as they show intent. An automated email featuring your property is sent directly to interested buyers on day 7 of your campaign. This strategic timing captures buyer attention when they\'re most likely to take action, increasing enquiry rates.',
+      marketing: true,
+      fullService: true,
     },
     {
-      id: 'agent',
-      name: t('feature_agent'),
-      fsbo: false,
-      standard: true,
-      premium: true,
-      traditional: true,
+      id: 'listing_optimization',
+      shortName: 'Listing Optimization & Refresh',
+      fullDescription: 'Your listing receives a strategic "bump" 7 days into your campaign to refresh its position. Combined with automatic rotation to the top of search results every 15 days on realestate.com.au, this ensures consistent visibility throughout your selling period.',
+      marketing: true,
+      fullService: true,
     },
     {
-      id: 'premium',
-      name: t('feature_premium'),
-      fsbo: false,
-      standard: false,
-      premium: true,
-      traditional: true,
+      id: 'social_media',
+      shortName: '5-Day Social Media Campaign',
+      fullDescription: 'Professional social media marketing campaign across Instagram and Facebook for 5 days. Your property is promoted to targeted audiences based on demographics and interests, expanding reach beyond traditional property portals.',
+      marketing: true,
+      fullService: true,
     },
     {
-      id: 'social',
-      name: t('feature_social'),
-      fsbo: false,
-      standard: false,
-      premium: true,
-      traditional: 'optional',
+      id: 'audience_maximiser',
+      shortName: 'Extended Audience Targeting',
+      fullDescription: 'Optional add-on that targets Australia\'s largest, most engaged property audience beyond their search on realestate.com.au. Uses sophisticated retargeting to show your property to potential buyers across the web, increasing your chances of finding the right buyer sooner.',
+      marketing: 'optional',
+      fullService: 'optional',
     },
     {
-      id: 'virtual',
-      name: t('feature_virtual'),
-      fsbo: false,
-      standard: 'optional',
-      premium: true,
-      traditional: 'optional',
+      id: 'visual_marketing',
+      shortName: 'Professional Visual Marketing',
+      fullDescription: 'Engage potential buyers with comprehensive visual content including professional photography, detailed floor plans, and immersive property walkthrough videos. High-quality visuals are proven to increase enquiries and help buyers make faster decisions.',
+      marketing: true,
+      fullService: true,
+    },
+    {
+      id: 'licensed_agent',
+      shortName: 'Dedicated Licensed Agent',
+      fullDescription: 'Get full support from a qualified, licensed real estate agent who handles all negotiations, inspections, and paperwork on your behalf. Your agent provides expert guidance throughout the entire sales process while you maintain control and transparency.',
+      marketing: false,
+      fullService: true,
     },
   ];
 
   // Helper function to render feature availability
   const renderFeatureAvailability = (available: boolean | string) => {
     if (available === true) {
-      return <CheckCircle className="h-5 w-5 text-green-500" />;
+      return <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />;
     } else if (available === false) {
-      return <XCircle className="h-5 w-5 text-gray-300" />;
+      return <XCircle className="h-5 w-5 text-gray-300 flex-shrink-0" />;
     } else if (available === 'optional') {
-      return <HelpCircle className="h-5 w-5 text-amber-400" />;
+      return <HelpCircle className="h-5 w-5 text-amber-400 flex-shrink-0" />;
     }
     return null;
+  };
+
+  // Feature modal component
+  const FeatureModal = () => {
+    if (!selectedFeature) return null;
+    
+    const feature = features.find(f => f.id === selectedFeature);
+    if (!feature) return null;
+
+    return (
+      <>
+        {/* Subtle overlay */}
+        <div 
+          className="fixed inset-0 bg-black/5 z-40" 
+          onClick={() => setSelectedFeature(null)}
+        />
+        
+        {/* Modal container */}
+        <div className="fixed inset-0 z-50 overflow-y-auto">
+          <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <div className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+            <div>
+              <div className="mt-3 text-center sm:mt-0 sm:text-left">
+                <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">
+                  {feature.shortName}
+                </h3>
+                <div className="mt-2">
+                  <p className="text-sm text-gray-500">
+                    {feature.fullDescription}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-5 sm:mt-6">
+              <button
+                type="button"
+                className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm"
+                onClick={() => setSelectedFeature(null)}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+    );
   };
 
   return (
@@ -111,123 +172,110 @@ export const Pricing = () => {
         </div>
 
         <div className="max-w-7xl mx-auto">
-          {/* Pricing Cards */}
-          <div className="grid md:grid-cols-4 gap-6 md:gap-4 mb-16">
-            {/* FSBO Plan */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 flex flex-col transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-lg">
-              <div className="p-6 border-b border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('fsbo_title')}</h3>
-                <div className="flex items-end gap-1 mb-2">
-                  <span className="text-3xl font-bold text-gray-900">{t('fsbo_price')}</span>
-                  <span className="text-gray-500 text-sm mb-1">one-time fee</span>
+          {/* Key Benefits Section */}
+          <div className="mb-12 bg-blue-50 rounded-xl p-8 max-w-5xl mx-auto">
+            <h3 className="text-2xl font-bold text-center mb-6">What Makes Our Listings Premium?</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-blue-600">2.6x</span>
                 </div>
-                <p className="text-gray-600 text-sm">{t('fsbo_description')}</p>
+                <h4 className="font-semibold mb-2">More Email Enquiries</h4>
+                <p className="text-sm text-gray-600">Compared to standard listings on realestate.com.au</p>
+              </div>
+              <div className="text-center">
+                <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-blue-600">2.9x</span>
+                </div>
+                <h4 className="font-semibold mb-2">More Views</h4>
+                <p className="text-sm text-gray-600">Your property gets seen by more potential buyers</p>
+              </div>
+              <div className="text-center">
+                <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-blue-600">12</span>
+                </div>
+                <h4 className="font-semibold mb-2">Days Faster Sale</h4>
+                <p className="text-sm text-gray-600">Sells 12 days faster than the next best listing tier</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Pricing Cards */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
+            {/* Complete Marketing Package */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-xl">
+              <div className="p-6 border-b border-gray-100 bg-blue-50">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Complete Marketing Package</h3>
+                <div className="flex items-end gap-1 mb-3">
+                  <span className="text-3xl font-bold text-gray-900">$2,495</span>
+                  <span className="text-gray-500 text-sm mb-1">GST Inclusive</span>
+                </div>
+                <p className="text-gray-600">Premium exposure on all major portals with professional marketing</p>
               </div>
               <div className="p-6 flex-grow flex flex-col">
-                <h4 className="font-medium text-gray-900 mb-4">{t('features_heading')}</h4>
+                <h4 className="font-medium text-gray-900 mb-4">All Premium Features Included:</h4>
                 <ul className="space-y-3 mb-6 flex-grow">
                   {features.map(feature => (
-                    <li key={feature.id} className="flex items-center gap-2">
-                      {renderFeatureAvailability(feature.fsbo)}
-                      <span className="text-sm text-gray-600">{feature.name}</span>
+                    <li key={feature.id} className="flex items-start gap-2">
+                      {renderFeatureAvailability(feature.marketing)}
+                      <button
+                        onClick={() => setSelectedFeature(feature.id)}
+                        className="text-sm text-gray-700 hover:text-blue-600 text-left flex items-center gap-1 group"
+                      >
+                        <span>{feature.shortName}</span>
+                        <Info className="h-3 w-3 text-gray-400 group-hover:text-blue-600" />
+                      </button>
                     </li>
                   ))}
                 </ul>
-                <Link 
+                <Link
                   href="/sell-your-property"
-                  className="mt-auto w-full inline-flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+                  className="mt-auto w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
                 >
-                  {t('cta_button')}
+                  Get Started Today
                 </Link>
               </div>
             </div>
 
-            {/* Standard Plan */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 flex flex-col transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-lg relative">
+            {/* Full Service Package */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-xl relative">
               <div className="absolute top-4 right-4">
-                <span className="bg-blue-600 text-xs text-white font-bold px-2 py-1 rounded-full">
-                  {t('popular_badge')}
+                <span className="bg-green-600 text-xs text-white font-bold px-3 py-1 rounded-full">
+                  MOST POPULAR
                 </span>
               </div>
-              <div className="p-6 border-b border-gray-100 bg-blue-50">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('standard_title')}</h3>
-                <div className="flex items-end gap-1 mb-2">
-                  <span className="text-3xl font-bold text-gray-900">{t('standard_price')}</span>
-                  <span className="text-gray-500 text-sm mb-1">one-time fee</span>
+              <div className="p-6 border-b border-gray-100 bg-green-50">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Full Service Package</h3>
+                <div className="flex items-end gap-1 mb-3">
+                  <span className="text-3xl font-bold text-gray-900">$3,995</span>
+                  <span className="text-gray-500 text-sm mb-1">GST Inclusive</span>
                 </div>
-                <p className="text-gray-600 text-sm">{t('standard_description')}</p>
+                <p className="text-gray-600">Complete marketing package plus dedicated licensed agent support</p>
               </div>
               <div className="p-6 flex-grow flex flex-col">
-                <h4 className="font-medium text-gray-900 mb-4">{t('features_heading')}</h4>
+                <h4 className="font-medium text-gray-900 mb-4">Everything in Marketing Package Plus:</h4>
                 <ul className="space-y-3 mb-6 flex-grow">
                   {features.map(feature => (
-                    <li key={feature.id} className="flex items-center gap-2">
-                      {renderFeatureAvailability(feature.standard)}
-                      <span className="text-sm text-gray-600">{feature.name}</span>
+                    <li key={feature.id} className="flex items-start gap-2">
+                      {renderFeatureAvailability(feature.fullService)}
+                      <button
+                        onClick={() => setSelectedFeature(feature.id)}
+                        className={`text-sm hover:text-blue-600 text-left flex items-center gap-1 group ${
+                          feature.id === 'licensed_agent' ? 'font-semibold text-green-700' : 'text-gray-700'
+                        }`}
+                      >
+                        <span>{feature.shortName}</span>
+                        <Info className="h-3 w-3 text-gray-400 group-hover:text-blue-600" />
+                      </button>
                     </li>
                   ))}
                 </ul>
                 <Link
                   href="/sell-your-property"
-                  className="mt-auto w-full inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+                  className="mt-auto w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-200"
                 >
-                  {t('cta_button')}
+                  Choose Full Service
                 </Link>
-              </div>
-            </div>
-
-            {/* Premium Plan */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 flex flex-col transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-lg">
-              <div className="p-6 border-b border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('premium_title')}</h3>
-                <div className="flex items-end gap-1 mb-2">
-                  <span className="text-3xl font-bold text-gray-900">{t('premium_price')}</span>
-                  <span className="text-gray-500 text-sm mb-1">one-time fee</span>
-                </div>
-                <p className="text-gray-600 text-sm">{t('premium_description')}</p>
-              </div>
-              <div className="p-6 flex-grow flex flex-col">
-                <h4 className="font-medium text-gray-900 mb-4">{t('features_heading')}</h4>
-                <ul className="space-y-3 mb-6 flex-grow">
-                  {features.map(feature => (
-                    <li key={feature.id} className="flex items-center gap-2">
-                      {renderFeatureAvailability(feature.premium)}
-                      <span className="text-sm text-gray-600">{feature.name}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/sell-your-property"
-                  className="mt-auto w-full inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
-                >
-                  {t('cta_button')}
-                </Link>
-              </div>
-            </div>
-
-            {/* Traditional Agent */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 flex flex-col transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-lg">
-              <div className="p-6 border-b border-gray-100 bg-gray-50">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('traditional_title')}</h3>
-                <div className="flex items-end gap-1 mb-2">
-                  <span className="text-3xl font-bold text-gray-900">{t('traditional_price')}</span>
-                  <span className="text-gray-500 text-sm mb-1">commission</span>
-                </div>
-                <p className="text-gray-600 text-sm">{t('traditional_description')}</p>
-              </div>
-              <div className="p-6 flex-grow flex flex-col">
-                <h4 className="font-medium text-gray-900 mb-4">{t('features_heading')}</h4>
-                <ul className="space-y-3 mb-6 flex-grow">
-                  {features.map(feature => (
-                    <li key={feature.id} className="flex items-center gap-2">
-                      {renderFeatureAvailability(feature.traditional)}
-                      <span className="text-sm text-gray-600">{feature.name}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-auto text-center text-sm text-gray-500 italic">
-                  Not available through our platform
-                </div>
               </div>
             </div>
           </div>
@@ -240,20 +288,28 @@ export const Pricing = () => {
                 <h4 className="text-lg font-semibold mb-4">With Realty Direct</h4>
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span>Standard Package:</span>
-                    <span className="font-medium">{t('standard_price')}</span>
+                    <span>Full Service Package:</span>
+                    <span className="font-medium">$3,995</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Licensed Agent:</span>
+                    <span className="font-medium">Included</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Professional Photos:</span>
                     <span className="font-medium">Included</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Portal Listings:</span>
+                    <span>All Portal Listings:</span>
+                    <span className="font-medium">Included</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Social Media Campaign:</span>
                     <span className="font-medium">Included</span>
                   </div>
                   <div className="border-t border-blue-200 my-2 pt-2 flex justify-between font-bold">
                     <span>Total Cost:</span>
-                    <span>{t('standard_price')}</span>
+                    <span>$3,995</span>
                   </div>
                 </div>
               </div>
@@ -263,19 +319,27 @@ export const Pricing = () => {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span>Commission (2.5% on $600,000):</span>
-                    <span className="font-medium">{t('traditional_price')}</span>
+                    <span className="font-medium">$15,000</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Marketing Costs:</span>
+                    <span className="font-medium">$2,000-3,000</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Professional Photos:</span>
-                    <span className="font-medium">Included</span>
+                    <span className="font-medium">Extra</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Portal Listings:</span>
                     <span className="font-medium">Included</span>
                   </div>
+                  <div className="flex justify-between">
+                    <span>Social Media:</span>
+                    <span className="font-medium">Varies</span>
+                  </div>
                   <div className="border-t border-gray-200 my-2 pt-2 flex justify-between font-bold">
                     <span>Total Cost:</span>
-                    <span>{t('traditional_price')}</span>
+                    <span>$17,000+</span>
                   </div>
                 </div>
               </div>
@@ -296,13 +360,40 @@ export const Pricing = () => {
             </div>
           </div>
           
-          <div className="text-center mt-8">
-            <Link href="/pricing" className="text-blue-600 hover:text-blue-800 text-sm hover:underline">
-              {t('compare_link')} <ArrowRight className="inline h-3 w-3" />
+          {/* Important Note */}
+          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8 max-w-4xl mx-auto mt-8">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <Info className="h-5 w-5 text-yellow-400" />
+              </div>
+              <div className="ml-3">
+                <p className="text-sm text-yellow-700">
+                  <strong>Important:</strong> While we offer a more cost-effective solution, we never compromise on marketing quality. 
+                  Both packages include premium listings on all major portals to ensure your property gets maximum exposure. 
+                  Your property's marketing shouldn't be compromised just to save money.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center mt-8 bg-gray-50 rounded-xl p-8 max-w-3xl mx-auto">
+            <h3 className="text-2xl font-bold mb-4">Not Sure Which Package?</h3>
+            <p className="text-gray-600 mb-6">
+              Speak with our property experts to discuss the best option for your property sale.
+            </p>
+            <Link 
+              href="/contact" 
+              className="inline-flex items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+            >
+              Schedule a Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </div>
         </div>
       </div>
+      
+      {/* Feature Details Modal */}
+      <FeatureModal />
     </section>
   );
 };
