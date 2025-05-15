@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { PostHogProvider } from '@/components/analytics/PostHogProvider';
+import { MUIThemeProvider } from '@/components/providers/MUIThemeProvider';
 import { routing } from '@/libs/i18nRouting';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
@@ -9,7 +10,6 @@ import '@/styles/global.css';
 export const metadata: Metadata = {
   title: 'Realty Direct | Queensland Real Estate Platform',
   description: 'Realty Direct provides flexible real estate services for property transactions in Queensland, Australia.',
-  viewport: 'width=device-width, initial-scale=1',
   icons: [
     {
       rel: 'apple-touch-icon',
@@ -34,15 +34,20 @@ export const metadata: Metadata = {
   ],
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export function generateStaticParams() {
   return routing.locales.map(locale => ({ locale }));
 }
 
 export default async function RootLayout(props: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = props.params;
+  const { locale } = await props.params;
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -54,9 +59,11 @@ export default async function RootLayout(props: {
     <html lang={locale}>
       <body>
         <NextIntlClientProvider>
-          <PostHogProvider>
-            {props.children}
-          </PostHogProvider>
+          <MUIThemeProvider>
+            <PostHogProvider>
+              {props.children}
+            </PostHogProvider>
+          </MUIThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

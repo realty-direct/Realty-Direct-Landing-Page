@@ -41,7 +41,7 @@ export const ValueStats = () => {
     <section className="py-6 bg-gradient-to-r from-blue-50 to-blue-100">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <div
               key={stat.id}
               className="flex flex-col items-center text-center"

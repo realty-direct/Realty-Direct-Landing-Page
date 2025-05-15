@@ -7,14 +7,47 @@ type IAboutProps = {
 
 export async function generateMetadata(props: IAboutProps) {
   const { locale } = await props.params;
-  const t = await getTranslations({
-    locale,
-    namespace: 'About',
-  });
 
   return {
-    title: t('meta_title'),
-    description: t('meta_description'),
+    title: 'About Us | Realty Direct Queensland',
+    description: 'Learn about Realty Direct\'s mission to revolutionize Queensland real estate. Meet our team and discover how we\'re making property transactions simpler and more affordable.',
+    keywords: 'about realty direct, queensland real estate company, property sale team, real estate mission',
+    alternates: {
+      canonical: 'https://realtydirect.com.au/about',
+    },
+    openGraph: {
+      title: 'About Us | Realty Direct Queensland',
+      description: 'Learn about Realty Direct\'s mission to revolutionize Queensland real estate. Meet our team and discover our values.',
+      url: 'https://realtydirect.com.au/about',
+      siteName: 'Realty Direct',
+      images: [
+        {
+          url: 'https://realtydirect.com.au/og-about.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'About Realty Direct - Queensland Real Estate Platform',
+        },
+      ],
+      locale: locale === 'en' ? 'en_AU' : locale,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'About Us | Realty Direct Queensland',
+      description: 'Learn about Realty Direct\'s mission to revolutionize Queensland real estate.',
+      images: ['https://realtydirect.com.au/og-about.jpg'],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   };
 }
 
@@ -31,25 +64,25 @@ export default async function About(props: IAboutProps) {
       name: "Sarah Thompson",
       role: "Founder & CEO",
       bio: "Former top-performing real estate agent with 15+ years experience in the Queensland property market. Founded Realty Direct to revolutionize the industry.",
-      imageUrl: "https://randomuser.me/api/portraits/women/4.jpg"
+      imageUrl: "/team/sarah-thompson.jpg"
     },
     {
-      name: "Michael Rodriguez",
+      name: "Michael Rodriguez", 
       role: "Head of Agent Relations",
       bio: "Experienced real estate broker specializing in supporting independent agents with the tools and resources they need to succeed.",
-      imageUrl: "https://randomuser.me/api/portraits/men/32.jpg"
+      imageUrl: "/team/michael-rodriguez.jpg"
     },
     {
       name: "James Wilson",
-      role: "Property Marketing Director",
+      role: "Property Marketing Director", 
       bio: "Digital marketing expert with extensive experience creating standout property campaigns across realestate.com.au and Domain.",
-      imageUrl: "https://randomuser.me/api/portraits/men/46.jpg"
+      imageUrl: "/team/james-wilson.jpg"
     },
     {
       name: "Olivia Chen",
       role: "FSBO Specialist",
       bio: "Dedicated to helping property owners successfully sell their homes directly, with expertise in pricing strategy and negotiation.",
-      imageUrl: "https://randomuser.me/api/portraits/women/65.jpg"
+      imageUrl: "/team/olivia-chen.jpg"
     }
   ];
 
@@ -96,6 +129,10 @@ export default async function About(props: IAboutProps) {
                   width={300} 
                   height={300}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  quality={85}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQYHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAbEAADAAMBAQAAAAAAAAAAAAABAgMABAURUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAECEf/aAAwDAQACEQMRAD8Anz9voy1dCI2mectSE5ioFCqia+KCwJ8HzGMZPqJb1oPEf//Z"
                 />
               </div>
               <div className="p-4">

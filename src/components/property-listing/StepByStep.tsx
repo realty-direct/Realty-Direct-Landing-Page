@@ -1,6 +1,5 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import { CheckCircle } from 'lucide-react';
 
 type Step = {
@@ -20,8 +19,6 @@ export const StepByStep = ({
   steps,
   onStepChange,
 }: StepByStepProps) => {
-  const t = useTranslations('PropertyListing');
-  
   return (
     <div className="w-full mb-12">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-8">

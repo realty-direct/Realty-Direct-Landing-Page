@@ -3,6 +3,7 @@
 import { AppConfig } from '@/utils/AppConfig';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export const BaseTemplate = (props: {
@@ -13,7 +14,7 @@ export const BaseTemplate = (props: {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-gray-800 antialiased">
+    <div className="w-full min-h-screen text-gray-800 antialiased">
       <header className="sticky top-0 z-30 bg-white shadow-md">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Top bar with contact info and social links */}
@@ -55,10 +56,13 @@ export const BaseTemplate = (props: {
           <div className="flex justify-between items-center h-16 sm:h-20">
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center gap-1 sm:gap-2">
-                <img 
+                <Image 
                   src="/assets/images/logo.svg" 
                   alt="Realty Direct Logo" 
+                  width={40}
+                  height={40}
                   className="h-8 sm:h-10 w-auto" 
+                  priority
                 />
                 <span className="font-bold text-lg sm:text-2xl text-blue-700 tracking-tight">{AppConfig.name}</span>
               </Link>

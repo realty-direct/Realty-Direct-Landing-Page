@@ -90,7 +90,7 @@ export const Pricing = () => {
     } else if (available === false) {
       return <XCircle className="h-5 w-5 text-gray-300" />;
     } else if (available === 'optional') {
-      return <HelpCircle className="h-5 w-5 text-amber-400" title={t('optional')} />;
+      return <HelpCircle className="h-5 w-5 text-amber-400" />;
     }
     return null;
   };
