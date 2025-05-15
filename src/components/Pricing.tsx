@@ -27,8 +27,8 @@ export const Pricing = () => {
   const features = [
     {
       id: 'realestate_premier',
-      shortName: 'Realestate.com.au Premiere+ Listing',
-      fullDescription: 'Premiere+ is the best listing available on realestate.com.au. Your property appears at the top of search results with unlimited listing duration. Premiere+ listings receive 2.6x more email enquiries, 2.9x more views, and sell 12 days faster compared to standard listings. Your listing automatically rotates to the top of search results every 15 days for maximum exposure.',
+      shortName: 'Realestate.com.au Premium Top Listing',
+      fullDescription: 'The best listing available on realestate.com.au. Your property appears at the very top of search results and stays listed until it sells. Properties with this premium listing get 2.6x more buyer enquiries, 2.9x more views, and sell 12 days faster. Your listing automatically returns to the top every 15 days, ensuring continuous visibility to buyers.',
       marketing: true,
       fullService: true,
     },
@@ -90,8 +90,8 @@ export const Pricing = () => {
     },
     {
       id: 'licensed_agent',
-      shortName: 'Dedicated Licensed Agent',
-      fullDescription: 'Get full support from a qualified, licensed real estate agent who handles all negotiations, inspections, and paperwork on your behalf. Your agent provides expert guidance throughout the entire sales process while you maintain control and transparency.',
+      shortName: 'Dedicated Online Agent',
+      fullDescription: 'Get full support from a dedicated online real estate agent who handles all the normal functions of a traditional agent - negotiations, contracts, and paperwork - but works remotely. They do not attend physical inspections, keeping costs down while providing expert guidance throughout the sales process.',
       marketing: false,
       fullService: true,
     },
@@ -203,7 +203,7 @@ export const Pricing = () => {
           {/* Pricing Cards */}
           <div className="grid md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
             {/* Complete Marketing Package */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-xl">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col transition-transform duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl">
               <div className="p-6 border-b border-gray-100 bg-blue-50">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Complete Marketing Package</h3>
                 <div className="flex items-end gap-1 mb-3">
@@ -238,7 +238,7 @@ export const Pricing = () => {
             </div>
 
             {/* Full Service Package */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-xl relative">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col transition-transform duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl relative">
               <div className="absolute top-4 right-4">
                 <span className="bg-green-600 text-xs text-white font-bold px-3 py-1 rounded-full">
                   MOST POPULAR
@@ -247,28 +247,28 @@ export const Pricing = () => {
               <div className="p-6 border-b border-gray-100 bg-green-50">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Full Service Package</h3>
                 <div className="flex items-end gap-1 mb-3">
-                  <span className="text-3xl font-bold text-gray-900">$3,995</span>
-                  <span className="text-gray-500 text-sm mb-1">GST Inclusive</span>
+                  <span className="text-3xl font-bold text-gray-900">0.7%</span>
+                  <span className="text-gray-500 text-sm mb-1">+ Marketing Package</span>
                 </div>
-                <p className="text-gray-600">Complete marketing package plus dedicated licensed agent support</p>
+                <p className="text-gray-600">Commission on sale price + $2,495 marketing (GST inclusive)</p>
               </div>
               <div className="p-6 flex-grow flex flex-col">
-                <h4 className="font-medium text-gray-900 mb-4">Everything in Marketing Package Plus:</h4>
+                <h4 className="font-medium text-gray-900 mb-4">Includes:</h4>
                 <ul className="space-y-3 mb-6 flex-grow">
-                  {features.map(feature => (
-                    <li key={feature.id} className="flex items-start gap-2">
-                      {renderFeatureAvailability(feature.fullService)}
-                      <button
-                        onClick={() => setSelectedFeature(feature.id)}
-                        className={`text-sm hover:text-blue-600 text-left flex items-center gap-1 group ${
-                          feature.id === 'licensed_agent' ? 'font-semibold text-green-700' : 'text-gray-700'
-                        }`}
-                      >
-                        <span>{feature.shortName}</span>
-                        <Info className="h-3 w-3 text-gray-400 group-hover:text-blue-600" />
-                      </button>
-                    </li>
-                  ))}
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
+                    <span className="text-sm text-gray-700">Everything in Complete Marketing Package</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
+                    <button
+                      onClick={() => setSelectedFeature('licensed_agent')}
+                      className="text-sm font-semibold text-green-700 hover:text-green-800 text-left flex items-center gap-1 group"
+                    >
+                      <span>Dedicated Online Agent</span>
+                      <Info className="h-3 w-3 text-gray-400 group-hover:text-green-700" />
+                    </button>
+                  </li>
                 </ul>
                 <Link
                   href="/sell-your-property"
@@ -288,11 +288,15 @@ export const Pricing = () => {
                 <h4 className="text-lg font-semibold mb-4">With Realty Direct</h4>
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span>Full Service Package:</span>
-                    <span className="font-medium">$3,995</span>
+                    <span>Commission (0.7% on $600,000):</span>
+                    <span className="font-medium">$4,200</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Licensed Agent:</span>
+                    <span>Marketing Package:</span>
+                    <span className="font-medium">$2,495</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Licensed Online Agent:</span>
                     <span className="font-medium">Included</span>
                   </div>
                   <div className="flex justify-between">
@@ -309,7 +313,7 @@ export const Pricing = () => {
                   </div>
                   <div className="border-t border-blue-200 my-2 pt-2 flex justify-between font-bold">
                     <span>Total Cost:</span>
-                    <span>$3,995</span>
+                    <span>$6,695</span>
                   </div>
                 </div>
               </div>
@@ -348,7 +352,7 @@ export const Pricing = () => {
             <div className="mt-6 p-4 bg-green-50 rounded-lg flex justify-between items-center">
               <div>
                 <span className="font-medium">Your Potential Savings:</span>
-                <span className="text-2xl font-bold ml-2 text-green-600">$13,000+</span>
+                <span className="text-2xl font-bold ml-2 text-green-600">$10,305+</span>
               </div>
               <Link 
                 href="/sell-your-property"
