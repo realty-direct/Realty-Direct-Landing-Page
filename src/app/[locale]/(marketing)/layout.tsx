@@ -16,47 +16,48 @@ export default async function Layout(props: {
   return (
     <BaseTemplate
       navItems={(
-        <div className="md:flex md:items-center md:space-x-1 lg:space-x-4">
-        
+        <>
           <Link
             href="/"
-            className="px-3 py-2 text-gray-700 hover:text-blue-700 font-medium transition-colors relative group"
+            className="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-blue-700 font-medium transition-colors md:inline-block md:py-2 md:hover:bg-transparent md:relative md:group"
           >
             {t('home_link')}
-            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            <span className="hidden md:block absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </Link>
           
           <Link
             href="/about/"
-            className="px-3 py-2 text-gray-700 hover:text-blue-700 font-medium transition-colors relative group"
+            className="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-blue-700 font-medium transition-colors md:inline-block md:py-2 md:hover:bg-transparent md:relative md:group"
           >
             {t('about_link')}
-            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            <span className="hidden md:block absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </Link>
           
           <Link
             href="/services/"
-            className="px-3 py-2 text-gray-700 hover:text-blue-700 font-medium transition-colors relative group"
+            className="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-blue-700 font-medium transition-colors md:inline-block md:py-2 md:hover:bg-transparent md:relative md:group"
           >
             {t('services_link')}
-            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            <span className="hidden md:block absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </Link>
           
           <Link
             href="/contact/"
-            className="px-3 py-2 text-gray-700 hover:text-blue-700 font-medium transition-colors relative group"
+            className="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-blue-700 font-medium transition-colors md:inline-block md:py-2 md:hover:bg-transparent md:relative md:group"
           >
             {t('contact_link')}
-            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            <span className="hidden md:block absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </Link>
           
-          <Link
-            href="/sell-your-property/"
-            className="ml-2 text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-5 py-2.5 rounded-md font-medium shadow-sm transition-all duration-300 hover:shadow"
-          >
-            {t('fsbo_link')}
-          </Link>
-        </div>
+          <div className="mt-6 px-3 md:mt-0 md:px-0">
+            <Link
+              href="/sell-your-property/"
+              className="block w-full text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-5 py-2.5 rounded-md font-medium shadow-sm transition-all duration-300 hover:shadow text-center md:inline-block md:w-auto md:ml-2"
+            >
+              {t('fsbo_link')}
+            </Link>
+          </div>
+        </>
       )}
     >
       {props.children}

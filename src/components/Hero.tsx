@@ -34,7 +34,7 @@ export const Hero = () => {
           {/* Left side content */}
           <div className="md:max-w-2xl lg:max-w-xl mb-12 md:mb-0 text-center md:text-left">
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl mb-6">
-              A Smarter Way to Buy & Sell Property in Queensland
+              Your Property, Your Way - Full Support or Total Independence
             </h1>
             <p className="mx-auto md:mx-0 max-w-3xl text-xl text-blue-100 mb-6">
               {t('slogan')}
@@ -42,14 +42,14 @@ export const Hero = () => {
             <p className="mx-auto md:mx-0 max-w-3xl text-lg text-blue-100 mb-10">
               {t('subtitle')}
             </p>
-            
+
             {/* Two-column options */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
               <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20 hover:bg-white/20 transition">
                 <h3 className="text-xl font-bold text-white mb-2">For Independent Agents</h3>
                 <p className="text-blue-50 mb-4">Access our infrastructure and listing services without costly portal agreements.</p>
-                <Link 
-                  href="/agents" 
+                <Link
+                  href="/agents"
                   className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-blue-900 bg-white hover:bg-blue-50 transition duration-150"
                 >
                   Agent Solutions
@@ -58,15 +58,15 @@ export const Hero = () => {
               <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20 hover:bg-white/20 transition">
                 <h3 className="text-xl font-bold text-white mb-2">For Property Owners</h3>
                 <p className="text-blue-50 mb-4">Sell your property directly with professional listing services and support.</p>
-                <Link 
-                  href="/fsbo" 
+                <Link
+                  href="/fsbo"
                   className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-blue-900 bg-white hover:bg-blue-50 transition duration-150"
                 >
                   FSBO Solutions
                 </Link>
               </div>
             </div>
-            
+
             {/* Property search */}
             <div className="relative">
               <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-2">
@@ -75,7 +75,7 @@ export const Hero = () => {
                   placeholder="Search properties by location, type, or features..."
                   className="flex-grow px-4 py-3 rounded-md w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onChange={e => setSearchTerm(e.target.value)}
                 />
                 <button
                   type="submit"
@@ -89,7 +89,7 @@ export const Hero = () => {
               </p>
             </div>
           </div>
-          
+
           {/* Right side image */}
           <div className="md:w-1/2 lg:w-2/5 flex justify-center">
             <div className="relative h-80 w-80 sm:h-96 sm:w-96">

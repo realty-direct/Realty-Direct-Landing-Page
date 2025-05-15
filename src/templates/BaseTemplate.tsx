@@ -52,15 +52,15 @@ export const BaseTemplate = (props: {
           </div>
 
           {/* Main navigation bar */}
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-16 sm:h-20">
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="flex items-center gap-2">
+              <Link href="/" className="flex items-center gap-1 sm:gap-2">
                 <img 
                   src="/assets/images/logo.svg" 
                   alt="Realty Direct Logo" 
-                  className="h-10 w-auto" 
+                  className="h-8 sm:h-10 w-auto" 
                 />
-                <span className="font-bold text-2xl text-blue-700 tracking-tight">{AppConfig.name}</span>
+                <span className="font-bold text-lg sm:text-2xl text-blue-700 tracking-tight">{AppConfig.name}</span>
               </Link>
             </div>
             
@@ -73,13 +73,13 @@ export const BaseTemplate = (props: {
             <div className="md:hidden">
               <button
                 type="button"
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="inline-flex items-center justify-center p-1.5 sm:p-2 rounded-md text-gray-500 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-expanded={mobileMenuOpen}
               >
                 <span className="sr-only">Open main menu</span>
                 <svg 
-                  className="h-6 w-6" 
+                  className="h-5 w-5 sm:h-6 sm:w-6" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"
@@ -99,7 +99,7 @@ export const BaseTemplate = (props: {
           {/* Mobile menu */}
           {mobileMenuOpen && (
             <div className="md:hidden bg-white border-t border-gray-100">
-              <div className="px-2 pt-4 pb-5 space-y-4 flex flex-col">
+              <div className="px-3 pt-3 pb-4">
                 {props.navItems}
               </div>
               
