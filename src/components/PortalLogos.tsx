@@ -22,32 +22,12 @@ export const PortalLogos = () => {
       width: 160,
       height: 60,
     },
-    {
-      id: 'allhomes',
-      name: 'Allhomes',
-      color: '#002b5c',
-      width: 160,
-      height: 60,
-    },
-    {
-      id: 'homely',
-      name: 'Homely',
-      color: '#ff9e1b',
-      width: 160,
-      height: 60,
-    },
+
     {
       id: 'property',
       name: 'Property.com.au',
       color: '#4a90e2',
       width: 180,
-      height: 60,
-    },
-    {
-      id: 'onthehouse',
-      name: 'Onthehouse',
-      color: '#2b2b2b',
-      width: 160,
       height: 60,
     },
   ];
@@ -73,13 +53,13 @@ export const PortalLogos = () => {
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 items-center justify-items-center">
-            {portalLogos.map((logo) => (
-              <div 
+            {portalLogos.map(logo => (
+              <div
                 key={logo.id}
                 className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow h-24 w-full"
                 style={{ maxWidth: logo.width }}
               >
-                <div 
+                <div
                   className="font-bold text-xl"
                   style={{ color: logo.color }}
                 >
@@ -104,7 +84,7 @@ export const PortalLogos = () => {
             {t('international_description')}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            {['UK', 'USA', 'Singapore', 'Hong Kong', 'New Zealand'].map((country) => (
+            {['UK', 'USA', 'Singapore', 'Hong Kong', 'New Zealand'].map(country => (
               <div key={country} className="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700 shadow-sm">
                 {country}
               </div>

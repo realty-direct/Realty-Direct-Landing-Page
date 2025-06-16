@@ -2,7 +2,6 @@
 
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 
 export const Hero = () => {
@@ -42,30 +41,6 @@ export const Hero = () => {
             <p className="mx-auto md:mx-0 max-w-3xl text-lg text-blue-100 mb-10">
               {t('subtitle')}
             </p>
-
-            {/* Two-column options */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-              <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20 hover:bg-white/20 transition">
-                <h3 className="text-xl font-bold text-white mb-2">For Independent Agents</h3>
-                <p className="text-blue-50 mb-4">Access our infrastructure and listing services without costly portal agreements.</p>
-                <Link
-                  href="/agents"
-                  className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-blue-900 bg-white hover:bg-blue-50 transition duration-150"
-                >
-                  Agent Solutions
-                </Link>
-              </div>
-              <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20 hover:bg-white/20 transition">
-                <h3 className="text-xl font-bold text-white mb-2">For Property Owners</h3>
-                <p className="text-blue-50 mb-4">Sell your property directly with professional listing services and support.</p>
-                <Link
-                  href="/fsbo"
-                  className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-blue-900 bg-white hover:bg-blue-50 transition duration-150"
-                >
-                  FSBO Solutions
-                </Link>
-              </div>
-            </div>
 
             {/* Property search */}
             <div className="relative">

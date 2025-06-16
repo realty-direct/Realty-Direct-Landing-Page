@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 export const Pricing = () => {
   const t = useTranslations('Pricing');
   const [selectedFeature, setSelectedFeature] = useState<string | null>(null);
+  const [propertyPrice, setPropertyPrice] = useState(600000);
 
   // Prevent scrolling when modal is open
   useEffect(() => {
@@ -281,85 +282,186 @@ export const Pricing = () => {
           </div>
 
           {/* Savings Calculator */}
-          <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 max-w-4xl mx-auto mt-12">
+          <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 max-w-6xl mx-auto mt-12">
             <h3 className="text-2xl font-bold text-center mb-6">Calculate Your Savings</h3>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-blue-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold mb-4">With Realty Direct</h4>
+            
+            {/* Property Price Slider */}
+            <div className="mb-8 max-w-2xl mx-auto">
+              <label htmlFor="property-price" className="block text-sm font-medium text-gray-700 mb-2">
+                Your Property Value: <span className="text-2xl font-bold text-blue-600">${propertyPrice.toLocaleString()}</span>
+              </label>
+              <input
+                type="range"
+                id="property-price"
+                min="200000"
+                max="3000000"
+                step="50000"
+                value={propertyPrice}
+                onChange={(e) => setPropertyPrice(Number(e.target.value))}
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                style={{
+                  background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${((propertyPrice - 200000) / (3000000 - 200000)) * 100}%, #e5e7eb ${((propertyPrice - 200000) / (3000000 - 200000)) * 100}%, #e5e7eb 100%)`
+                }}
+              />
+              <div className="flex justify-between text-sm text-gray-600 mt-2">
+                <span>$200k</span>
+                <span>$3M</span>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Complete Marketing Package */}
+              <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h4 className="text-lg font-semibold mb-1">Complete Marketing Package</h4>
+                <p className="text-sm text-gray-600 mb-4">Self-managed with full marketing</p>
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span>Commission (0.7% on $600,000):</span>
-                    <span className="font-medium">$4,200</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Marketing Package:</span>
+                    <span className="text-sm">Marketing Package:</span>
                     <span className="font-medium">$2,495</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Licensed Online Agent:</span>
-                    <span className="font-medium">Included</span>
+                    <span className="text-sm">Professional Photos:</span>
+                    <span className="font-medium text-green-600">Included</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Professional Photos:</span>
-                    <span className="font-medium">Included</span>
+                    <span className="text-sm">All Portal Listings:</span>
+                    <span className="font-medium text-green-600">Included</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>All Portal Listings:</span>
-                    <span className="font-medium">Included</span>
+                    <span className="text-sm">Social Media Campaign:</span>
+                    <span className="font-medium text-green-600">Included</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Social Media Campaign:</span>
-                    <span className="font-medium">Included</span>
+                    <span className="text-sm">Agent Support:</span>
+                    <span className="font-medium text-gray-500">Not included</span>
                   </div>
-                  <div className="border-t border-blue-200 my-2 pt-2 flex justify-between font-bold">
-                    <span>Total Cost:</span>
-                    <span>$6,695</span>
+                  <div className="border-t border-blue-200 my-3 pt-3">
+                    <div className="flex justify-between items-end">
+                      <span className="font-semibold">Total Cost:</span>
+                      <span className="text-2xl font-bold text-blue-600">$2,495</span>
+                    </div>
                   </div>
                 </div>
               </div>
               
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h4 className="text-lg font-semibold mb-4">With Traditional Agent</h4>
+              {/* Full Service Package */}
+              <div className="bg-green-50 p-6 rounded-lg border border-green-200 relative">
+                <div className="absolute -top-3 -right-3">
+                  <span className="bg-green-600 text-xs text-white font-bold px-3 py-1 rounded-full">RECOMMENDED</span>
+                </div>
+                <h4 className="text-lg font-semibold mb-1">Full Service Package</h4>
+                <p className="text-sm text-gray-600 mb-4">Complete agent support</p>
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span>Commission (2.5% on $600,000):</span>
-                    <span className="font-medium">$15,000</span>
+                    <span className="text-sm">Commission (0.7%):</span>
+                    <span className="font-medium">${(propertyPrice * 0.007).toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Marketing Costs:</span>
+                    <span className="text-sm">Marketing Package:</span>
+                    <span className="font-medium">$2,495</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-sm">Online Agent Support:</span>
+                    <span className="font-medium text-green-600">Included</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-sm">Professional Photos:</span>
+                    <span className="font-medium text-green-600">Included</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-sm">All Portal Listings:</span>
+                    <span className="font-medium text-green-600">Included</span>
+                  </div>
+                  <div className="border-t border-green-200 my-3 pt-3">
+                    <div className="flex justify-between items-end">
+                      <span className="font-semibold">Total Cost:</span>
+                      <span className="text-2xl font-bold text-green-600">${((propertyPrice * 0.007) + 2495).toLocaleString()}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Traditional Agent */}
+              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h4 className="text-lg font-semibold mb-1">Traditional Agent</h4>
+                <p className="text-sm text-gray-600 mb-4">Standard commission model</p>
+                <div className="space-y-2">
+                  <div className="flex justify-between">
+                    <span className="text-sm">Commission (2.5%):</span>
+                    <span className="font-medium">${(propertyPrice * 0.025).toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-sm">Marketing Costs:</span>
                     <span className="font-medium">$2,000-3,000</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Professional Photos:</span>
-                    <span className="font-medium">Extra</span>
+                    <span className="text-sm">Professional Photos:</span>
+                    <span className="font-medium text-amber-600">Often extra</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Portal Listings:</span>
-                    <span className="font-medium">Included</span>
+                    <span className="text-sm">Portal Listings:</span>
+                    <span className="font-medium text-green-600">Included</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Social Media:</span>
-                    <span className="font-medium">Varies</span>
+                    <span className="text-sm">Social Media:</span>
+                    <span className="font-medium text-amber-600">Varies</span>
                   </div>
-                  <div className="border-t border-gray-200 my-2 pt-2 flex justify-between font-bold">
-                    <span>Total Cost:</span>
-                    <span>$17,000+</span>
+                  <div className="border-t border-gray-200 my-3 pt-3">
+                    <div className="flex justify-between items-end">
+                      <span className="font-semibold">Total Cost:</span>
+                      <span className="text-2xl font-bold text-gray-700">${((propertyPrice * 0.025) + 2500).toLocaleString()}+</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div className="mt-6 p-4 bg-green-50 rounded-lg flex justify-between items-center">
-              <div>
-                <span className="font-medium">Your Potential Savings:</span>
-                <span className="text-2xl font-bold ml-2 text-green-600">$10,305+</span>
+            {/* Savings Summary */}
+            <div className="mt-8 grid md:grid-cols-2 gap-6">
+              <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h5 className="font-semibold mb-3">Complete Marketing Package Savings</h5>
+                <div className="space-y-2">
+                  <div className="flex justify-between">
+                    <span className="text-sm">Traditional agent cost:</span>
+                    <span className="font-medium">${((propertyPrice * 0.025) + 2500).toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-sm">Marketing package cost:</span>
+                    <span className="font-medium">$2,495</span>
+                  </div>
+                  <div className="border-t border-blue-200 my-2 pt-2 flex justify-between">
+                    <span className="font-semibold">You save:</span>
+                    <span className="text-xl font-bold text-blue-600">${((propertyPrice * 0.025) + 2500 - 2495).toLocaleString()}</span>
+                  </div>
+                </div>
               </div>
+              
+              <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+                <h5 className="font-semibold mb-3">Full Service Package Savings</h5>
+                <div className="space-y-2">
+                  <div className="flex justify-between">
+                    <span className="text-sm">Traditional agent cost:</span>
+                    <span className="font-medium">${((propertyPrice * 0.025) + 2500).toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-sm">Full service cost:</span>
+                    <span className="font-medium">${((propertyPrice * 0.007) + 2495).toLocaleString()}</span>
+                  </div>
+                  <div className="border-t border-green-200 my-2 pt-2 flex justify-between">
+                    <span className="font-semibold">You save:</span>
+                    <span className="text-xl font-bold text-green-600">${((propertyPrice * 0.025) + 2500 - ((propertyPrice * 0.007) + 2495)).toLocaleString()}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-6 text-center">
               <Link 
                 href="/sell-your-property"
-                className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-200"
+                className="inline-flex items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-200"
               >
                 Start Saving Now
-                <ArrowRight className="ml-1 h-4 w-4" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </div>
           </div>
