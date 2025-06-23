@@ -14,26 +14,26 @@ export const MarketingSection = () => {
             variant="h2"
             className="font-display text-4xl md:text-5xl font-semibold text-primary-900 mb-4 text-center"
           >
-            Queensland’s Most Trusted Real Estate Experience
+            A Fresh Approach to Queensland Real Estate
           </Typography>
           <Typography
             variant="h6"
-            className="text-slate-700 font-normal max-w-2xl text-center"
+            className="text-slate-700 font-normal max-w-3xl text-center"
             style={{ lineHeight: 1.7 }}
           >
-            We believe in direct relationships, transparent communication, and genuine service. Discover a new standard of professionalism and results with Realty Direct Queensland.
+            Realty Direct Queensland is an independent agency built on direct relationships, transparent communication, and genuine service. Experience a new standard of professionalism and results—without the legacy hype.
           </Typography>
         </div>
 
         {/* Main Card */}
         <Card
-          className="relative max-w-4xl mx-auto rounded-3xl shadow-2xl border-0 bg-white/90 backdrop-blur-lg"
+          className="relative max-w-6xl mx-auto rounded-3xl shadow-2xl border-0 bg-white/90 backdrop-blur-lg"
           elevation={0}
         >
-          <CardContent className="p-12 md:p-16">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10">
+          <CardContent className="p-12 md:p-20">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-14">
               {/* Left: Value Proposition */}
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
                 <Typography
                   variant="h4"
                   className="font-display text-3xl md:text-4xl font-bold text-primary-800 mb-6"
@@ -58,7 +58,7 @@ export const MarketingSection = () => {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="inline-block w-2 h-2 rounded-full bg-primary-700" />
-                    Proven results for Queensland families
+                    Results-focused for Queensland families
                   </li>
                 </ul>
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -95,8 +95,8 @@ export const MarketingSection = () => {
                 </div>
               </div>
               {/* Right: Visual */}
-              <div className="flex-1 flex items-center justify-center">
-                <div className="relative w-full max-w-xs md:max-w-sm aspect-[4/5] rounded-2xl overflow-hidden shadow-xl border border-accent-600 bg-accent-500/10">
+              <div className="flex-1 flex items-center justify-center min-w-0">
+                <div className="relative w-full max-w-lg aspect-[3/2] rounded-2xl overflow-hidden shadow-xl border border-accent-600 bg-accent-500/10">
                   <Image
                     src="/assets/images/home.jpg"
                     alt="Luxury Queensland Property"
@@ -127,7 +127,7 @@ export const MarketingSection = () => {
         </Card>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-6xl mx-auto">
           <Card className="text-center p-8 shadow-md rounded-2xl border-0 bg-white/95" elevation={0}>
             <Typography variant="h6" className="font-bold text-primary-700 mb-2 tracking-wide">
               Local Expertise
