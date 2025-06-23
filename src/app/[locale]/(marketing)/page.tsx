@@ -5,8 +5,6 @@ import { PrestigeHero } from '@/components/prestige/PrestigeHero';
 import { MarketingSection } from '@/components/marketing/MarketingSection';
 import { LuxuryServices } from '@/components/prestige/LuxuryServices';
 import { ClientTestimonials } from '@/components/prestige/ClientTestimonials';
-import { AgentShowcase } from '@/components/prestige/AgentShowcase';
-import { MarketInsights } from '@/components/prestige/MarketInsights';
 import { ContactSection } from '@/components/prestige/ContactSection';
 
 type IIndexProps = {
@@ -91,8 +89,6 @@ export default async function Index(props: IIndexProps) {
       <PrestigeHero />
       <MarketingSection />
       <LuxuryServices />
-      <AgentShowcase />
-      <MarketInsights />
       <ClientTestimonials />
       <ContactSection />
     </>

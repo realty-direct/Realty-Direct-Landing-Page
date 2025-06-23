@@ -1,18 +1,42 @@
 'use client';
 
 import Image from 'next/image';
-import { Button, Typography, TextField, InputAdornment, Paper } from '@mui/material';
-import { ArrowRight, MapPin, Search } from 'lucide-react';
-import { useState } from 'react';
+import { Button, Typography, InputAdornment, Paper } from '@mui/material';
+import { ArrowRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { AddressAutocomplete } from '@/components/common/AddressAutocomplete';
 
 export const PrestigeHero = () => {
   const [address, setAddress] = useState('');
 
   const handleEstimate = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle property estimate logic here
-    console.log('Getting estimate for:', address);
+    if (address) {
+      // Handle property estimate logic here
+      console.log('Getting estimate for:', address);
+      // You can redirect to an estimate page or show a modal
+      // For now, we'll just log it
+    }
   };
+
+  const handlePlaceSelected = (place: google.maps.places.PlaceResult) => {
+    // You can access additional place details here
+    console.log('Place selected:', place);
+  };
+
+  // Debug: Check if Google Maps is loaded
+  useEffect(() => {
+    const checkGoogleMaps = () => {
+      if (typeof window !== 'undefined') {
+        console.log('Google Maps loaded:', !!(window as any).google);
+        console.log('Places library loaded:', !!((window as any).google?.maps?.places));
+      }
+    };
+    
+    checkGoogleMaps();
+    // Check again after a delay
+    setTimeout(checkGoogleMaps, 2000);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center">
@@ -51,49 +75,23 @@ export const PrestigeHero = () => {
             </Typography>
 
             {/* Address Input Form */}
-            <form onSubmit={handleEstimate} className="mb-6">
-              <TextField
-                fullWidth
-                variant="outlined"
-                placeholder="Enter your property address"
+            <form onSubmit={handleEstimate} className="mb-6 space-y-4">
+              <AddressAutocomplete
                 value={address}
-                onChange={(e) => setAddress(e.target.value)}
+                onChange={setAddress}
+                onPlaceSelected={handlePlaceSelected}
                 className="bg-white"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <MapPin className="h-5 w-5 text-gray-400" />
-                    </InputAdornment>
-                  ),
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <Button
-                        type="submit"
-                        variant="contained"
-                        size="large"
-                        className="rounded-r-md rounded-l-none"
-                        disabled={!address}
-                      >
-                        Get Estimate
-                        <ArrowRight className="ml-1 h-4 w-4" />
-                      </Button>
-                    </InputAdornment>
-                  ),
-                  className: "pr-0",
-                  style: { paddingRight: 0 }
-                }}
-                sx={{
-                  '& .MuiOutlinedInput-root': {
-                    paddingRight: 0,
-                    '& fieldset': {
-                      borderColor: 'rgba(0, 0, 0, 0.23)',
-                    },
-                    '&:hover fieldset': {
-                      borderColor: 'rgba(0, 0, 0, 0.87)',
-                    },
-                  },
-                }}
               />
+              <Button
+                type="submit"
+                variant="contained"
+                size="large"
+                className="w-full"
+                disabled={!address}
+              >
+                Get Estimate
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
             </form>
 
             {/* Additional CTAs */}
