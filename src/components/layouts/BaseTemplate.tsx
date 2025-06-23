@@ -143,9 +143,10 @@ export const BaseTemplate = (props: {
             <div>
               <h3 className="text-lg font-semibold mb-4">{t('quick_links')}</h3>
               <ul className="space-y-2">
-                <li><Link href="/" className="text-gray-300 hover:text-white">Home</Link></li>
+                <li><Link href="/buying" className="text-gray-300 hover:text-white">Buying</Link></li>
+                <li><Link href="/selling" className="text-gray-300 hover:text-white">Selling</Link></li>
+                <li><Link href="/renting" className="text-gray-300 hover:text-white">Renting</Link></li>
                 <li><Link href="/about" className="text-gray-300 hover:text-white">About</Link></li>
-                <li><Link href="/services" className="text-gray-300 hover:text-white">Services</Link></li>
                 <li><Link href="/contact" className="text-gray-300 hover:text-white">Contact</Link></li>
               </ul>
             </div>

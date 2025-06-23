@@ -1,13 +1,13 @@
-import { Features } from '@/components/common/Features';
-import { Hero } from '@/components/common/Hero';
-import { ValueStats } from '@/components/common/ValueStats';
-import { HowItWorks } from '@/components/HowItWorks';
-import { PortalLogos } from '@/components/PortalLogos';
-import { Pricing } from '@/components/Pricing';
-import { CallToAction } from '@/components/common/CallToAction';
 import { setRequestLocale } from 'next-intl/server';
 import { StructuredData } from '@/components/common/StructuredData';
-import { breadcrumbSchema, faqSchema } from '@/utils/structuredData';
+import { breadcrumbSchema } from '@/utils/structuredData';
+import { PrestigeHero } from '@/components/prestige/PrestigeHero';
+import { MarketingSection } from '@/components/marketing/MarketingSection';
+import { LuxuryServices } from '@/components/prestige/LuxuryServices';
+import { ClientTestimonials } from '@/components/prestige/ClientTestimonials';
+import { AgentShowcase } from '@/components/prestige/AgentShowcase';
+import { MarketInsights } from '@/components/prestige/MarketInsights';
+import { ContactSection } from '@/components/prestige/ContactSection';
 
 type IIndexProps = {
   params: Promise<{ locale: string }>;
@@ -17,15 +17,15 @@ export async function generateMetadata(props: IIndexProps) {
   const { locale } = await props.params;
 
   return {
-    title: 'Realty Direct Queensland | Modern Real Estate Platform',
-    description: 'Queensland\'s most flexible real estate platform. Sell or buy property with transparent pricing, local agents, and complete control over your property transaction.',
-    keywords: 'real estate queensland, property sale queensland, sell house queensland, buy property queensland, realty direct',
+    title: 'Realty Direct | Real Estate Agency Queensland',
+    description: 'Professional real estate services across Queensland. Helping with buying, selling, and renting properties in Brisbane, Gold Coast, and surrounding areas.',
+    keywords: 'real estate queensland, property brisbane, homes gold coast, real estate agency, properties queensland',
     alternates: {
       canonical: 'https://realtydirect.com.au',
     },
     openGraph: {
-      title: 'Realty Direct Queensland | Modern Real Estate Platform',
-      description: 'Queensland\'s most flexible real estate platform. Sell or buy property with transparent pricing and local agents.',
+      title: 'Realty Direct | Real Estate Agency Queensland',
+      description: 'Professional real estate services across Queensland. Helping with buying, selling, and renting properties in Brisbane, Gold Coast, and surrounding areas.',
       url: 'https://realtydirect.com.au',
       siteName: 'Realty Direct',
       images: [
@@ -41,8 +41,8 @@ export async function generateMetadata(props: IIndexProps) {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Realty Direct Queensland | Modern Real Estate Platform',
-      description: 'Queensland\'s most flexible real estate platform. Sell or buy property with transparent pricing and local agents.',
+      title: 'Realty Direct | Real Estate Agency Queensland',
+      description: 'Professional real estate services across Queensland. Helping with buying, selling, and renting properties in Brisbane, Gold Coast, and surrounding areas.',
       images: ['https://realtydirect.com.au/og-image.jpg'],
     },
     robots: {
@@ -67,36 +67,34 @@ export default async function Index(props: IIndexProps) {
     { name: 'Home', url: 'https://realtydirect.com.au' },
   ];
 
-  const faqData = [
-    {
-      question: 'How does Realty Direct save me money?',
-      answer: 'Realty Direct offers flexible pricing options from DIY packages starting at $495 to full-service with competitive commission rates. Our DIY and assisted options can save you thousands compared to traditional real estate agent fees.',
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'RealEstateAgent',
+    'name': 'Realty Direct',
+    'description': 'Professional real estate services across Queensland',
+    'url': 'https://realtydirect.com.au',
+    'logo': 'https://realtydirect.com.au/logo.png',
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'Brisbane',
+      'addressRegion': 'Queensland',
+      'addressCountry': 'AU'
     },
-    {
-      question: 'Which selling option is right for me?',
-      answer: 'It depends on your experience and available time. DIY is perfect for confident sellers, Assisted FSBO provides support with paperwork, Hybrid combines agent help with DIY savings, and Professional Agent offers full-service convenience.',
-    },
-    {
-      question: 'Do you cover all of Queensland?',
-      answer: 'Yes, Realty Direct operates throughout Queensland, with offices in Brisbane and Gold Coast. We have a network of professional agents and provide services across all major Queensland regions.',
-    },
-    {
-      question: 'How quickly can I list my property?',
-      answer: 'With our DIY package, you can have your property listed on major portals within 24-48 hours. Professional photography can be arranged within 2-3 business days of signing up.',
-    },
-  ];
+    'areaServed': ['Brisbane', 'Gold Coast', 'Sunshine Coast'],
+    'priceRange': '$$$$$'
+  };
 
   return (
     <>
       <StructuredData data={breadcrumbSchema(breadcrumbs)} />
-      <StructuredData data={faqSchema(faqData)} />
-      <Hero />
-      <ValueStats />
-      <HowItWorks />
-      <Features />
-      <PortalLogos />
-      <Pricing />
-      <CallToAction />
+      <StructuredData data={organizationSchema} />
+      <PrestigeHero />
+      <MarketingSection />
+      <LuxuryServices />
+      <AgentShowcase />
+      <MarketInsights />
+      <ClientTestimonials />
+      <ContactSection />
     </>
   );
 };
