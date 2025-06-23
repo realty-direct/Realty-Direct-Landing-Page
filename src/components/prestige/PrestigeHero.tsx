@@ -1,10 +1,10 @@
 'use client';
 
-import Image from 'next/image';
-import { Button, Typography, InputAdornment, Paper } from '@mui/material';
-import { ArrowRight } from 'lucide-react';
-import { useState, useEffect } from 'react';
 import { AddressAutocomplete } from '@/components/common/AddressAutocomplete';
+import { Button, Paper, Typography } from '@mui/material';
+import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export const PrestigeHero = () => {
   const [address, setAddress] = useState('');
@@ -32,7 +32,7 @@ export const PrestigeHero = () => {
         console.log('Places library loaded:', !!((window as any).google?.maps?.places));
       }
     };
-    
+
     checkGoogleMaps();
     // Check again after a delay
     setTimeout(checkGoogleMaps, 2000);
@@ -61,7 +61,7 @@ export const PrestigeHero = () => {
             {/* Main Heading */}
             <Typography
               variant="h2"
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6"
             >
               Get an Instant Property Estimate
             </Typography>
@@ -69,7 +69,7 @@ export const PrestigeHero = () => {
             {/* Subheading */}
             <Typography
               variant="h6"
-              className="text-lg md:text-xl text-slate-600 mb-8 font-normal"
+              className="text-lg md:text-xl text-slate-600 mb-10 font-normal"
             >
               Discover your property's value with our free, instant estimate tool
             </Typography>
@@ -82,20 +82,22 @@ export const PrestigeHero = () => {
                 onPlaceSelected={handlePlaceSelected}
                 className="bg-white"
               />
-              <Button
-                type="submit"
-                variant="contained"
-                size="large"
-                className="w-full"
-                disabled={!address}
-              >
-                Get Estimate
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <div className="mt-2">
+                <Button
+                  type="submit"
+                  variant="contained"
+                  size="large"
+                  className="w-full"
+                  disabled={!address}
+                >
+                  Get Estimate
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
             </form>
 
             {/* Additional CTAs */}
-            <Typography variant="body2" className="text-slate-600">
+            <Typography variant="body2" className="text-slate-600 mt-8">
               Or explore our services:
               <Button
                 variant="text"
