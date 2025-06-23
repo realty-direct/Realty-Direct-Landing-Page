@@ -10,10 +10,10 @@ export const MarketingSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <Typography variant="h2" className="text-4xl md:text-5xl font-light mb-4">
-            Independent Real Estate Excellence
+            Naturally Direct
           </Typography>
           <Typography variant="h6" className="text-gray-600 font-light max-w-3xl mx-auto">
-            As Queensland's trusted independent real estate agency, we provide personalized service without the corporate constraints
+            As Queensland's growing independent real estate company, we believe in direct relationships, transparent communication, and genuine service
           </Typography>
         </div>
 
@@ -23,20 +23,20 @@ export const MarketingSection = () => {
           <Card className="h-full" elevation={0}>
             <CardContent className="p-8">
               <Typography variant="h4" className="font-medium mb-6">
-                Why Choose Independent?
+                Your Queensland Real Estate Journey Starts Here
               </Typography>
               
               <div className="space-y-4 mb-8">
                 <Typography variant="body1" className="text-gray-700 leading-relaxed">
-                  As an independent real estate agency, Realty Direct offers something the big franchises can't - genuine flexibility and personalized attention. We're not bound by corporate policies that prioritize shareholders over clients.
+                  We live and breathe Queensland real estate. Our dedicated team of local professionals share your passion for this incredible state - from the vibrant streets of Brisbane to the golden beaches of the Gold Coast, and everywhere in between.
                 </Typography>
                 
                 <Typography variant="body1" className="text-gray-700 leading-relaxed">
-                  Our independence means we can tailor our approach to each client's unique needs, negotiate better outcomes, and provide transparent advice without pressure to meet franchise quotas or upsell unnecessary services.
+                  As an independent agency, we've built our reputation on doing things differently. We combine cutting-edge technology with old-fashioned personal service. Our agents are equipped with the best marketing tools and strategies, all backed by a support team that ensures every client receives exceptional service.
                 </Typography>
                 
                 <Typography variant="body1" className="text-gray-700 leading-relaxed">
-                  When you work with Realty Direct, you're working directly with decision-makers who have the authority to act quickly and in your best interests. This is the advantage of choosing independent.
+                  We have a simple philosophy: "Direct communication, exceptional results." We believe in being straight-forward, accessible, and focused on what matters most - helping you achieve your property goals. This approach has made choosing Realty Direct a natural decision for hundreds of Queensland families.
                 </Typography>
               </div>
 
@@ -58,6 +58,16 @@ export const MarketingSection = () => {
                   Learn More About Us
                 </Button>
               </div>
+              
+              {/* Company Motto */}
+              <div className="mt-8 pt-8 border-t border-gray-200">
+                <Typography variant="h6" className="text-gray-700 text-center italic font-light">
+                  "Direct communication, exceptional results"
+                </Typography>
+                <Typography variant="body2" className="text-gray-500 text-center mt-2">
+                  This is what makes us Naturally Direct
+                </Typography>
+              </div>
             </CardContent>
           </Card>
 
@@ -74,32 +84,32 @@ export const MarketingSection = () => {
               />
             </div>
 
-            {/* Independent Agency Benefits */}
+            {/* Why We're Different */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
               <Card className="text-center p-4" elevation={1}>
                 <Typography variant="h6" className="font-bold text-blue-600 mb-2">
-                  No Franchise Fees
+                  Local Expertise
                 </Typography>
                 <Typography variant="body2" className="text-gray-600">
-                  Lower costs passed to you
+                  Deep Queensland market knowledge
                 </Typography>
               </Card>
               
               <Card className="text-center p-4" elevation={1}>
                 <Typography variant="h6" className="font-bold text-blue-600 mb-2">
-                  Direct Access
+                  Strategic Reach
                 </Typography>
                 <Typography variant="body2" className="text-gray-600">
-                  Work with decision makers
+                  Connected across Queensland
                 </Typography>
               </Card>
               
               <Card className="text-center p-4" elevation={1}>
                 <Typography variant="h6" className="font-bold text-blue-600 mb-2">
-                  Flexible Service
+                  Tech-Enabled
                 </Typography>
                 <Typography variant="body2" className="text-gray-600">
-                  Tailored to your needs
+                  Best-in-class marketing tools
                 </Typography>
               </Card>
             </div>

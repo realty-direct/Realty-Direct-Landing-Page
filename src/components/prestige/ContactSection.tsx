@@ -51,7 +51,7 @@ export const ContactSection = () => {
           <Typography variant="h2" className="text-4xl md:text-5xl font-light mb-4 text-white">
             Get In Touch
           </Typography>
-          <Typography variant="h6" className="text-gray-300 font-light max-w-2xl mx-auto">
+          <Typography variant="h6" className="text-gray-100 font-normal max-w-2xl mx-auto">
             Ready to experience Queensland's premier real estate service? Contact our expert team today.
           </Typography>
         </div>
@@ -75,8 +75,18 @@ export const ContactSection = () => {
                     required
                     variant="outlined"
                     className="bg-white/5"
-                    InputLabelProps={{ className: 'text-gray-300' }}
+                    InputLabelProps={{ className: 'text-gray-100' }}
                     InputProps={{ className: 'text-white' }}
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        '& fieldset': {
+                          borderColor: 'rgba(255, 255, 255, 0.3)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(255, 255, 255, 0.5)',
+                        },
+                      },
+                    }}
                   />
                   <TextField
                     fullWidth
@@ -88,8 +98,18 @@ export const ContactSection = () => {
                     required
                     variant="outlined"
                     className="bg-white/5"
-                    InputLabelProps={{ className: 'text-gray-300' }}
+                    InputLabelProps={{ className: 'text-gray-100' }}
                     InputProps={{ className: 'text-white' }}
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        '& fieldset': {
+                          borderColor: 'rgba(255, 255, 255, 0.3)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(255, 255, 255, 0.5)',
+                        },
+                      },
+                    }}
                   />
                 </div>
                 
@@ -102,8 +122,18 @@ export const ContactSection = () => {
                     onChange={handleChange}
                     variant="outlined"
                     className="bg-white/5"
-                    InputLabelProps={{ className: 'text-gray-300' }}
+                    InputLabelProps={{ className: 'text-gray-100' }}
                     InputProps={{ className: 'text-white' }}
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        '& fieldset': {
+                          borderColor: 'rgba(255, 255, 255, 0.3)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(255, 255, 255, 0.5)',
+                        },
+                      },
+                    }}
                   />
                   <TextField
                     fullWidth
@@ -113,8 +143,18 @@ export const ContactSection = () => {
                     onChange={handleChange}
                     variant="outlined"
                     className="bg-white/5"
-                    InputLabelProps={{ className: 'text-gray-300' }}
+                    InputLabelProps={{ className: 'text-gray-100' }}
                     InputProps={{ className: 'text-white' }}
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        '& fieldset': {
+                          borderColor: 'rgba(255, 255, 255, 0.3)',
+                        },
+                        '&:hover fieldset': {
+                          borderColor: 'rgba(255, 255, 255, 0.5)',
+                        },
+                      },
+                    }}
                   />
                 </div>
                 
@@ -159,29 +199,29 @@ export const ContactSection = () => {
                 
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" />
-                    <Typography variant="body2" className="text-gray-300">
+                    <MapPin className="h-5 w-5 text-gray-300 mt-0.5 flex-shrink-0" />
+                    <Typography variant="body2" className="text-gray-100">
                       {office.address}
                     </Typography>
                   </div>
                   
                   <div className="flex items-center gap-3">
-                    <Phone className="h-5 w-5 text-gray-400 flex-shrink-0" />
-                    <Typography variant="body2" className="text-gray-300">
+                    <Phone className="h-5 w-5 text-gray-300 flex-shrink-0" />
+                    <Typography variant="body2" className="text-gray-100">
                       {office.phone}
                     </Typography>
                   </div>
                   
                   <div className="flex items-center gap-3">
-                    <Mail className="h-5 w-5 text-gray-400 flex-shrink-0" />
-                    <Typography variant="body2" className="text-gray-300">
+                    <Mail className="h-5 w-5 text-gray-300 flex-shrink-0" />
+                    <Typography variant="body2" className="text-gray-100">
                       {office.email}
                     </Typography>
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <Clock className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" />
-                    <Typography variant="body2" className="text-gray-300">
+                    <Clock className="h-5 w-5 text-gray-300 mt-0.5 flex-shrink-0" />
+                    <Typography variant="body2" className="text-gray-100">
                       {office.hours}
                     </Typography>
                   </div>
@@ -197,7 +237,7 @@ export const ContactSection = () => {
               <Typography variant="h6" className="font-medium mb-2 text-amber-400">
                 24/7 Emergency Line
               </Typography>
-              <Typography variant="body2" className="text-gray-300 mb-3">
+              <Typography variant="body2" className="text-gray-100 mb-3">
                 For urgent property matters outside business hours
               </Typography>
               <Typography variant="h6" className="text-white">

@@ -4,7 +4,6 @@ import { breadcrumbSchema } from '@/utils/structuredData';
 import { PrestigeHero } from '@/components/prestige/PrestigeHero';
 import { MarketingSection } from '@/components/marketing/MarketingSection';
 import { LuxuryServices } from '@/components/prestige/LuxuryServices';
-import { ClientTestimonials } from '@/components/prestige/ClientTestimonials';
 import { ContactSection } from '@/components/prestige/ContactSection';
 
 type IIndexProps = {
@@ -89,7 +88,6 @@ export default async function Index(props: IIndexProps) {
       <PrestigeHero />
       <MarketingSection />
       <LuxuryServices />
-      <ClientTestimonials />
       <ContactSection />
     </>
   );
