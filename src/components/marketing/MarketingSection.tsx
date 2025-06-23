@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, Card, CardContent, Typography } from '@mui/material';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MapPin, MonitorSmartphone, Users } from 'lucide-react';
 import Image from 'next/image';
 
 export const MarketingSection = () => {
@@ -9,10 +9,10 @@ export const MarketingSection = () => {
     <section className="py-28 bg-gradient-to-br from-white via-accent-500/30 to-accent-600/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
-        <div className="mb-20 flex flex-col items-center">
+        <div className="mb-16 flex flex-col items-center">
           <Typography
             variant="h2"
-            className="font-display text-4xl md:text-5xl font-semibold text-primary-900 mb-4 text-center"
+            className="font-display text-4xl md:text-5xl font-semibold text-primary-900 mb-6 text-center"
           >
             A Fresh Approach to Queensland Real Estate
           </Typography>
@@ -30,10 +30,10 @@ export const MarketingSection = () => {
           className="relative max-w-6xl mx-auto rounded-3xl shadow-2xl border-0 bg-white/90 backdrop-blur-lg"
           elevation={0}
         >
-          <CardContent className="p-12 md:p-20">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-14">
+          <CardContent className="p-8 md:p-14 lg:p-20">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10 md:gap-16">
               {/* Left: Value Proposition */}
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 md:pr-8">
                 <Typography
                   variant="h4"
                   className="font-display text-3xl md:text-4xl font-bold text-primary-800 mb-6"
@@ -42,12 +42,12 @@ export const MarketingSection = () => {
                 </Typography>
                 <Typography
                   variant="body1"
-                  className="text-slate-700 text-lg mb-6"
+                  className="text-slate-700 text-lg mb-8"
                   style={{ lineHeight: 1.7 }}
                 >
                   Our dedicated team of local professionals combines deep market knowledge with a tailored, client-first approach. From Brisbane’s vibrant city life to the Gold Coast’s iconic beaches, we deliver results with integrity and innovation.
                 </Typography>
-                <ul className="mb-8 space-y-2 text-base text-slate-700">
+                <ul className="mb-10 space-y-2 text-base text-slate-700">
                   <li className="flex items-center gap-2">
                     <span className="inline-block w-2 h-2 rounded-full bg-primary-700" />
                     Personalised, transparent service
@@ -95,7 +95,7 @@ export const MarketingSection = () => {
                 </div>
               </div>
               {/* Right: Visual */}
-              <div className="flex-1 flex items-center justify-center min-w-0">
+              <div className="flex-1 flex items-center justify-center min-w-0 md:pl-8">
                 <div className="relative w-full max-w-lg aspect-[3/2] rounded-2xl overflow-hidden shadow-xl border border-accent-600 bg-accent-500/10">
                   <Image
                     src="/assets/images/home.jpg"
@@ -109,7 +109,7 @@ export const MarketingSection = () => {
               </div>
             </div>
             {/* Motto */}
-            <div className="mt-12 pt-8 border-t border-accent-200 text-center">
+            <div className="mt-14 pt-8 border-t border-accent-200 text-center">
               <Typography
                 variant="h6"
                 className="text-primary-800 italic font-light"
@@ -127,8 +127,11 @@ export const MarketingSection = () => {
         </Card>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-6xl mx-auto">
-          <Card className="text-center p-8 shadow-md rounded-2xl border-0 bg-white/95" elevation={0}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-6xl mx-auto">
+          <Card className="flex flex-col items-center text-center p-8 shadow-md rounded-2xl border-0 bg-white/95" elevation={0}>
+            <div className="mb-4">
+              <MapPin className="w-10 h-10 text-primary-700" />
+            </div>
             <Typography variant="h6" className="font-bold text-primary-700 mb-2 tracking-wide">
               Local Expertise
             </Typography>
@@ -136,7 +139,10 @@ export const MarketingSection = () => {
               Deep Queensland market knowledge and insight
             </Typography>
           </Card>
-          <Card className="text-center p-8 shadow-md rounded-2xl border-0 bg-white/95" elevation={0}>
+          <Card className="flex flex-col items-center text-center p-8 shadow-md rounded-2xl border-0 bg-white/95" elevation={0}>
+            <div className="mb-4">
+              <Users className="w-10 h-10 text-primary-700" />
+            </div>
             <Typography variant="h6" className="font-bold text-primary-700 mb-2 tracking-wide">
               Strategic Reach
             </Typography>
@@ -144,7 +150,10 @@ export const MarketingSection = () => {
               Connected across Brisbane, Gold Coast, and beyond
             </Typography>
           </Card>
-          <Card className="text-center p-8 shadow-md rounded-2xl border-0 bg-white/95" elevation={0}>
+          <Card className="flex flex-col items-center text-center p-8 shadow-md rounded-2xl border-0 bg-white/95" elevation={0}>
+            <div className="mb-4">
+              <MonitorSmartphone className="w-10 h-10 text-primary-700" />
+            </div>
             <Typography variant="h6" className="font-bold text-primary-700 mb-2 tracking-wide">
               Tech-Enabled
             </Typography>
