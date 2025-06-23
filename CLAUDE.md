@@ -119,30 +119,30 @@ const propertyStructuredData = {
 **Modern Color Palette:**
 ```css
 :root {
-  /* Primary Brand Colors */
-  --primary-900: #0c2340; /* Deep Navy - Trust & Authority */
-  --primary-800: #1e3a5f; /* Professional Blue */
-  --primary-700: #3b82f6; /* Realty Direct Blue */
-  --primary-600: #60a5fa; /* Lighter Blue */
-  --primary-500: #93c5fd; /* Sky Blue */
+  /* Professional Brand Colors */
+  --primary-900: #102542; /* Deep Navy */
+  --primary-800: #223354; /* Muted Navy */
+  --primary-700: #345075; /* Slate Blue */
+  --primary-600: #4b6a88; /* Cool Blue */
+  --primary-500: #7a99b8; /* Light Blue */
 
-  /* Luxury Accent Colors */
-  --gold-600: #d97706; /* Premium Gold */
-  --gold-500: #f59e0b; /* Warm Gold */
-  --gold-400: #fbbf24; /* Light Gold */
+  /* Silver & Accent Colors */
+  --accent-700: #b0b7bd; /* Silver Gray */
+  --accent-600: #d1d5db; /* Light Silver */
+  --accent-500: #f3f4f6; /* Off White */
 
   /* Modern Neutrals */
-  --slate-900: #0f172a; /* Deep Charcoal */
-  --slate-800: #1e293b; /* Dark Gray */
-  --slate-700: #334155; /* Medium Gray */
-  --slate-600: #475569; /* Text Gray */
-  --slate-100: #f1f5f9; /* Light Background */
+  --slate-900: #181c20; /* Charcoal */
+  --slate-800: #23272b; /* Dark Gray */
+  --slate-700: #374151; /* Medium Gray */
+  --slate-600: #6b7280; /* Text Gray */
+  --slate-100: #f8fafc; /* Light Background */
   --white: #ffffff; /* Pure White */
 
   /* Status Colors */
-  --success: #10b981; /* Emerald Green */
-  --warning: #f59e0b; /* Amber */
-  --error: #ef4444; /* Red */
+  --success: #198754; /* Professional Green */
+  --warning: #f59e42; /* Amber */
+  --error: #dc3545; /* Red */
 }
 ```
 

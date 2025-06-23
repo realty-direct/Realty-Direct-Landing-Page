@@ -61,7 +61,7 @@ export const PrestigeHero = () => {
             {/* Main Heading */}
             <Typography
               variant="h2"
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4"
             >
               Get an Instant Property Estimate
             </Typography>
@@ -69,7 +69,7 @@ export const PrestigeHero = () => {
             {/* Subheading */}
             <Typography
               variant="h6"
-              className="text-lg md:text-xl text-gray-600 mb-8 font-normal"
+              className="text-lg md:text-xl text-slate-600 mb-8 font-normal"
             >
               Discover your property's value with our free, instant estimate tool
             </Typography>
@@ -95,13 +95,13 @@ export const PrestigeHero = () => {
             </form>
 
             {/* Additional CTAs */}
-            <Typography variant="body2" className="text-gray-600">
+            <Typography variant="body2" className="text-slate-600">
               Or explore our services:
               <Button
                 variant="text"
                 size="small"
                 href="/buying"
-                className="mx-2 text-blue-600 hover:text-blue-700"
+                className="mx-2 text-primary-600 hover:text-primary-700"
               >
                 Buying
               </Button>
@@ -110,7 +110,7 @@ export const PrestigeHero = () => {
                 variant="text"
                 size="small"
                 href="/selling"
-                className="mx-2 text-blue-600 hover:text-blue-700"
+                className="mx-2 text-primary-600 hover:text-primary-700"
               >
                 Selling
               </Button>
@@ -119,7 +119,7 @@ export const PrestigeHero = () => {
                 variant="text"
                 size="small"
                 href="/renting"
-                className="mx-2 text-blue-600 hover:text-blue-700"
+                className="mx-2 text-primary-600 hover:text-primary-700"
               >
                 Renting
               </Button>
