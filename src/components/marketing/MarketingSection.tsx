@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export const MarketingSection = () => {
   return (
-    <section className="py-28 bg-gradient-to-br from-white via-accent-500/30 to-accent-600/10">
+    <section className="pt-14 bg-gradient-to-br from-white via-accent-500/30 to-accent-600/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <div className="mb-16 flex flex-col items-center">
