@@ -12,13 +12,13 @@ export const MarketingSection = () => {
         <div className="mb-16 flex flex-col items-center">
           <Typography
             variant="h2"
-            className="font-display text-4xl md:text-5xl font-semibold text-primary-900 mb-6 text-center"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
           >
             A Fresh Approach to Queensland Real Estate
           </Typography>
           <Typography
             variant="h6"
-            className="text-slate-700 font-normal max-w-3xl text-center"
+            className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-3xl text-center"
             style={{ lineHeight: 1.7 }}
           >
             Realty Direct Queensland is an independent agency built on direct relationships, transparent communication, and genuine service. Experience a new standard of professionalism and results—without the legacy hype.
@@ -112,7 +112,7 @@ export const MarketingSection = () => {
             <div className="mt-14 pt-8 border-t border-accent-200 text-center">
               <Typography
                 variant="h6"
-                className="text-primary-800 italic font-light"
+                className="text-lg md:text-xl text-slate-600 mb-10 font-normal italic"
               >
                 "Direct communication, exceptional results"
               </Typography>
@@ -132,7 +132,7 @@ export const MarketingSection = () => {
             <div className="mb-4">
               <MapPin className="w-10 h-10 text-primary-700" />
             </div>
-            <Typography variant="h6" className="font-bold text-primary-700 mb-2 tracking-wide">
+            <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal tracking-wide">
               Local Expertise
             </Typography>
             <Typography variant="body2" className="text-slate-600 text-base">
@@ -143,7 +143,7 @@ export const MarketingSection = () => {
             <div className="mb-4">
               <Users className="w-10 h-10 text-primary-700" />
             </div>
-            <Typography variant="h6" className="font-bold text-primary-700 mb-2 tracking-wide">
+            <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal tracking-wide">
               Strategic Reach
             </Typography>
             <Typography variant="body2" className="text-slate-600 text-base">
@@ -154,7 +154,7 @@ export const MarketingSection = () => {
             <div className="mb-4">
               <MonitorSmartphone className="w-10 h-10 text-primary-700" />
             </div>
-            <Typography variant="h6" className="font-bold text-primary-700 mb-2 tracking-wide">
+            <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal tracking-wide">
               Tech-Enabled
             </Typography>
             <Typography variant="body2" className="text-slate-600 text-base">

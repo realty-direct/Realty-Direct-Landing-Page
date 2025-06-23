@@ -164,8 +164,8 @@ export default async function Selling(props: ISellingProps) {
               <Paper elevation={0} className="bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-2xl">
                 {/* Main Heading */}
                 <Typography
-                  variant="h1"
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4"
+                  variant="h2"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6"
                 >
                   Sell Your Queensland Property
                 </Typography>
@@ -173,7 +173,7 @@ export default async function Selling(props: ISellingProps) {
                 {/* Subheading */}
                 <Typography
                   variant="h6"
-                  className="text-lg md:text-xl text-slate-600 mb-8 font-normal"
+                  className="text-lg md:text-xl text-slate-600 mb-10 font-normal"
                 >
                   Get the best price with expert marketing, transparent pricing, and professional service from Queensland's most trusted independent agents
                 </Typography>
@@ -285,7 +285,7 @@ export default async function Selling(props: ISellingProps) {
               <CardContent className="p-8 md:p-12">
                 <Typography
                   variant="h2"
-                  className="font-display text-4xl md:text-5xl font-semibold text-primary-900 text-center mb-12"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
                 >
                   Our 5-Step Selling Process
                 </Typography>
@@ -322,7 +322,7 @@ export default async function Selling(props: ISellingProps) {
               <CardContent className="p-8 md:p-12">
                 <Typography
                   variant="h2"
-                  className="font-display text-4xl md:text-5xl font-semibold text-primary-900 text-center mb-12"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
                 >
                   Frequently Asked Questions About Selling
                 </Typography>
@@ -350,7 +350,7 @@ export default async function Selling(props: ISellingProps) {
               <CardContent className="p-8 md:p-12 text-center">
                 <Typography
                   variant="h2"
-                  className="font-display text-3xl md:text-4xl font-bold text-white mb-6"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
                 >
                   Ready to Sell Your Property?
                 </Typography>

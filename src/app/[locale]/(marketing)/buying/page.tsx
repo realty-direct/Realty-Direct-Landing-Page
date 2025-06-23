@@ -187,8 +187,8 @@ export default async function Buying(props: IBuyingProps) {
               <Paper elevation={0} className="bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-2xl">
                 {/* Main Heading */}
                 <Typography
-                  variant="h1"
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4"
+                  variant="h2"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6"
                 >
                   Buy Your Dream Queensland Property
                 </Typography>
@@ -196,7 +196,7 @@ export default async function Buying(props: IBuyingProps) {
                 {/* Subheading */}
                 <Typography
                   variant="h6"
-                  className="text-lg md:text-xl text-slate-600 mb-8 font-normal"
+                  className="text-lg md:text-xl text-slate-600 mb-10 font-normal"
                 >
                   Expert buyer agents helping you find, evaluate, and secure the perfect property in Brisbane, Gold Coast, and beyond
                 </Typography>
@@ -253,14 +253,13 @@ export default async function Buying(props: IBuyingProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="mb-16">
-              <Typography variant="h2" className="text-4xl md:text-5xl font-light mb-4 text-center">
+              <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
                 We Help All Types of Buyers
               </Typography>
               <div className="flex justify-center">
                 <Typography
                   variant="h6"
-                  className="text-gray-600 font-light max-w-2xl"
-                  style={{ textAlign: 'center' }}
+                  className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl mx-auto text-center"
                 >
                   Professional buyer representation for every type of property purchase
                 </Typography>
@@ -323,7 +322,7 @@ export default async function Buying(props: IBuyingProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Paper elevation={0} className="p-12 rounded-xl border border-gray-200">
               <div className="mb-16">
-                <Typography variant="h2" className="text-4xl md:text-5xl font-light mb-4 text-center">
+                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
                   Our Proven Buying Process
                 </Typography>
                 <div className="flex justify-center">
@@ -367,14 +366,13 @@ export default async function Buying(props: IBuyingProps) {
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-16">
-              <Typography variant="h2" className="text-4xl md:text-5xl font-light mb-4 text-center">
+              <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
                 Why Choose Realty Direct?
               </Typography>
               <div className="flex justify-center">
                 <Typography
                   variant="h6"
-                  className="text-gray-600 font-light max-w-2xl"
-                  style={{ textAlign: 'center' }}
+                  className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl mx-auto text-center"
                 >
                   Professional buyer representation with unmatched local expertise
                 </Typography>
@@ -440,7 +438,7 @@ export default async function Buying(props: IBuyingProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Paper elevation={0} className="p-12 rounded-xl border border-gray-200">
               <div className="mb-16">
-                <Typography variant="h2" className="text-4xl md:text-5xl font-light mb-4 text-center">
+                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
                   Frequently Asked Questions
                 </Typography>
                 <div className="flex justify-center">
@@ -473,10 +471,10 @@ export default async function Buying(props: IBuyingProps) {
         {/* Call to Action */}
         <section className="py-24 bg-gray-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Typography variant="h2" className="text-4xl md:text-5xl font-light mb-6 text-white">
+            <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Ready to Find Your Perfect Property?
             </Typography>
-            <Typography variant="h6" className="text-gray-300 font-light mb-8 max-w-2xl mx-auto">
+            <Typography variant="h6" className="text-lg md:text-xl text-gray-100 mb-10 font-normal max-w-2xl mx-auto">
               Start your Queensland property search today with expert guidance from our experienced buyer's agents
             </Typography>
             

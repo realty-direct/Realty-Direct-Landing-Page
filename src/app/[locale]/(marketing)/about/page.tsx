@@ -90,14 +90,14 @@ export default async function About(props: IAboutProps) {
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <Typography
-                variant="h1"
-                className="text-4xl md:text-6xl font-display font-bold text-white mb-6"
+                variant="h2"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
               >
                 About Realty Direct Queensland
               </Typography>
               <Typography
-                variant="h2"
-                className="text-xl md:text-2xl text-slate-100 max-w-3xl mx-auto"
+                variant="h6"
+                className="text-lg md:text-xl text-slate-100 mb-10 font-normal max-w-3xl mx-auto"
               >
                 Independent real estate professionals transforming Queensland property experiences with direct communication and transparent results
               </Typography>
@@ -116,7 +116,7 @@ export default async function About(props: IAboutProps) {
                   <div>
                     <Typography
                       variant="h2"
-                      className="text-3xl md:text-4xl font-display font-bold text-primary-900 mb-6"
+                      className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6"
                     >
                       Our Story: Naturally Direct
                     </Typography>
@@ -127,7 +127,7 @@ export default async function About(props: IAboutProps) {
                       As Queensland's growing independent real estate company, we've built our reputation on doing things differently. We combine cutting-edge technology with genuine personal service, ensuring every client receives the attention and expertise they deserve.
                     </Typography>
                     <div className="bg-primary-50 border-l-4 border-primary-700 p-6 rounded-lg">
-                      <Typography variant="h6" className="text-primary-800 font-medium mb-2">
+                      <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
                         "Direct communication, exceptional results"
                       </Typography>
                       <Typography variant="body2" className="text-slate-600">
@@ -152,7 +152,7 @@ export default async function About(props: IAboutProps) {
             <div className="mb-16">
               <Typography
                 variant="h2"
-                className="text-3xl md:text-4xl font-display font-bold text-primary-900 text-center mb-12"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
               >
                 What Sets Us Apart
               </Typography>
@@ -183,7 +183,7 @@ export default async function About(props: IAboutProps) {
                     <div className="mb-4 flex justify-center text-primary-700">
                       {feature.icon}
                     </div>
-                    <Typography variant="h6" className="font-bold text-primary-800 mb-3">
+                    <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
                       {feature.title}
                     </Typography>
                     <Typography variant="body2" className="text-slate-600">
@@ -199,7 +199,7 @@ export default async function About(props: IAboutProps) {
               <CardContent className="p-12">
                 <Typography
                   variant="h2"
-                  className="text-3xl md:text-4xl font-display font-bold text-primary-900 text-center mb-12"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
                 >
                   Frequently Asked Questions
                 </Typography>
@@ -223,7 +223,7 @@ export default async function About(props: IAboutProps) {
                     }
                   ].map((faq, index) => (
                     <div key={index} className="border-b border-accent-600 pb-6 mb-6 last:border-b-0 last:mb-0">
-                      <Typography variant="h6" className="font-semibold text-primary-800 mb-3">
+                      <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
                         {faq.question}
                       </Typography>
                       <Typography variant="body2" className="text-slate-700" style={{ lineHeight: 1.6 }}>
@@ -240,7 +240,7 @@ export default async function About(props: IAboutProps) {
               <CardContent className="p-12 text-center">
                 <Typography
                   variant="h2"
-                  className="text-3xl md:text-4xl font-display font-bold text-white mb-6"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
                 >
                   Ready to Experience the Difference?
                 </Typography>

@@ -180,14 +180,14 @@ export default async function Renting(props: IRentingProps) {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <Typography
-                  variant="h1"
-                  className="text-4xl md:text-6xl font-display font-bold text-white mb-6"
+                  variant="h2"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
                 >
                   Queensland Rental Properties & Management
                 </Typography>
                 <Typography
-                  variant="h2"
-                  className="text-xl md:text-2xl text-slate-100 mb-8"
+                  variant="h6"
+                  className="text-lg md:text-xl text-slate-100 mb-10 font-normal"
                 >
                   Professional property management and rental services across Brisbane, Gold Coast, and beyond. Find your perfect rental or maximize your investment returns.
                 </Typography>
@@ -243,7 +243,7 @@ export default async function Renting(props: IRentingProps) {
             <div className="mb-20">
               <Typography
                 variant="h2"
-                className="text-3xl md:text-4xl font-display font-bold text-primary-900 text-center mb-12"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
               >
                 Complete Rental Solutions
               </Typography>
@@ -281,7 +281,7 @@ export default async function Renting(props: IRentingProps) {
               <CardContent className="p-12">
                 <Typography
                   variant="h2"
-                  className="text-3xl md:text-4xl font-display font-bold text-primary-900 text-center mb-12"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
                 >
                   Our Property Management Process
                 </Typography>
@@ -294,7 +294,7 @@ export default async function Renting(props: IRentingProps) {
                         </div>
                       </div>
                       <div className="flex-1">
-                        <Typography variant="h6" className="font-bold text-primary-800 mb-2">
+                        <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
                           {step.title}
                         </Typography>
                         <Typography variant="body1" className="text-slate-700 leading-relaxed">
@@ -314,7 +314,7 @@ export default async function Renting(props: IRentingProps) {
             <div className="mb-20">
               <Typography
                 variant="h2"
-                className="text-3xl md:text-4xl font-display font-bold text-primary-900 text-center mb-12"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
               >
                 Why Choose Realty Direct for Rentals?
               </Typography>
@@ -340,7 +340,7 @@ export default async function Renting(props: IRentingProps) {
                     <div className="mb-6 flex justify-center text-primary-700">
                       {benefit.icon}
                     </div>
-                    <Typography variant="h6" className="font-bold text-primary-800 mb-4">
+                    <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
                       {benefit.title}
                     </Typography>
                     <Typography variant="body2" className="text-slate-600 leading-relaxed">
@@ -356,14 +356,14 @@ export default async function Renting(props: IRentingProps) {
               <CardContent className="p-12">
                 <Typography
                   variant="h2"
-                  className="text-3xl md:text-4xl font-display font-bold text-primary-900 text-center mb-12"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
                 >
                   Frequently Asked Questions About Rentals
                 </Typography>
                 <div className="space-y-8">
                   {faqs.map((faq, index) => (
                     <div key={index} className="border-b border-accent-600 pb-8 last:border-b-0">
-                      <Typography variant="h6" className="font-semibold text-primary-800 mb-4">
+                      <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
                         {faq.question}
                       </Typography>
                       <Typography variant="body1" className="text-slate-700 leading-relaxed">
@@ -380,7 +380,7 @@ export default async function Renting(props: IRentingProps) {
               <CardContent className="p-12 text-center">
                 <Typography
                   variant="h2"
-                  className="text-3xl md:text-4xl font-display font-bold text-white mb-6"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
                 >
                   Ready to Get Started?
                 </Typography>
