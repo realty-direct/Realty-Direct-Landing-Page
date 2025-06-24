@@ -88,18 +88,20 @@ export default async function About(props: IAboutProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <Typography
-                variant="h1"
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-8"
+                variant="h2"
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4"
               >
                 About Realty Direct
               </Typography>
-              <Typography
-                variant="h4"
-                className="text-xl md:text-2xl text-slate-600 mb-12 font-normal max-w-4xl mx-auto leading-relaxed"
-              >
-                Independent real estate professionals transforming Queensland property experiences with direct communication, transparent pricing, and exceptional results
-              </Typography>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex justify-center">
+                <Typography
+                  variant="body1"
+                  className="text-base md:text-lg text-slate-600 mb-8 font-normal max-w-3xl leading-relaxed text-center"
+                >
+                  Independent real estate professionals transforming Queensland property experiences with direct communication, transparent pricing, and exceptional results
+                </Typography>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
                 <Button
                   variant="contained"
                   size="large"
@@ -166,13 +168,14 @@ export default async function About(props: IAboutProps) {
               <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
                 What Sets Us Apart
               </Typography>
-              <Typography
-                variant="h6"
-                className="text-xl text-slate-600 font-normal max-w-3xl mx-auto leading-relaxed"
-                align="center"
-              >
-                The values and expertise that make Realty Direct different from traditional real estate agencies
-              </Typography>
+              <div className="flex justify-center">
+                <Typography
+                  variant="h6"
+                  className="text-xl text-slate-600 font-normal max-w-3xl leading-relaxed text-center"
+                >
+                  The values and expertise that make Realty Direct different from traditional real estate agencies
+                </Typography>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
