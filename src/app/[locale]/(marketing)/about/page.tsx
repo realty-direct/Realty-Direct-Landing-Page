@@ -84,7 +84,7 @@ export default async function About(props: IAboutProps) {
 
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-slate-50">
+        <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <Typography
@@ -123,20 +123,20 @@ export default async function About(props: IAboutProps) {
         </section>
 
         {/* Mission & Vision Section */}
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-primary-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
               {/* Mission */}
               <div className="text-center">
                 <div className="mb-8">
-                  <div className="w-16 h-16 bg-primary-700 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Heart className="w-8 h-8 text-white" />
+                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Heart className="w-8 h-8 text-primary-700" />
                   </div>
-                  <Typography variant="h3" className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+                  <Typography variant="h3" className="text-2xl md:text-3xl font-bold text-white mb-6">
                     Our Mission
                   </Typography>
                 </div>
-                <Typography variant="body1" className="text-lg text-slate-700 leading-relaxed">
+                <Typography variant="body1" className="text-lg text-slate-200 leading-relaxed">
                   To revolutionize the Queensland real estate experience by providing transparent, direct communication and exceptional results. We believe property transactions should be straightforward, honest, and focused on achieving the best outcomes for our clients.
                 </Typography>
               </div>
@@ -144,49 +144,17 @@ export default async function About(props: IAboutProps) {
               {/* Vision */}
               <div className="text-center">
                 <div className="mb-8">
-                  <div className="w-16 h-16 bg-primary-700 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Award className="w-8 h-8 text-white" />
+                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Award className="w-8 h-8 text-primary-700" />
                   </div>
-                  <Typography variant="h3" className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+                  <Typography variant="h3" className="text-2xl md:text-3xl font-bold text-white mb-6">
                     Our Vision
                   </Typography>
                 </div>
-                <Typography variant="body1" className="text-lg text-slate-700 leading-relaxed">
+                <Typography variant="body1" className="text-lg text-slate-200 leading-relaxed">
                   To become Queensland's most trusted independent real estate agency, known for our integrity, expertise, and commitment to putting our clients' interests first. We envision a future where every property transaction is a positive, empowering experience.
                 </Typography>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Company Stats */}
-        <section className="py-24 bg-primary-900">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <Typography variant="h2" className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Trusted by Queensland Families
-              </Typography>
-              <Typography variant="h6" className="text-xl text-slate-200 font-normal max-w-2xl mx-auto">
-                Our growing track record speaks for itself
-              </Typography>
-            </div>
-
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                { number: '500+', label: 'Happy Clients' },
-                { number: '3', label: 'Years of Service' },
-                { number: '15+', label: 'Queensland Suburbs' },
-                { number: '98%', label: 'Client Satisfaction' },
-              ].map((stat, index) => (
-                <div key={index} className="text-center">
-                  <Typography variant="h2" className="text-4xl md:text-5xl font-bold text-white mb-2">
-                    {stat.number}
-                  </Typography>
-                  <Typography variant="body1" className="text-slate-300 text-lg">
-                    {stat.label}
-                  </Typography>
-                </div>
-              ))}
             </div>
           </div>
         </section>
@@ -201,6 +169,7 @@ export default async function About(props: IAboutProps) {
               <Typography
                 variant="h6"
                 className="text-xl text-slate-600 font-normal max-w-3xl mx-auto leading-relaxed"
+                align="center"
               >
                 The values and expertise that make Realty Direct different from traditional real estate agencies
               </Typography>
@@ -269,17 +238,17 @@ export default async function About(props: IAboutProps) {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-24 bg-gray-50">
+        <section className="py-24 bg-primary-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Paper elevation={0} className="p-12 rounded-xl border border-gray-200">
+            <div className="p-12 rounded-xl border border-slate-600 bg-primary-800">
               <div className="mb-16">
-                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
+                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
                   Frequently Asked Questions
                 </Typography>
                 <div className="flex justify-center">
                   <Typography
                     variant="h6"
-                    className="text-gray-600 font-light max-w-2xl"
+                    className="text-slate-200 font-light max-w-2xl"
                     style={{ textAlign: 'center' }}
                   >
                     Common questions about Realty Direct and our independent real estate services
@@ -306,28 +275,28 @@ export default async function About(props: IAboutProps) {
                     answer: 'Absolutely! We provide comprehensive services for buyers, sellers, and renters. Whether you\'re looking to purchase your first home, sell a property, or find the perfect rental, we\'re here to help.',
                   },
                 ].map((faq, index) => (
-                  <div key={index} className="border-b border-gray-200 pb-8 mb-8 last:border-b-0 last:mb-0">
-                    <Typography variant="h6" className="font-medium text-gray-900 mb-4">
+                  <div key={index} className="border-b border-slate-600 pb-8 mb-8 last:border-b-0 last:mb-0">
+                    <Typography variant="h6" className="font-medium text-white mb-4">
                       {faq.question}
                     </Typography>
-                    <Typography variant="body1" className="text-gray-600 leading-relaxed">
+                    <Typography variant="body1" className="text-slate-200 leading-relaxed">
                       {faq.answer}
                     </Typography>
                   </div>
                 ))}
               </div>
-            </Paper>
+            </div>
           </div>
         </section>
 
         {/* Call to Action */}
-        <section className="py-24 bg-gray-900">
+        <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
               Ready to Experience the Difference?
             </Typography>
-            <Typography variant="h6" className="text-lg md:text-xl text-gray-100 mb-10 font-normal max-w-2xl mx-auto">
-              Join hundreds of Queensland families who've chosen Realty Direct for their property journey. Experience what naturally direct really means.
+            <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl mx-auto">
+              Join Queensland families who've chosen Realty Direct for their property journey. Experience what naturally direct really means.
             </Typography>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -344,14 +313,14 @@ export default async function About(props: IAboutProps) {
                 variant="outlined"
                 size="large"
                 href="/services"
-                className="rounded-lg font-semibold px-8 py-4 text-white border-white hover:bg-white hover:text-gray-900"
+                className="rounded-lg font-semibold px-8 py-4 text-slate-900 border-slate-900 hover:bg-slate-900 hover:text-white"
               >
                 Explore Our Services
               </Button>
             </div>
 
             {/* Contact Info */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-gray-300">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-slate-600">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
                 <Typography variant="body2">Call us for a consultation</Typography>
