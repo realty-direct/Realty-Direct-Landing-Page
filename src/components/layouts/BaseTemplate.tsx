@@ -2,8 +2,8 @@
 
 import { AppConfig } from '@/utils/AppConfig';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 
 export const BaseTemplate = (props: {
@@ -22,23 +22,23 @@ export const BaseTemplate = (props: {
           <div className="flex justify-between items-center h-16 sm:h-20">
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center gap-1 sm:gap-2">
-                <Image 
-                  src="/assets/images/logo.svg" 
-                  alt="Realty Direct Logo" 
+                <Image
+                  src="/assets/images/logo.svg"
+                  alt="Realty Direct Logo"
                   width={40}
                   height={40}
-                  className="h-8 sm:h-10 w-auto" 
+                  className="h-8 sm:h-10 w-auto"
                   priority
                 />
                 <span className="font-bold text-lg sm:text-2xl text-blue-700 tracking-tight">{AppConfig.name}</span>
               </Link>
             </div>
-            
+
             {/* Desktop navigation */}
             <nav className="hidden md:flex items-center space-x-1 lg:space-x-4">
               {props.navItems}
             </nav>
-            
+
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button
@@ -48,10 +48,10 @@ export const BaseTemplate = (props: {
                 aria-expanded={mobileMenuOpen}
               >
                 <span className="sr-only">Open main menu</span>
-                <svg 
-                  className="h-5 w-5 sm:h-6 sm:w-6" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  className="h-5 w-5 sm:h-6 sm:w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
                   aria-hidden="true"
                 >
@@ -59,13 +59,13 @@ export const BaseTemplate = (props: {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                    d={mobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
                   />
                 </svg>
               </button>
             </div>
           </div>
-          
+
           {/* Mobile menu */}
           {mobileMenuOpen && (
             <div className="md:hidden bg-white border-t border-gray-100">
@@ -100,9 +100,8 @@ export const BaseTemplate = (props: {
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">{t('contact_us')}</h3>
-              <p className="text-gray-300">contact@rdsolutions.com</p>
-              <p className="text-gray-300">123 Innovation Street</p>
-              <p className="text-gray-300">Tech City, TC 12345</p>
+              <p className="text-gray-300">admin@realtydirect.com.au</p>
+
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">

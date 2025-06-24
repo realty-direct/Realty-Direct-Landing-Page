@@ -110,38 +110,40 @@ export default async function About(props: IAboutProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             {/* Story Section */}
-            <Card className="mb-16 rounded-3xl shadow-2xl border-0">
+            <Card className="mb-20 rounded-3xl shadow-2xl border-0">
               <CardContent className="p-12">
+                <div className="text-center mb-12">
+                  <Typography
+                    variant="h2"
+                    className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-8"
+                  >
+                    Our Story: Naturally Direct
+                  </Typography>
+                </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  <div>
-                    <Typography
-                      variant="h2"
-                      className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6"
-                    >
-                      Our Story: Naturally Direct
-                    </Typography>
-                    <Typography variant="body1" className="text-lg text-slate-700 mb-6" style={{ lineHeight: 1.7 }}>
+                  <div className="text-center lg:text-left">
+                    <Typography variant="body1" className="text-lg text-slate-700 mb-8" style={{ lineHeight: 1.8 }}>
                       Founded on the belief that real estate should be straightforward, honest, and results-driven, Realty Direct Queensland emerged from a simple question: "What if property transactions didn't have to be complicated?"
                     </Typography>
-                    <Typography variant="body1" className="text-lg text-slate-700 mb-6" style={{ lineHeight: 1.7 }}>
+                    <Typography variant="body1" className="text-lg text-slate-700 mb-10" style={{ lineHeight: 1.8 }}>
                       As Queensland's growing independent real estate company, we've built our reputation on doing things differently. We combine cutting-edge technology with genuine personal service, ensuring every client receives the attention and expertise they deserve.
                     </Typography>
-                    <div className="bg-primary-50 border-l-4 border-primary-700 p-6 rounded-lg">
-                      <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
+                    <div className="bg-primary-50 border-l-4 border-primary-700 p-8 rounded-lg">
+                      <Typography variant="h6" className="text-xl md:text-2xl text-primary-800 mb-4 font-semibold italic text-center">
                         "Direct communication, exceptional results"
                       </Typography>
-                      <Typography variant="body2" className="text-slate-600">
+                      <Typography variant="body1" className="text-slate-700 text-center" style={{ lineHeight: 1.6 }}>
                         This isn't just our motto—it's our promise to every Queensland family we serve.
                       </Typography>
                     </div>
                   </div>
-                  <div className="relative">
+                  <div className="relative flex justify-center">
                     <Image
                       src="/assets/images/rd-hero-illustration.svg"
                       alt="Realty Direct Queensland Team"
                       width={500}
                       height={400}
-                      className="w-full h-auto rounded-2xl"
+                      className="w-full h-auto rounded-2xl max-w-md"
                     />
                   </div>
                 </div>
@@ -149,10 +151,10 @@ export default async function About(props: IAboutProps) {
             </Card>
 
             {/* What Sets Us Apart */}
-            <div className="mb-16">
+            <div className="mb-20">
               <Typography
                 variant="h2"
-                className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-16 text-center"
               >
                 What Sets Us Apart
               </Typography>
@@ -183,10 +185,10 @@ export default async function About(props: IAboutProps) {
                     <div className="mb-4 flex justify-center text-primary-700">
                       {feature.icon}
                     </div>
-                    <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
+                    <Typography variant="h6" className="text-xl font-semibold text-slate-900 mb-3">
                       {feature.title}
                     </Typography>
-                    <Typography variant="body2" className="text-slate-600">
+                    <Typography variant="body2" className="text-slate-700 leading-relaxed">
                       {feature.description}
                     </Typography>
                   </Card>
@@ -195,15 +197,15 @@ export default async function About(props: IAboutProps) {
             </div>
 
             {/* FAQ Section */}
-            <Card className="mb-16 rounded-3xl shadow-2xl border-0">
+            <Card className="mb-20 rounded-3xl shadow-2xl border-0">
               <CardContent className="p-12">
                 <Typography
                   variant="h2"
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-16 text-center"
                 >
                   Frequently Asked Questions
                 </Typography>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   {[
                     {
                       question: "What makes Realty Direct different from other real estate agencies?",
@@ -222,11 +224,11 @@ export default async function About(props: IAboutProps) {
                       answer: "Absolutely! We provide comprehensive services for buyers, sellers, and renters. Whether you're looking to purchase your first home, sell a property, or find the perfect rental, we're here to help."
                     }
                   ].map((faq, index) => (
-                    <div key={index} className="border-b border-accent-600 pb-6 mb-6 last:border-b-0 last:mb-0">
-                      <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
+                    <div key={index} className="border-b border-slate-200 pb-8 mb-8 last:border-b-0 last:mb-0">
+                      <Typography variant="h6" className="text-lg md:text-xl text-slate-900 mb-6 font-semibold">
                         {faq.question}
                       </Typography>
-                      <Typography variant="body2" className="text-slate-700" style={{ lineHeight: 1.6 }}>
+                      <Typography variant="body1" className="text-slate-700 leading-relaxed text-base">
                         {faq.answer}
                       </Typography>
                     </div>
@@ -266,9 +268,8 @@ export default async function About(props: IAboutProps) {
                     variant="outlined"
                     size="large"
                     href="/services"
-                    className="rounded-full font-semibold px-8 py-3"
+                    className="rounded-full font-semibold px-8 py-3 text-white border-white hover:bg-white hover:text-primary-900"
                     style={{
-                      color: 'white',
                       borderColor: 'white',
                       textTransform: 'none',
                       fontSize: '1.1rem',

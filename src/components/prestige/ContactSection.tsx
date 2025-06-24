@@ -1,8 +1,7 @@
 'use client';
 
-import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { AlertCircle, CheckCircle, Send } from 'lucide-react';
 import { useState } from 'react';
-
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -10,9 +9,9 @@ export const ContactSection = () => {
     email: '',
     phone: '',
     subject: 'General Inquiry',
-    message: ''
+    message: '',
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: 'success' | 'error' | null;
@@ -22,7 +21,7 @@ export const ContactSection = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -45,7 +44,7 @@ export const ContactSection = () => {
       if (response.ok) {
         setSubmitStatus({
           type: 'success',
-          message: data.message || 'Thank you for your message. We will get back to you soon!'
+          message: data.message || 'Thank you for your message. We will get back to you soon!',
         });
         // Reset form on success
         setFormData({
@@ -53,18 +52,18 @@ export const ContactSection = () => {
           email: '',
           phone: '',
           subject: 'General Inquiry',
-          message: ''
+          message: '',
         });
       } else {
         setSubmitStatus({
           type: 'error',
-          message: data.error || 'Something went wrong. Please try again.'
+          message: data.error || 'Something went wrong. Please try again.',
         });
       }
     } catch (error) {
       setSubmitStatus({
         type: 'error',
-        message: 'Network error. Please check your connection and try again.'
+        message: 'Network error. Please check your connection and try again.',
       });
     } finally {
       setIsSubmitting(false);
@@ -72,8 +71,8 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="py-20 bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className=" ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-slate-900 p-10 mb-10">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -91,23 +90,26 @@ export const ContactSection = () => {
               <h3 className="text-2xl font-bold text-slate-900 mb-6">
                 Send us a Message
               </h3>
-              
+
               {/* Status Message */}
               {submitStatus.type && (
                 <div className={`p-4 rounded-lg border flex items-center gap-3 mb-6 ${
-                  submitStatus.type === 'success' 
-                    ? 'bg-green-50 border-green-200 text-green-800' 
+                  submitStatus.type === 'success'
+                    ? 'bg-green-50 border-green-200 text-green-800'
                     : 'bg-red-50 border-red-200 text-red-800'
-                }`}>
-                  {submitStatus.type === 'success' ? (
-                    <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                  ) : (
-                    <AlertCircle className="w-5 h-5 flex-shrink-0" />
-                  )}
+                }`}
+                >
+                  {submitStatus.type === 'success'
+                    ? (
+                        <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                      )
+                    : (
+                        <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                      )}
                   <p className="font-medium">{submitStatus.message}</p>
                 </div>
               )}
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -139,7 +141,7 @@ export const ContactSection = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-2">
@@ -172,7 +174,7 @@ export const ContactSection = () => {
                     </select>
                   </div>
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">
                     Message *
@@ -187,23 +189,25 @@ export const ContactSection = () => {
                     placeholder="Tell us about your property needs..."
                   />
                 </div>
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4" />
-                      Send Message
-                    </>
-                  )}
+                  {isSubmitting
+                    ? (
+                        <>
+                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                          Sending...
+                        </>
+                      )
+                    : (
+                        <>
+                          <Send className="w-4 h-4" />
+                          Send Message
+                        </>
+                      )}
                 </button>
               </form>
             </div>
