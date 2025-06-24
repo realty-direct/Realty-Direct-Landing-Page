@@ -35,6 +35,7 @@ jobs:
       - name: Build project
         run: |
           export SKIP_ENV_VALIDATION=true
+          export NEXT_PUBLIC_APP_URL=https://realty-direct.github.io/Realty-Direct-Landing-Page
           npm run build -- --no-lint
 
       - name: Upload artifact

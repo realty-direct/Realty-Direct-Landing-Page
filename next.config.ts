@@ -6,6 +6,9 @@ import createNextIntlPlugin from 'next-intl/plugin';
 // Define the base Next.js configuration
 const baseConfig: NextConfig = {
   output: 'export',
+  basePath: '/Realty-Direct-Landing-Page',
+  assetPrefix: '/Realty-Direct-Landing-Page',
+  trailingSlash: true,
   eslint: {
     dirs: ['.'],
   },

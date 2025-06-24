@@ -5,6 +5,11 @@ export const getBaseUrl = () => {
     return process.env.NEXT_PUBLIC_APP_URL;
   }
 
+  // GitHub Pages
+  if (process.env.GITHUB_ACTIONS) {
+    return 'https://realty-direct.github.io/Realty-Direct-Landing-Page';
+  }
+
   if (
     process.env.VERCEL_ENV === 'production'
     && process.env.VERCEL_PROJECT_PRODUCTION_URL
