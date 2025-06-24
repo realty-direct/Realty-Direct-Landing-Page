@@ -45,8 +45,8 @@ export async function generateMetadata(props: ISellingProps): Promise<Metadata> 
       index: true,
       follow: true,
       googleBot: {
-        index: true,
-        follow: true,
+        'index': true,
+        'follow': true,
         'max-video-preview': -1,
         'max-image-preview': 'large',
         'max-snippet': -1,
@@ -67,80 +67,80 @@ export default async function Selling(props: ISellingProps) {
     'provider': {
       '@type': 'RealEstateAgent',
       'name': 'Realty Direct',
-      'url': 'https://realtydirect.com.au'
+      'url': 'https://realtydirect.com.au',
     },
     'areaServed': ['Queensland', 'Brisbane', 'Gold Coast', 'Sunshine Coast'],
     'serviceType': ['Property Valuation', 'Property Marketing', 'Sales Negotiation', 'Property Management'],
     'offers': {
       '@type': 'Offer',
-      'description': 'Free property appraisal and market analysis'
-    }
+      'description': 'Free property appraisal and market analysis',
+    },
   };
 
   const sellingProcess = [
     {
       step: 1,
-      title: "Free Property Appraisal",
-      description: "Get an accurate market valuation of your property with our comprehensive appraisal service",
-      icon: <Home className="w-8 h-8" />
+      title: 'Free Property Appraisal',
+      description: 'Get an accurate market valuation of your property with our comprehensive appraisal service',
+      icon: <Home className="w-8 h-8" />,
     },
     {
       step: 2,
-      title: "Professional Photography",
-      description: "Stunning photography and virtual tours to showcase your property at its best",
-      icon: <Camera className="w-8 h-8" />
+      title: 'Professional Photography',
+      description: 'Stunning photography and virtual tours to showcase your property at its best',
+      icon: <Camera className="w-8 h-8" />,
     },
     {
       step: 3,
-      title: "Marketing Strategy",
-      description: "Multi-channel marketing including online portals, social media, and print advertising",
-      icon: <TrendingUp className="w-8 h-8" />
+      title: 'Marketing Strategy',
+      description: 'Multi-channel marketing including online portals, social media, and print advertising',
+      icon: <TrendingUp className="w-8 h-8" />,
     },
     {
       step: 4,
-      title: "Buyer Management",
-      description: "Professional handling of inspections, negotiations, and all buyer communications",
-      icon: <Users className="w-8 h-8" />
+      title: 'Buyer Management',
+      description: 'Professional handling of inspections, negotiations, and all buyer communications',
+      icon: <Users className="w-8 h-8" />,
     },
     {
       step: 5,
-      title: "Settlement Support",
-      description: "Complete support through to settlement with all legal and administrative requirements",
-      icon: <FileText className="w-8 h-8" />
-    }
+      title: 'Settlement Support',
+      description: 'Complete support through to settlement with all legal and administrative requirements',
+      icon: <FileText className="w-8 h-8" />,
+    },
   ];
 
   const faqs = [
     {
-      question: "How much does it cost to sell my property with Realty Direct?",
-      answer: "Our transparent fee structure offers competitive rates with no hidden costs. We provide upfront pricing so you know exactly what you'll pay. Contact us for a detailed quote based on your specific property and requirements."
+      question: 'How much does it cost to sell my property with Realty Direct?',
+      answer: 'Our transparent fee structure offers competitive rates with no hidden costs. We provide upfront pricing so you know exactly what you\'ll pay. Contact us for a detailed quote based on your specific property and requirements.',
     },
     {
-      question: "How long does it typically take to sell a property in Queensland?",
-      answer: "The average time to sell varies by location and market conditions. In Queensland's major markets like Brisbane and Gold Coast, properties typically sell within 4-8 weeks with proper pricing and marketing. We'll provide a realistic timeline based on your specific property and current market conditions."
+      question: 'How long does it typically take to sell a property in Queensland?',
+      answer: 'The average time to sell varies by location and market conditions. In Queensland\'s major markets like Brisbane and Gold Coast, properties typically sell within 4-8 weeks with proper pricing and marketing. We\'ll provide a realistic timeline based on your specific property and current market conditions.',
     },
     {
-      question: "Do you provide a free property appraisal?",
-      answer: "Yes! We offer complimentary property appraisals including a comprehensive market analysis. Our experienced agents will assess your property's value based on recent sales, market trends, and property features."
+      question: 'Do you provide a free property appraisal?',
+      answer: 'Yes! We offer complimentary property appraisals including a comprehensive market analysis. Our experienced agents will assess your property\'s value based on recent sales, market trends, and property features.',
     },
     {
-      question: "What marketing is included in your selling service?",
-      answer: "Our comprehensive marketing package includes professional photography, online listings on major portals (realestate.com.au, Domain), social media promotion, email marketing to our database, and print advertising where appropriate. We tailor the marketing strategy to your property and target market."
+      question: 'What marketing is included in your selling service?',
+      answer: 'Our comprehensive marketing package includes professional photography, online listings on major portals (realestate.com.au, Domain), social media promotion, email marketing to our database, and print advertising where appropriate. We tailor the marketing strategy to your property and target market.',
     },
     {
-      question: "Can you help prepare my property for sale?",
-      answer: "Absolutely! We provide guidance on property presentation, staging advice, and can recommend trusted tradespeople for any repairs or improvements that could increase your property's value and appeal to buyers."
+      question: 'Can you help prepare my property for sale?',
+      answer: 'Absolutely! We provide guidance on property presentation, staging advice, and can recommend trusted tradespeople for any repairs or improvements that could increase your property\'s value and appeal to buyers.',
     },
     {
-      question: "What areas of Queensland do you cover?",
-      answer: "We service all major Queensland markets including Brisbane, Gold Coast, Sunshine Coast, and surrounding areas. Our team has extensive local knowledge across these regions to ensure the best possible outcome for your property sale."
-    }
+      question: 'What areas of Queensland do you cover?',
+      answer: 'We service all major Queensland markets including Brisbane, Gold Coast, Sunshine Coast, and surrounding areas. Our team has extensive local knowledge across these regions to ensure the best possible outcome for your property sale.',
+    },
   ];
 
   return (
     <>
       <StructuredData data={structuredData} />
-      
+
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center">
@@ -219,12 +219,12 @@ export default async function Selling(props: ISellingProps) {
         {/* Main Content */}
         <section className="py-16 bg-gradient-to-br from-white via-accent-500/30 to-accent-600/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+
             {/* Section Header */}
             <div className="mb-16 flex flex-col items-center">
               <Typography
                 variant="h2"
-                className="font-display text-4xl md:text-5xl font-semibold text-primary-900 mb-6 text-center"
+                className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-900 mb-6 text-center"
               >
                 Why Choose Realty Direct to Sell Your Property?
               </Typography>
@@ -247,19 +247,19 @@ export default async function Selling(props: ISellingProps) {
                   {[
                     {
                       icon: <DollarSign className="w-10 h-10 text-primary-700" />,
-                      title: "Maximum Sale Price",
-                      description: "Our expert pricing strategies and proven marketing methods consistently achieve top dollar for our clients' properties"
+                      title: 'Maximum Sale Price',
+                      description: 'Our expert pricing strategies and proven marketing methods consistently achieve top dollar for our clients\' properties',
                     },
                     {
                       icon: <TrendingUp className="w-10 h-10 text-primary-700" />,
-                      title: "Professional Marketing",
-                      description: "Comprehensive marketing campaigns across all major platforms to ensure maximum exposure for your property"
+                      title: 'Professional Marketing',
+                      description: 'Comprehensive marketing campaigns across all major platforms to ensure maximum exposure for your property',
                     },
                     {
                       icon: <CheckCircle className="w-10 h-10 text-primary-700" />,
-                      title: "Transparent Process",
-                      description: "Clear communication, regular updates, and transparent pricing with no hidden fees or surprises"
-                    }
+                      title: 'Transparent Process',
+                      description: 'Clear communication, regular updates, and transparent pricing with no hidden fees or surprises',
+                    },
                   ].map((benefit, index) => (
                     <div key={index} className="flex flex-col items-center text-center">
                       <div className="mb-4">
@@ -354,8 +354,8 @@ export default async function Selling(props: ISellingProps) {
                 >
                   Ready to Sell Your Property?
                 </Typography>
-                <Typography 
-                  variant="body1" 
+                <Typography
+                  variant="body1"
                   className="text-slate-100 text-lg mb-8 max-w-2xl mx-auto text-center"
                   style={{ lineHeight: 1.7 }}
                 >
@@ -393,7 +393,7 @@ export default async function Selling(props: ISellingProps) {
                     Learn More About Us
                   </Button>
                 </div>
-                
+
                 {/* Motto */}
                 <div className="mt-14 pt-8 border-t border-white/20">
                   <Typography

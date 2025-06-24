@@ -58,6 +58,22 @@ export default async function Renting(props: IRentingProps) {
   const { locale } = await props.params;
   setRequestLocale(locale);
 
+  // Icon mapping function
+  const getIcon = (iconName: string, className: string = "w-8 h-8") => {
+    const iconProps = { className };
+    switch (iconName) {
+      case 'Home': return <Home {...iconProps} />;
+      case 'Shield': return <Shield {...iconProps} />;
+      case 'FileText': return <FileText {...iconProps} />;
+      case 'Search': return <Search {...iconProps} />;
+      case 'Users': return <Users {...iconProps} />;
+      case 'CheckCircle': return <CheckCircle {...iconProps} />;
+      case 'Calendar': return <Calendar {...iconProps} />;
+      case 'MapPin': return <MapPin {...iconProps} />;
+      default: return <Home {...iconProps} />;
+    }
+  };
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -80,7 +96,7 @@ export default async function Renting(props: IRentingProps) {
     {
       title: 'For Tenants',
       description: 'Find your perfect rental home in Queensland with our comprehensive tenant services',
-      icon: <Home className="w-12 h-12" />,
+      iconName: 'Home',
       features: [
         'Extensive property search',
         'Application assistance',
@@ -93,7 +109,7 @@ export default async function Renting(props: IRentingProps) {
     {
       title: 'For Property Owners',
       description: 'Professional property management services to maximize your rental investment returns',
-      icon: <Shield className="w-12 h-12" />,
+      iconName: 'Shield',
       features: [
         'Tenant screening and placement',
         'Rent collection and management',
@@ -110,31 +126,31 @@ export default async function Renting(props: IRentingProps) {
       step: 1,
       title: 'Property Assessment',
       description: 'Comprehensive evaluation of your property to determine optimal rental price and condition',
-      icon: <FileText className="w-8 h-8" />,
+      iconName: 'FileText',
     },
     {
       step: 2,
       title: 'Marketing & Advertising',
       description: 'Professional photography and listing across all major rental platforms',
-      icon: <Search className="w-8 h-8" />,
+      iconName: 'Search',
     },
     {
       step: 3,
       title: 'Tenant Screening',
       description: 'Thorough background checks, references, and financial verification of potential tenants',
-      icon: <Users className="w-8 h-8" />,
+      iconName: 'Users',
     },
     {
       step: 4,
       title: 'Lease Management',
       description: 'Professional lease agreements, condition reports, and bond handling',
-      icon: <CheckCircle className="w-8 h-8" />,
+      iconName: 'CheckCircle',
     },
     {
       step: 5,
       title: 'Ongoing Management',
       description: 'Regular inspections, maintenance coordination, and rent collection',
-      icon: <Calendar className="w-8 h-8" />,
+      iconName: 'Calendar',
     },
   ];
 
@@ -293,7 +309,7 @@ export default async function Renting(props: IRentingProps) {
                     <div className="mb-6 text-center">
                       <div className={`inline-flex p-4 ${colorScheme.iconBg} rounded-full shadow-md group-hover:shadow-lg transition-all duration-300`}>
                         <div className="text-white transition-colors duration-300">
-                          {service.icon}
+                          {getIcon(service.iconName, "w-12 h-12")}
                         </div>
                       </div>
                     </div>
@@ -325,17 +341,17 @@ export default async function Renting(props: IRentingProps) {
         </section>
 
         {/* Property Management Process */}
-        <section id="management" className="py-24 bg-gray-50">
+        <section id="management" className="py-24 bg-primary-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Paper elevation={0} className="p-12 rounded-xl border border-gray-200">
+            <div className="p-12 rounded-xl bg-primary-800">
               <div className="mb-16">
-                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
+                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
                   Our Property Management Process
                 </Typography>
                 <div className="flex justify-center">
                   <Typography
                     variant="h6"
-                    className="text-gray-600 font-light max-w-2xl"
+                    className="text-slate-200 font-light max-w-2xl"
                     style={{ textAlign: 'center' }}
                   >
                     A comprehensive approach to maximize your investment returns and tenant satisfaction
@@ -347,25 +363,25 @@ export default async function Renting(props: IRentingProps) {
                 {managementProcess.map((step, index) => (
                   <div key={index} className="flex items-start gap-6 group">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-gray-900 text-white rounded-full flex items-center justify-center text-xl font-bold group-hover:bg-gray-800 transition-colors duration-300">
+                      <div className="w-16 h-16 bg-white text-primary-900 rounded-full flex items-center justify-center text-xl font-bold group-hover:bg-slate-100 transition-colors duration-300">
                         {step.step}
                       </div>
                     </div>
                     <div className="flex-1">
-                      <Typography variant="h6" className="font-medium mb-2 text-gray-900">
+                      <Typography variant="h6" className="font-medium mb-2 text-white">
                         {step.title}
                       </Typography>
-                      <Typography variant="body1" className="text-gray-600 leading-relaxed">
+                      <Typography variant="body1" className="text-slate-200 leading-relaxed">
                         {step.description}
                       </Typography>
                     </div>
-                    <div className="flex-shrink-0 text-gray-500 group-hover:text-gray-700 transition-colors duration-300">
-                      {step.icon}
+                    <div className="flex-shrink-0 text-slate-300 group-hover:text-white transition-colors duration-300">
+                      {getIcon(step.iconName)}
                     </div>
                   </div>
                 ))}
               </div>
-            </Paper>
+            </div>
           </div>
         </section>
 
@@ -389,7 +405,7 @@ export default async function Renting(props: IRentingProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  icon: <MapPin className="w-8 h-8" />,
+                  iconName: 'MapPin',
                   title: 'Local Expertise',
                   description: 'Deep knowledge of Queensland rental markets, regulations, and best practices across all major regions',
                   bgColor: 'bg-gradient-to-br from-blue-50 to-blue-100',
@@ -397,7 +413,7 @@ export default async function Renting(props: IRentingProps) {
                   hoverBg: 'hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-200',
                 },
                 {
-                  icon: <Shield className="w-8 h-8" />,
+                  iconName: 'Shield',
                   title: 'Professional Service',
                   description: 'Comprehensive property management with transparent communication and reliable support for all parties',
                   bgColor: 'bg-gradient-to-br from-emerald-50 to-emerald-100',
@@ -405,7 +421,7 @@ export default async function Renting(props: IRentingProps) {
                   hoverBg: 'hover:bg-gradient-to-br hover:from-emerald-100 hover:to-emerald-200',
                 },
                 {
-                  icon: <Users className="w-8 h-8" />,
+                  iconName: 'Users',
                   title: 'Tenant & Owner Focus',
                   description: 'Balanced approach that protects property owners\' investments while providing excellent tenant experiences',
                   bgColor: 'bg-gradient-to-br from-purple-50 to-purple-100',
@@ -422,7 +438,7 @@ export default async function Renting(props: IRentingProps) {
                   <div className="mb-6">
                     <div className={`inline-flex p-4 ${benefit.iconBg} rounded-full shadow-md group-hover:shadow-lg transition-all duration-300`}>
                       <div className="text-white transition-colors duration-300">
-                        {benefit.icon}
+                        {getIcon(benefit.iconName)}
                       </div>
                     </div>
                   </div>
@@ -441,17 +457,17 @@ export default async function Renting(props: IRentingProps) {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-24 bg-gray-50">
+        <section className="py-24 bg-primary-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Paper elevation={0} className="p-12 rounded-xl border border-gray-200">
+            <div className="p-12 rounded-xl bg-primary-800">
               <div className="mb-16">
-                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
+                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
                   Frequently Asked Questions
                 </Typography>
                 <div className="flex justify-center">
                   <Typography
                     variant="h6"
-                    className="text-gray-600 font-light max-w-2xl"
+                    className="text-slate-200 font-light max-w-2xl"
                     style={{ textAlign: 'center' }}
                   >
                     Common questions about our rental and property management services
@@ -461,30 +477,30 @@ export default async function Renting(props: IRentingProps) {
 
               <div className="space-y-8">
                 {faqs.map((faq, index) => (
-                  <div key={index} className="border-b border-gray-200 pb-8 last:border-b-0">
-                    <Typography variant="h6" className="font-medium text-gray-900 mb-4">
+                  <div key={index} className="border-b border-slate-600 pb-8 last:border-b-0">
+                    <Typography variant="h6" className="font-medium text-white mb-4">
                       {faq.question}
                     </Typography>
-                    <Typography variant="body1" className="text-gray-600 leading-relaxed">
+                    <Typography variant="body1" className="text-slate-200 leading-relaxed">
                       {faq.answer}
                     </Typography>
                   </div>
                 ))}
               </div>
-            </Paper>
+            </div>
           </div>
         </section>
 
         {/* Call to Action */}
-        <section className="py-24 bg-gray-900">
+        <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
               Ready to Get Started with Rentals?
             </Typography>
             <div className="flex justify-center w-full">
               <Typography
                 variant="h6"
-                className="text-lg md:text-xl text-gray-100 mb-10 font-normal max-w-2xl text-center"
+                className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl text-center"
               >
                 Whether you're looking for a rental property or need professional property management services, we're here to help
               </Typography>
@@ -504,14 +520,14 @@ export default async function Renting(props: IRentingProps) {
                 variant="outlined"
                 size="large"
                 href="/about"
-                className="rounded-lg font-semibold px-8 py-4 text-white border-white hover:bg-white hover:text-gray-900"
+                className="rounded-lg font-semibold px-8 py-4 text-slate-700 border-slate-300 hover:bg-slate-100 hover:text-slate-900"
               >
                 Learn More About Us
               </Button>
             </div>
 
             {/* Contact Info */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-gray-300">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-slate-600">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
                 <Typography variant="body2">Call us for property management</Typography>

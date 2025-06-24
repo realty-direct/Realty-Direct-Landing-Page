@@ -1,6 +1,7 @@
 import { ContactSection } from '@/components/prestige/ContactSection';
+import { Typography } from '@mui/material';
 import { Clock, Mail, Phone } from 'lucide-react';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Contact Us | Realty Direct',
@@ -35,8 +36,8 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
     googleBot: {
-      index: true,
-      follow: true,
+      'index': true,
+      'follow': true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
@@ -47,57 +48,71 @@ export const metadata: Metadata = {
 const contactInfo = {
   email: 'admin@realtydirect.com.au',
   phone: '+61 7 3333 0123',
-  hours: 'Mon-Fri 9AM-6PM, Sat 9AM-4PM'
+  hours: 'Mon-Fri 9AM-6PM, Sat 9AM-4PM',
 };
 
 export default function Contact() {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen">
       {/* Header */}
-      <div className="text-center py-16 px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-          Contact Us
-        </h1>
-        <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-12">
-          Ready to experience Queensland's premier real estate service? Get in touch with our expert team today.
-        </p>
-
-        {/* Contact Info Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
-            <Phone className="w-8 h-8 text-green-500 mx-auto mb-4" />
-            <h3 className="font-semibold text-slate-900 mb-2">Phone</h3>
-            <a 
-              href={`tel:${contactInfo.phone}`}
-              className="text-slate-600 hover:text-green-500 transition-colors"
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <Typography
+              variant="h2"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4"
             >
-              {contactInfo.phone}
-            </a>
-          </div>
+              Contact Us
+            </Typography>
+            <div className="flex justify-center">
+              <Typography
+                variant="body1"
+                className="text-base md:text-lg text-slate-600 max-w-2xl mb-8 font-normal leading-relaxed text-center"
+              >
+                Ready to experience Queensland's premier real estate service? Get in touch with our expert team today.
+              </Typography>
+            </div>
 
-          <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
-            <Mail className="w-8 h-8 text-purple-500 mx-auto mb-4" />
-            <h3 className="font-semibold text-slate-900 mb-2">Email</h3>
-            <a 
-              href={`mailto:${contactInfo.email}`}
-              className="text-slate-600 hover:text-purple-500 transition-colors"
-            >
-              {contactInfo.email}
-            </a>
-          </div>
+            {/* Contact Info Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
+                <Phone className="w-8 h-8 text-green-500 mx-auto mb-4" />
+                <h3 className="font-semibold text-slate-900 mb-2">Phone</h3>
+                <a
+                  href={`tel:${contactInfo.phone}`}
+                  className="text-slate-600 hover:text-green-500 transition-colors"
+                >
+                  {contactInfo.phone}
+                </a>
+              </div>
 
-          <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
-            <Clock className="w-8 h-8 text-amber-500 mx-auto mb-4" />
-            <h3 className="font-semibold text-slate-900 mb-2">Business Hours</h3>
-            <p className="text-slate-600">
-              {contactInfo.hours}
-            </p>
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
+                <Mail className="w-8 h-8 text-purple-500 mx-auto mb-4" />
+                <h3 className="font-semibold text-slate-900 mb-2">Email</h3>
+                <a
+                  href={`mailto:${contactInfo.email}`}
+                  className="text-slate-600 hover:text-purple-500 transition-colors"
+                >
+                  {contactInfo.email}
+                </a>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
+                <Clock className="w-8 h-8 text-amber-500 mx-auto mb-4" />
+                <h3 className="font-semibold text-slate-900 mb-2">Business Hours</h3>
+                <p className="text-slate-600">
+                  {contactInfo.hours}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Contact Form Section */}
-      <ContactSection />
+      <section className="py-24 bg-primary-900">
+        <ContactSection />
+      </section>
 
       {/* Structured Data */}
       <script
@@ -117,11 +132,11 @@ export default function Contact() {
               'address': {
                 '@type': 'PostalAddress',
                 'addressCountry': 'AU',
-                'addressRegion': 'Queensland'
+                'addressRegion': 'Queensland',
               },
-              'openingHours': 'Mo-Fr 09:00-18:00,Sa 09:00-16:00'
-            }
-          })
+              'openingHours': 'Mo-Fr 09:00-18:00,Sa 09:00-16:00',
+            },
+          }),
         }}
       />
     </div>

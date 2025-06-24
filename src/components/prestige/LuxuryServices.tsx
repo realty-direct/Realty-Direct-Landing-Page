@@ -63,17 +63,17 @@ const services = [
 
 export const LuxuryServices = () => {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-primary-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-16">
-          <Typography variant="h2" className="text-4xl md:text-5xl font-light mb-4 text-center">
+          <Typography variant="h2" className="text-4xl md:text-5xl font-light mb-4 text-center text-white">
             Professional Real Estate Services
           </Typography>
           <div className="flex justify-center">
             <Typography
               variant="h6"
-              className="text-gray-600 font-light max-w-2xl"
+              className="text-slate-200 font-light max-w-2xl"
               style={{ textAlign: 'center' }}
             >
               Comprehensive property services designed to help you achieve your real estate goals
@@ -85,10 +85,9 @@ export const LuxuryServices = () => {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Paper
+              <div
                 key={index}
-                elevation={0}
-                className={`p-8 border border-gray-200 transition-all duration-300 group rounded-xl ${service.bgColor} ${service.hoverBg} hover:shadow-lg hover:scale-105`}
+                className={`p-8 border border-slate-600 transition-all duration-300 group rounded-xl bg-slate-800 hover:bg-slate-700 hover:shadow-lg hover:scale-105`}
               >
                 {/* Icon */}
                 <div className="mb-6">
@@ -98,23 +97,23 @@ export const LuxuryServices = () => {
                 </div>
 
                 {/* Content */}
-                <Typography variant="h5" className="font-medium mb-3">
+                <Typography variant="h5" className="font-medium mb-3 text-white">
                   {service.title}
                 </Typography>
-                <Typography variant="body1" className="text-gray-600 leading-relaxed">
+                <Typography variant="body1" className="text-slate-200 leading-relaxed">
                   {service.description}
                 </Typography>
-              </Paper>
+              </div>
             );
           })}
         </div>
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <Typography variant="h6" className="text-gray-700 font-light mb-6">
+          <Typography variant="h6" className="text-slate-200 font-light mb-6">
             Ready to get started with your property journey? Contact us today
           </Typography>
-          <button className="inline-flex items-center gap-2 px-8 py-3 bg-gray-900 text-white font-medium hover:bg-gray-800 transition-colors duration-300">
+          <button className="inline-flex items-center gap-2 px-8 py-3 bg-white text-slate-900 font-medium hover:bg-slate-100 transition-colors duration-300">
             Contact Us Today
           </button>
         </div>

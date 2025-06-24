@@ -71,17 +71,16 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className=" ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-slate-900 p-10 mb-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Get In Touch
-          </h2>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            Ready to experience Queensland's premier real estate service? Contact our expert team today.
-          </p>
-        </div>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Header */}
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          Get In Touch
+        </h2>
+        <p className="text-xl text-slate-200 max-w-2xl mx-auto">
+          Ready to experience Queensland's premier real estate service? Contact our expert team today.
+        </p>
+      </div>
 
         <div className="max-w-4xl mx-auto">
           {/* Contact Form */}
@@ -214,7 +213,6 @@ export const ContactSection = () => {
           </div>
 
         </div>
-      </div>
-    </section>
+    </div>
   );
 };

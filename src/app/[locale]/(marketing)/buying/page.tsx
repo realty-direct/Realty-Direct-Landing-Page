@@ -44,8 +44,8 @@ export async function generateMetadata(props: IBuyingProps): Promise<Metadata> {
       index: true,
       follow: true,
       googleBot: {
-        index: true,
-        follow: true,
+        'index': true,
+        'follow': true,
         'max-video-preview': -1,
         'max-image-preview': 'large',
         'max-snippet': -1,
@@ -66,95 +66,95 @@ export default async function Buying(props: IBuyingProps) {
     'provider': {
       '@type': 'RealEstateAgent',
       'name': 'Realty Direct',
-      'url': 'https://realtydirect.com.au'
+      'url': 'https://realtydirect.com.au',
     },
     'areaServed': ['Queensland', 'Brisbane', 'Gold Coast', 'Sunshine Coast'],
     'serviceType': ['Buyer Agent', 'Property Search', 'Market Analysis', 'Negotiation Services'],
     'offers': {
       '@type': 'Offer',
-      'description': 'Free buyer consultation and market briefing'
-    }
+      'description': 'Free buyer consultation and market briefing',
+    },
   };
 
   const buyingProcess = [
     {
       step: 1,
-      title: "Initial Consultation",
-      description: "Understand your needs, budget, and preferred locations with a comprehensive buyer briefing",
-      icon: <Users className="w-8 h-8" />
+      title: 'Initial Consultation',
+      description: 'Understand your needs, budget, and preferred locations with a comprehensive buyer briefing',
+      icon: <Users className="w-8 h-8" />,
     },
     {
       step: 2,
-      title: "Property Search",
-      description: "Access to exclusive listings and off-market properties matching your criteria",
-      icon: <Search className="w-8 h-8" />
+      title: 'Property Search',
+      description: 'Access to exclusive listings and off-market properties matching your criteria',
+      icon: <Search className="w-8 h-8" />,
     },
     {
       step: 3,
-      title: "Market Analysis",
-      description: "Detailed property reports including market value, comparable sales, and growth potential",
-      icon: <Calculator className="w-8 h-8" />
+      title: 'Market Analysis',
+      description: 'Detailed property reports including market value, comparable sales, and growth potential',
+      icon: <Calculator className="w-8 h-8" />,
     },
     {
       step: 4,
-      title: "Property Inspections",
-      description: "Professional guidance during inspections with expert insights on property condition and value",
-      icon: <Shield className="w-8 h-8" />
+      title: 'Property Inspections',
+      description: 'Professional guidance during inspections with expert insights on property condition and value',
+      icon: <Shield className="w-8 h-8" />,
     },
     {
       step: 5,
-      title: "Negotiation & Purchase",
-      description: "Expert negotiation to secure the best price and terms, plus support through to settlement",
-      icon: <Key className="w-8 h-8" />
-    }
+      title: 'Negotiation & Purchase',
+      description: 'Expert negotiation to secure the best price and terms, plus support through to settlement',
+      icon: <Key className="w-8 h-8" />,
+    },
   ];
 
   const buyerTypes = [
     {
-      title: "First Home Buyers",
-      description: "Navigate the Queensland property market with confidence. We'll guide you through grants, loans, and finding the perfect starter home.",
+      title: 'First Home Buyers',
+      description: 'Navigate the Queensland property market with confidence. We\'ll guide you through grants, loans, and finding the perfect starter home.',
       icon: <Heart className="w-12 h-12" />,
-      benefits: ["First home buyer grant guidance", "Loan pre-approval assistance", "Property inspection education", "Ongoing support and advice"]
+      benefits: ['First home buyer grant guidance', 'Loan pre-approval assistance', 'Property inspection education', 'Ongoing support and advice'],
     },
     {
-      title: "Property Investors",
-      description: "Build your Queensland property portfolio with expert insights on growth areas, rental yields, and investment strategies.",
+      title: 'Property Investors',
+      description: 'Build your Queensland property portfolio with expert insights on growth areas, rental yields, and investment strategies.',
       icon: <Calculator className="w-12 h-12" />,
-      benefits: ["Investment property analysis", "Rental yield calculations", "Growth area identification", "Tax and depreciation advice"]
+      benefits: ['Investment property analysis', 'Rental yield calculations', 'Growth area identification', 'Tax and depreciation advice'],
     },
     {
-      title: "Upgrading Families",
-      description: "Find your dream family home in Queensland's best suburbs. We understand what growing families need.",
+      title: 'Upgrading Families',
+      description: 'Find your dream family home in Queensland\'s best suburbs. We understand what growing families need.',
       icon: <Users className="w-12 h-12" />,
-      benefits: ["School catchment research", "Family-friendly suburb analysis", "Property size optimization", "Future growth consideration"]
-    }
+      benefits: ['School catchment research', 'Family-friendly suburb analysis', 'Property size optimization', 'Future growth consideration'],
+    },
   ];
 
   const faqs = [
     {
-      question: "What does a buyer's agent do?",
-      answer: "A buyer's agent represents your interests when purchasing property. We search for suitable properties, provide market analysis, attend inspections with you, negotiate on your behalf, and guide you through the entire buying process to ensure you get the best possible outcome."
+      question: 'What does a buyer\'s agent do?',
+      answer: 'A buyer\'s agent represents your interests when purchasing property. We search for suitable properties, provide market analysis, attend inspections with you, negotiate on your behalf, and guide you through the entire buying process to ensure you get the best possible outcome.',
     },
     {
-      question: "How much does it cost to use a buyer's agent?",
-      answer: "Our buyer's agent fees are transparent and competitive. We offer different service packages to suit various budgets and needs. Contact us for a detailed discussion about our pricing structure and how we can help with your specific requirements."
+      question: 'How much does it cost to use a buyer\'s agent?',
+      answer: 'Our buyer\'s agent fees are transparent and competitive. We offer different service packages to suit various budgets and needs. Contact us for a detailed discussion about our pricing structure and how we can help with your specific requirements.',
     },
     {
-      question: "Can you help first-time buyers?",
-      answer: "Absolutely! We specialize in helping first-time buyers navigate the Queensland property market. This includes guidance on first home buyer grants, loan pre-approval, property inspections, and understanding the buying process from start to finish."
+      question: 'Can you help first-time buyers?',
+      answer: 'Absolutely! We specialize in helping first-time buyers navigate the Queensland property market. This includes guidance on first home buyer grants, loan pre-approval, property inspections, and understanding the buying process from start to finish.',
     },
     {
-      question: "Do you have access to off-market properties?",
-      answer: "Yes, through our extensive network of contacts and relationships with other agents, we often have access to properties before they hit the public market. This can give our clients a significant advantage in competitive markets."
+      question: 'Do you have access to off-market properties?',
+      answer: 'Yes, through our extensive network of contacts and relationships with other agents, we often have access to properties before they hit the public market. This can give our clients a significant advantage in competitive markets.',
     },
     {
-      question: "Which areas of Queensland do you cover?",
-      answer: "We cover all major Queensland markets including Brisbane, Gold Coast, Sunshine Coast, and surrounding regions. Our team has detailed local knowledge across these areas to help you find the right property in the right location."
+      question: 'Which areas of Queensland do you cover?',
+      answer: 'We cover all major Queensland markets including Brisbane, Gold Coast, Sunshine Coast, and surrounding regions. Our team has detailed local knowledge across these areas to help you find the right property in the right location.',
     },
     {
-      question: "How long does it typically take to find and buy a property?",
-      answer: "The timeframe varies depending on your criteria, budget, and market conditions. Some clients find their perfect property within weeks, while others with very specific requirements may take several months. We work at your pace and keep you informed throughout the process."
-    }
+      question: 'How long does it typically take to find and buy a property?',
+      answer: 'The timeframe varies depending on your criteria, budget, and market conditions. Some clients find their perfect property within weeks, while others with very specific requirements may take several months. We work at your pace and keep you informed throughout the process.',
+    },
   ];
 
   return (
@@ -163,7 +163,7 @@ export default async function Buying(props: IBuyingProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      
+
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center">
@@ -249,33 +249,33 @@ export default async function Buying(props: IBuyingProps) {
         </section>
 
         {/* Buyer Types Section */}
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-primary-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="mb-16">
-              <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
+              <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
                 We Help All Types of Buyers
               </Typography>
               <div className="flex justify-center">
                 <Typography
                   variant="h6"
-                  className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl mx-auto text-center"
+                  className="text-lg md:text-xl text-slate-200 mb-10 font-normal max-w-2xl mx-auto text-center"
                 >
                   Professional buyer representation for every type of property purchase
                 </Typography>
               </div>
             </div>
-            
+
             {/* Buyer Types Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {buyerTypes.map((type, index) => {
                 const bgColors = [
                   { bg: 'bg-gradient-to-br from-rose-50 to-rose-100', hover: 'hover:bg-gradient-to-br hover:from-rose-100 hover:to-rose-200', iconBg: 'bg-rose-500' },
                   { bg: 'bg-gradient-to-br from-blue-50 to-blue-100', hover: 'hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-200', iconBg: 'bg-blue-500' },
-                  { bg: 'bg-gradient-to-br from-emerald-50 to-emerald-100', hover: 'hover:bg-gradient-to-br hover:from-emerald-100 hover:to-emerald-200', iconBg: 'bg-emerald-500' }
+                  { bg: 'bg-gradient-to-br from-emerald-50 to-emerald-100', hover: 'hover:bg-gradient-to-br hover:from-emerald-100 hover:to-emerald-200', iconBg: 'bg-emerald-500' },
                 ];
                 const colorScheme = bgColors[index % bgColors.length] || bgColors[0];
-                
+
                 return (
                   <Paper
                     key={index}
@@ -298,7 +298,7 @@ export default async function Buying(props: IBuyingProps) {
                     <Typography variant="body1" className="text-gray-600 leading-relaxed mb-6 text-center">
                       {type.description}
                     </Typography>
-                    
+
                     {/* Benefits */}
                     <div className="space-y-2">
                       {type.benefits.map((benefit, idx) => (
@@ -318,7 +318,7 @@ export default async function Buying(props: IBuyingProps) {
         </section>
 
         {/* Buying Process */}
-        <section id="process" className="py-24 bg-gray-50">
+        <section id="process" className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Paper elevation={0} className="p-12 rounded-xl border border-gray-200">
               <div className="mb-16">
@@ -335,7 +335,7 @@ export default async function Buying(props: IBuyingProps) {
                   </Typography>
                 </div>
               </div>
-              
+
               <div className="space-y-8">
                 {buyingProcess.map((step, index) => (
                   <div key={index} className="flex items-start gap-6 group">
@@ -363,48 +363,48 @@ export default async function Buying(props: IBuyingProps) {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-primary-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-16">
-              <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
+              <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
                 Why Choose Realty Direct?
               </Typography>
               <div className="flex justify-center">
                 <Typography
                   variant="h6"
-                  className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl mx-auto text-center"
+                  className="text-lg md:text-xl text-slate-200 mb-10 font-normal max-w-2xl mx-auto text-center"
                 >
                   Professional buyer representation with unmatched local expertise
                 </Typography>
               </div>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
                   icon: <Search className="w-8 h-8" />,
-                  title: "Exclusive Access",
-                  description: "First access to new listings and off-market properties through our extensive network of contacts",
+                  title: 'Exclusive Access',
+                  description: 'First access to new listings and off-market properties through our extensive network of contacts',
                   bgColor: 'bg-gradient-to-br from-blue-50 to-blue-100',
                   iconBg: 'bg-blue-500',
-                  hoverBg: 'hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-200'
+                  hoverBg: 'hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-200',
                 },
                 {
                   icon: <Shield className="w-8 h-8" />,
-                  title: "Expert Negotiation",
-                  description: "Professional negotiation skills to secure the best price and terms for your property purchase",
+                  title: 'Expert Negotiation',
+                  description: 'Professional negotiation skills to secure the best price and terms for your property purchase',
                   bgColor: 'bg-gradient-to-br from-emerald-50 to-emerald-100',
                   iconBg: 'bg-emerald-500',
-                  hoverBg: 'hover:bg-gradient-to-br hover:from-emerald-100 hover:to-emerald-200'
+                  hoverBg: 'hover:bg-gradient-to-br hover:from-emerald-100 hover:to-emerald-200',
                 },
                 {
                   icon: <MapPin className="w-8 h-8" />,
-                  title: "Local Knowledge",
-                  description: "Deep understanding of Queensland markets, suburbs, and property values across the region",
+                  title: 'Local Knowledge',
+                  description: 'Deep understanding of Queensland markets, suburbs, and property values across the region',
                   bgColor: 'bg-gradient-to-br from-purple-50 to-purple-100',
                   iconBg: 'bg-purple-500',
-                  hoverBg: 'hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200'
-                }
+                  hoverBg: 'hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200',
+                },
               ].map((benefit, index) => (
                 <Paper
                   key={index}
@@ -434,7 +434,7 @@ export default async function Buying(props: IBuyingProps) {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-24 bg-gray-50">
+        <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Paper elevation={0} className="p-12 rounded-xl border border-gray-200">
               <div className="mb-16">
@@ -451,7 +451,7 @@ export default async function Buying(props: IBuyingProps) {
                   </Typography>
                 </div>
               </div>
-              
+
               <div className="space-y-8">
                 {faqs.map((faq, index) => (
                   <div key={index} className="border-b border-gray-200 pb-8 last:border-b-0">
@@ -469,7 +469,7 @@ export default async function Buying(props: IBuyingProps) {
         </section>
 
         {/* Call to Action */}
-        <section className="py-24 bg-gray-900">
+        <section className="py-24 bg-primary-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Ready to Find Your Perfect Property?
@@ -477,7 +477,7 @@ export default async function Buying(props: IBuyingProps) {
             <Typography variant="h6" className="text-lg md:text-xl text-gray-100 mb-10 font-normal max-w-2xl mx-auto">
               Start your Queensland property search today with expert guidance from our experienced buyer's agents
             </Typography>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button
                 variant="contained"
@@ -497,7 +497,7 @@ export default async function Buying(props: IBuyingProps) {
                 Learn More About Us
               </Button>
             </div>
-            
+
             {/* Contact Info */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-gray-300">
               <div className="flex items-center gap-2">
