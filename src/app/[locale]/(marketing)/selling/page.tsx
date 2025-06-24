@@ -184,29 +184,16 @@ export default async function Selling(props: ISellingProps) {
                     variant="contained"
                     size="large"
                     href="/contact"
-                    className="rounded-full font-semibold shadow-md px-8 py-3"
-                    style={{
-                      background: 'linear-gradient(90deg, var(--primary-900) 0%, var(--primary-700) 100%)',
-                      color: '#fff',
-                      textTransform: 'none',
-                      fontSize: '1.1rem',
-                    }}
-                    endIcon={<ArrowRight />}
+                    className="rounded-lg font-semibold px-8 py-4"
                   >
                     Get Free Appraisal
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                   <Button
                     variant="outlined"
                     size="large"
                     href="/about"
-                    className="rounded-full font-semibold px-8 py-3"
-                    style={{
-                      color: 'var(--slate-700)',
-                      borderColor: 'var(--slate-400)',
-                      background: 'transparent',
-                      textTransform: 'none',
-                      fontSize: '1.1rem',
-                    }}
+                    className="rounded-lg font-semibold px-8 py-4"
                   >
                     Learn More About Us
                   </Button>
@@ -216,201 +203,203 @@ export default async function Selling(props: ISellingProps) {
           </div>
         </section>
 
-        {/* Main Content */}
-        <section className="py-16 bg-gradient-to-br from-white via-accent-500/30 to-accent-600/10">
+        {/* Why Choose Us Section */}
+        <section className="py-24 bg-primary-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
             {/* Section Header */}
             <div className="mb-16 flex flex-col items-center">
               <Typography
                 variant="h2"
-                className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-900 mb-6 text-center"
+                className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 text-center"
               >
                 Why Choose Realty Direct to Sell Your Property?
               </Typography>
               <Typography
                 variant="h6"
-                className="text-slate-700 font-normal max-w-3xl text-center"
+                className="text-slate-200 font-normal max-w-3xl text-center"
                 style={{ lineHeight: 1.7 }}
               >
                 Our expert team combines proven marketing strategies with transparent communication to achieve the best possible price for your Queensland property.
               </Typography>
             </div>
 
-            {/* Main Card */}
-            <Card
-              className="relative max-w-6xl mx-auto rounded-3xl shadow-2xl border-0 bg-white/90 backdrop-blur-lg mb-16"
-              elevation={0}
-            >
-              <CardContent className="p-8 md:p-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {[
-                    {
-                      icon: <DollarSign className="w-10 h-10 text-primary-700" />,
-                      title: 'Maximum Sale Price',
-                      description: 'Our expert pricing strategies and proven marketing methods consistently achieve top dollar for our clients\' properties',
-                    },
-                    {
-                      icon: <TrendingUp className="w-10 h-10 text-primary-700" />,
-                      title: 'Professional Marketing',
-                      description: 'Comprehensive marketing campaigns across all major platforms to ensure maximum exposure for your property',
-                    },
-                    {
-                      icon: <CheckCircle className="w-10 h-10 text-primary-700" />,
-                      title: 'Transparent Process',
-                      description: 'Clear communication, regular updates, and transparent pricing with no hidden fees or surprises',
-                    },
-                  ].map((benefit, index) => (
-                    <div key={index} className="flex flex-col items-center text-center">
-                      <div className="mb-4">
+            {/* Benefits Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: <DollarSign className="w-10 h-10" />,
+                  title: 'Maximum Sale Price',
+                  description: 'Our expert pricing strategies and proven marketing methods consistently achieve top dollar for our clients\' properties',
+                  bgColor: 'bg-gradient-to-br from-emerald-50 to-emerald-100',
+                  iconBg: 'bg-emerald-500',
+                  hoverBg: 'hover:bg-gradient-to-br hover:from-emerald-100 hover:to-emerald-200'
+                },
+                {
+                  icon: <TrendingUp className="w-10 h-10" />,
+                  title: 'Professional Marketing',
+                  description: 'Comprehensive marketing campaigns across all major platforms to ensure maximum exposure for your property',
+                  bgColor: 'bg-gradient-to-br from-blue-50 to-blue-100',
+                  iconBg: 'bg-blue-500',
+                  hoverBg: 'hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-200'
+                },
+                {
+                  icon: <CheckCircle className="w-10 h-10" />,
+                  title: 'Transparent Process',
+                  description: 'Clear communication, regular updates, and transparent pricing with no hidden fees or surprises',
+                  bgColor: 'bg-gradient-to-br from-purple-50 to-purple-100',
+                  iconBg: 'bg-purple-500',
+                  hoverBg: 'hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200'
+                },
+              ].map((benefit, index) => (
+                <Paper
+                  key={index}
+                  elevation={0}
+                  className={`p-8 border border-gray-200 transition-all duration-300 group rounded-xl ${benefit.bgColor} ${benefit.hoverBg} hover:shadow-lg hover:scale-105 text-center`}
+                >
+                  <div className="mb-6">
+                    <div className={`inline-flex p-4 ${benefit.iconBg} rounded-full shadow-md group-hover:shadow-lg transition-all duration-300`}>
+                      <div className="text-white transition-colors duration-300">
                         {benefit.icon}
                       </div>
-                      <Typography variant="h6" className="font-bold text-primary-700 mb-2 tracking-wide">
-                        {benefit.title}
-                      </Typography>
-                      <Typography variant="body2" className="text-slate-600 text-base">
-                        {benefit.description}
-                      </Typography>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                  </div>
+                  <Typography variant="h5" className="font-medium mb-3">
+                    {benefit.title}
+                  </Typography>
+                  <Typography variant="body1" className="text-gray-600 leading-relaxed">
+                    {benefit.description}
+                  </Typography>
+                </Paper>
+              ))}
+            </div>
+          </div>
+        </section>
 
-            {/* Selling Process */}
-            <Card
-              className="relative max-w-6xl mx-auto rounded-3xl shadow-2xl border-0 bg-white/90 backdrop-blur-lg mb-16"
-              elevation={0}
-            >
-              <CardContent className="p-8 md:p-12">
-                <Typography
-                  variant="h2"
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
-                >
+        {/* Selling Process Section */}
+        <section className="py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Paper elevation={0} className="p-12 rounded-xl border border-gray-200">
+              <div className="mb-16">
+                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
                   Our 5-Step Selling Process
                 </Typography>
-                <div className="space-y-8">
-                  {sellingProcess.map((step, index) => (
-                    <div key={index} className="flex items-start gap-6 p-6 rounded-2xl bg-white/50 shadow-md">
-                      <div className="flex-shrink-0">
-                        <div className="w-16 h-16 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-lg" style={{ background: 'linear-gradient(135deg, #102542 0%, #4b6a88 100%)' }}>
-                          {step.step}
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <Typography variant="h6" className="font-bold text-primary-800 mb-2">
-                          {step.title}
-                        </Typography>
-                        <Typography variant="body1" className="text-slate-700 leading-relaxed">
-                          {step.description}
-                        </Typography>
-                      </div>
-                      <div className="flex-shrink-0 text-primary-600">
-                        {step.icon}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* FAQ Section */}
-            <Card
-              className="relative max-w-6xl mx-auto rounded-3xl shadow-2xl border-0 bg-white/90 backdrop-blur-lg mb-16"
-              elevation={0}
-            >
-              <CardContent className="p-8 md:p-12">
-                <Typography
-                  variant="h2"
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
-                >
-                  Frequently Asked Questions About Selling
-                </Typography>
-                <div className="space-y-8">
-                  {faqs.map((faq, index) => (
-                    <div key={index} className="border-b border-accent-200 pb-8 last:border-b-0">
-                      <Typography variant="h6" className="font-semibold text-primary-800 mb-4">
-                        {faq.question}
-                      </Typography>
-                      <Typography variant="body1" className="text-slate-700 leading-relaxed" style={{ lineHeight: 1.7 }}>
-                        {faq.answer}
-                      </Typography>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Call to Action */}
-            <Card
-              className="relative max-w-6xl mx-auto rounded-3xl shadow-2xl border-0 mb-16"
-              elevation={0}
-              style={{ background: 'linear-gradient(135deg, #102542 0%, #4b6a88 100%)' }}
-            >
-              <CardContent className="p-8 md:p-12 text-center">
-                <Typography
-                  variant="h2"
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
-                >
-                  Ready to Sell Your Property?
-                </Typography>
-                <Typography
-                  variant="body1"
-                  className="text-slate-100 text-lg mb-8 max-w-2xl mx-auto text-center"
-                  style={{ lineHeight: 1.7 }}
-                >
-                  Get started with a free property appraisal and discover how much your Queensland property is worth in today's market.
-                </Typography>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button
-                    variant="contained"
-                    size="large"
-                    href="/contact"
-                    className="rounded-full font-semibold shadow-md px-8 py-3"
-                    style={{
-                      background: 'linear-gradient(90deg, #ffffff 0%, #f8fafc 100%)',
-                      color: '#102542',
-                      textTransform: 'none',
-                      fontSize: '1.1rem',
-                    }}
-                    endIcon={<ArrowRight />}
-                  >
-                    Book Free Appraisal
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    size="large"
-                    href="/about"
-                    className="rounded-full font-semibold px-8 py-3"
-                    style={{
-                      color: 'white',
-                      borderColor: 'white',
-                      background: 'transparent',
-                      textTransform: 'none',
-                      fontSize: '1.1rem',
-                    }}
-                  >
-                    Learn More About Us
-                  </Button>
-                </div>
-
-                {/* Motto */}
-                <div className="mt-14 pt-8 border-t border-white/20">
+                <div className="flex justify-center">
                   <Typography
                     variant="h6"
-                    className="text-white italic font-light"
+                    className="text-gray-600 font-light max-w-2xl"
+                    style={{ textAlign: 'center' }}
                   >
-                    "Direct communication, exceptional results"
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    className="text-slate-200 mt-2"
-                  >
-                    Experience the difference with Realty Direct
+                    A proven approach to getting you the best price for your property
                   </Typography>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+              
+              <div className="space-y-8">
+                {sellingProcess.map((step, index) => (
+                  <div key={index} className="flex items-start gap-6 group">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 bg-gray-900 text-white rounded-full flex items-center justify-center text-xl font-bold group-hover:bg-gray-800 transition-colors duration-300">
+                        {step.step}
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <Typography variant="h6" className="font-medium mb-2 text-gray-900">
+                        {step.title}
+                      </Typography>
+                      <Typography variant="body1" className="text-gray-600 leading-relaxed">
+                        {step.description}
+                      </Typography>
+                    </div>
+                    <div className="flex-shrink-0 text-gray-500 group-hover:text-gray-700 transition-colors duration-300">
+                      {step.icon}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Paper>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-24 bg-primary-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="p-12 rounded-xl border border-slate-600 bg-primary-800">
+              <div className="mb-16">
+                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
+                  Frequently Asked Questions About Selling
+                </Typography>
+                <div className="flex justify-center">
+                  <Typography
+                    variant="h6"
+                    className="text-slate-200 font-light max-w-2xl"
+                    style={{ textAlign: 'center' }}
+                  >
+                    Common questions about our property selling services
+                  </Typography>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                {faqs.map((faq, index) => (
+                  <div key={index} className="border-b border-slate-600 pb-8 mb-8 last:border-b-0 last:mb-0">
+                    <Typography variant="h6" className="font-medium text-white mb-4">
+                      {faq.question}
+                    </Typography>
+                    <Typography variant="body1" className="text-slate-200 leading-relaxed">
+                      {faq.answer}
+                    </Typography>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Call to Action */}
+        <section className="py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+              Ready to Sell Your Property?
+            </Typography>
+            <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl mx-auto">
+              Get started with a free property appraisal and discover how much your Queensland property is worth in today's market.
+            </Typography>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <Button
+                variant="contained"
+                size="large"
+                href="/contact"
+                className="rounded-lg font-semibold px-8 py-4"
+              >
+                Book Free Appraisal
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button
+                variant="outlined"
+                size="large"
+                href="/about"
+                className="rounded-lg font-semibold px-8 py-4 text-slate-900 border-slate-900 hover:bg-slate-900 hover:text-white"
+              >
+                Learn More About Us
+              </Button>
+            </div>
+
+            {/* Motto */}
+            <div className="mt-14 pt-8 border-t border-slate-200">
+              <Typography
+                variant="h6"
+                className="text-slate-700 italic font-light"
+              >
+                "Direct communication, exceptional results"
+              </Typography>
+              <Typography
+                variant="body2"
+                className="text-slate-500 mt-2"
+              >
+                Experience the difference with Realty Direct
+              </Typography>
+            </div>
           </div>
         </section>
       </div>
