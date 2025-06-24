@@ -84,24 +84,24 @@ export default async function About(props: IAboutProps) {
 
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="py-24 bg-white">
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <Typography
                 variant="h2"
-                className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6"
               >
                 About Realty Direct
               </Typography>
               <div className="flex justify-center">
                 <Typography
-                  variant="body1"
-                  className="text-base md:text-lg text-slate-600 mb-8 font-normal max-w-3xl leading-relaxed text-center"
+                  variant="h6"
+                  className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-3xl leading-relaxed text-center"
                 >
                   Independent real estate professionals transforming Queensland property experiences with direct communication, transparent pricing, and exceptional results
                 </Typography>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   variant="contained"
                   size="large"
@@ -134,11 +134,11 @@ export default async function About(props: IAboutProps) {
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
                     <Heart className="w-8 h-8 text-primary-700" />
                   </div>
-                  <Typography variant="h3" className="text-2xl md:text-3xl font-bold text-white mb-6">
+                  <Typography variant="h5" className="text-2xl md:text-3xl font-bold text-white mb-6">
                     Our Mission
                   </Typography>
                 </div>
-                <Typography variant="body1" className="text-lg text-slate-200 leading-relaxed">
+                <Typography variant="body1" className="text-base text-slate-200 leading-relaxed">
                   To revolutionize the Queensland real estate experience by providing transparent, direct communication and exceptional results. We believe property transactions should be straightforward, honest, and focused on achieving the best outcomes for our clients.
                 </Typography>
               </div>
@@ -149,11 +149,11 @@ export default async function About(props: IAboutProps) {
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
                     <Award className="w-8 h-8 text-primary-700" />
                   </div>
-                  <Typography variant="h3" className="text-2xl md:text-3xl font-bold text-white mb-6">
+                  <Typography variant="h5" className="text-2xl md:text-3xl font-bold text-white mb-6">
                     Our Vision
                   </Typography>
                 </div>
-                <Typography variant="body1" className="text-lg text-slate-200 leading-relaxed">
+                <Typography variant="body1" className="text-base text-slate-200 leading-relaxed">
                   To become Queensland's most trusted independent real estate agency, known for our integrity, expertise, and commitment to putting our clients' interests first. We envision a future where every property transaction is a positive, empowering experience.
                 </Typography>
               </div>
@@ -171,7 +171,7 @@ export default async function About(props: IAboutProps) {
               <div className="flex justify-center">
                 <Typography
                   variant="h6"
-                  className="text-xl text-slate-600 font-normal max-w-3xl leading-relaxed text-center"
+                  className="text-lg md:text-xl text-slate-600 font-normal max-w-3xl leading-relaxed text-center"
                 >
                   The values and expertise that make Realty Direct different from traditional real estate agencies
                 </Typography>
