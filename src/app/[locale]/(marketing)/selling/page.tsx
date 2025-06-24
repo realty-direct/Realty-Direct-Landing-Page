@@ -1,5 +1,5 @@
 import { StructuredData } from '@/components/common/StructuredData';
-import { Button, Card, CardContent, Paper, Typography } from '@mui/material';
+import { Button, Paper, Typography } from '@mui/material';
 import { ArrowRight, Camera, CheckCircle, DollarSign, FileText, Home, TrendingUp, Users } from 'lucide-react';
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
@@ -232,7 +232,7 @@ export default async function Selling(props: ISellingProps) {
                   description: 'Our expert pricing strategies and proven marketing methods consistently achieve top dollar for our clients\' properties',
                   bgColor: 'bg-gradient-to-br from-emerald-50 to-emerald-100',
                   iconBg: 'bg-emerald-500',
-                  hoverBg: 'hover:bg-gradient-to-br hover:from-emerald-100 hover:to-emerald-200'
+                  hoverBg: 'hover:bg-gradient-to-br hover:from-emerald-100 hover:to-emerald-200',
                 },
                 {
                   icon: <TrendingUp className="w-10 h-10" />,
@@ -240,7 +240,7 @@ export default async function Selling(props: ISellingProps) {
                   description: 'Comprehensive marketing campaigns across all major platforms to ensure maximum exposure for your property',
                   bgColor: 'bg-gradient-to-br from-blue-50 to-blue-100',
                   iconBg: 'bg-blue-500',
-                  hoverBg: 'hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-200'
+                  hoverBg: 'hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-200',
                 },
                 {
                   icon: <CheckCircle className="w-10 h-10" />,
@@ -248,7 +248,7 @@ export default async function Selling(props: ISellingProps) {
                   description: 'Clear communication, regular updates, and transparent pricing with no hidden fees or surprises',
                   bgColor: 'bg-gradient-to-br from-purple-50 to-purple-100',
                   iconBg: 'bg-purple-500',
-                  hoverBg: 'hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200'
+                  hoverBg: 'hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200',
                 },
               ].map((benefit, index) => (
                 <Paper
@@ -293,7 +293,7 @@ export default async function Selling(props: ISellingProps) {
                   </Typography>
                 </div>
               </div>
-              
+
               <div className="space-y-8">
                 {sellingProcess.map((step, index) => (
                   <div key={index} className="flex items-start gap-6 group">
@@ -361,10 +361,14 @@ export default async function Selling(props: ISellingProps) {
             <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
               Ready to Sell Your Property?
             </Typography>
-            <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl mx-auto">
-              Get started with a free property appraisal and discover how much your Queensland property is worth in today's market.
-            </Typography>
-
+            <div className="flex justify-center">
+              <Typography
+                variant="h6"
+                className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl leading-relaxed text-center"
+              >
+                Get started with a free property appraisal and discover how much your Queensland property is worth in today's market.
+              </Typography>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button
                 variant="contained"

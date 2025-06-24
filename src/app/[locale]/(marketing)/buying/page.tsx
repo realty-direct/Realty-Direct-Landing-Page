@@ -474,10 +474,14 @@ export default async function Buying(props: IBuyingProps) {
             <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Ready to Find Your Perfect Property?
             </Typography>
-            <Typography variant="h6" className="text-lg md:text-xl text-gray-100 mb-10 font-normal max-w-2xl mx-auto">
-              Start your Queensland property search today with expert guidance from our experienced buyer's agents
-            </Typography>
-
+            <div className="flex justify-center">
+              <Typography
+                variant="h6"
+                className="text-lg md:text-xl text-gray-100 mb-10 font-normal max-w-2xl leading-relaxed text-center"
+              >
+                Start your Queensland property search today with expert guidance from our experienced buyer's agents
+              </Typography>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button
                 variant="contained"

@@ -60,21 +60,21 @@ export default function Contact() {
           <div className="text-center">
             <Typography
               variant="h2"
-              className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-6"
             >
               Contact Us
             </Typography>
             <div className="flex justify-center">
               <Typography
                 variant="body1"
-                className="text-base md:text-lg text-slate-600 max-w-2xl mb-8 font-normal leading-relaxed text-center"
+                className="text-base md:text-lg text-slate-600 max-w-2xl mb-10 font-normal leading-relaxed text-center"
               >
                 Ready to experience Queensland's premier real estate service? Get in touch with our expert team today.
               </Typography>
             </div>
 
             {/* Contact Info Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-6">
               <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
                 <Phone className="w-8 h-8 text-green-500 mx-auto mb-4" />
                 <h3 className="font-semibold text-slate-900 mb-2">Phone</h3>

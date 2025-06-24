@@ -89,11 +89,13 @@ export default async function About(props: IAboutProps) {
             <div className="text-center mb-16">
               <Typography
                 variant="h2"
-                className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900" // removed mb-16
               >
                 About Realty Direct
               </Typography>
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-4 mb-4">
+                {' '}
+                {/* Added mt-14 for large gap */}
                 <Typography
                   variant="h6"
                   className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-3xl leading-relaxed text-center"
@@ -298,10 +300,14 @@ export default async function About(props: IAboutProps) {
             <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
               Ready to Experience the Difference?
             </Typography>
-            <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl mx-auto">
-              Join Queensland families who've chosen Realty Direct for their property journey. Experience what naturally direct really means.
-            </Typography>
-
+            <div className="flex justify-center">
+              <Typography
+                variant="h6"
+                className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl leading-relaxed text-center"
+              >
+                Join Queensland families who've chosen Realty Direct for their property journey. Experience what naturally direct really means.
+              </Typography>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button
                 variant="contained"

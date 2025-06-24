@@ -1,7 +1,7 @@
 import { StructuredData } from '@/components/common/StructuredData';
-import { Typography } from '@mui/material';
 import { breadcrumbSchema } from '@/utils/structuredData';
-import { Metadata } from 'next';
+import { Typography } from '@mui/material';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Our Services | Realty Direct',
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
     googleBot: {
-      index: true,
-      follow: true,
+      'index': true,
+      'follow': true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
@@ -131,19 +131,19 @@ export default function Services() {
   const servicesListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Realty Direct Services',
-    description: 'Our range of real estate services for Queensland property sellers',
-    itemListElement: services.map((service, index) => ({
+    'name': 'Realty Direct Services',
+    'description': 'Our range of real estate services for Queensland property sellers',
+    'itemListElement': services.map((service, index) => ({
       '@type': 'ListItem',
-      position: index + 1,
-      item: {
+      'position': index + 1,
+      'item': {
         '@type': 'Service',
-        name: service.title,
-        description: service.description,
-        offers: {
+        'name': service.title,
+        'description': service.description,
+        'offers': {
           '@type': 'Offer',
-          price: service.price.replace(/[^0-9.]/g, ''),
-          priceCurrency: 'AUD',
+          'price': service.price.replace(/[^0-9.]/g, ''),
+          'priceCurrency': 'AUD',
         },
       },
     })),
@@ -159,7 +159,7 @@ export default function Services() {
           Choose the perfect level of support for your Queensland property sale. From complete DIY freedom to full-service agent representation, we have a solution that fits your needs and budget.
         </Typography>
       </div>
-      
+
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-16">
         {services.map((service, index) => (
           <div key={index} className={`bg-white rounded-lg shadow-lg overflow-hidden border-t-4 ${service.color} hover:shadow-xl transition-shadow`}>
@@ -168,7 +168,7 @@ export default function Services() {
               <p className="text-gray-600 text-sm mb-3">{service.subtitle}</p>
               <p className="text-2xl font-bold text-blue-600 mb-4">{service.price}</p>
               <p className="text-gray-700 mb-6 text-sm">{service.description}</p>
-              
+
               <div className="mb-6">
                 <h3 className="font-semibold text-gray-900 mb-3">Includes:</h3>
                 <ul className="space-y-2">
@@ -182,7 +182,7 @@ export default function Services() {
                   ))}
                 </ul>
               </div>
-              
+
               <p className="text-sm text-gray-600 italic border-t pt-4">{service.ideal}</p>
             </div>
           </div>
@@ -219,14 +219,14 @@ export default function Services() {
           Get started with a free property valuation and discover which service option is right for you.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a 
-            href="/sell-your-property" 
+          <a
+            href="/sell-your-property"
             className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition duration-150"
           >
             Get Started
           </a>
-          <a 
-            href="/contact" 
+          <a
+            href="/contact"
             className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-blue-600 bg-white border-2 border-blue-600 hover:bg-blue-50 transition duration-150"
           >
             Contact Us
