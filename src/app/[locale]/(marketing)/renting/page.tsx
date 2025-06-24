@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, Paper, Typography } from '@mui/material';
+import { Button, Paper, Typography } from '@mui/material';
 import { ArrowRight, Calendar, CheckCircle, FileText, Home, Mail, MapPin, Phone, Search, Shield, Users } from 'lucide-react';
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
@@ -44,8 +44,8 @@ export async function generateMetadata(props: IRentingProps): Promise<Metadata> 
       index: true,
       follow: true,
       googleBot: {
-        index: true,
-        follow: true,
+        'index': true,
+        'follow': true,
         'max-video-preview': -1,
         'max-image-preview': 'large',
         'max-snippet': -1,
@@ -66,103 +66,103 @@ export default async function Renting(props: IRentingProps) {
     'provider': {
       '@type': 'RealEstateAgent',
       'name': 'Realty Direct',
-      'url': 'https://realtydirect.com.au'
+      'url': 'https://realtydirect.com.au',
     },
     'areaServed': ['Queensland', 'Brisbane', 'Gold Coast', 'Sunshine Coast'],
     'serviceType': ['Property Management', 'Tenant Placement', 'Property Maintenance', 'Rental Services'],
     'offers': {
       '@type': 'Offer',
-      'description': 'Professional property management and tenant services'
-    }
+      'description': 'Professional property management and tenant services',
+    },
   };
 
   const services = [
     {
-      title: "For Tenants",
-      description: "Find your perfect rental home in Queensland with our comprehensive tenant services",
+      title: 'For Tenants',
+      description: 'Find your perfect rental home in Queensland with our comprehensive tenant services',
       icon: <Home className="w-12 h-12" />,
       features: [
-        "Extensive property search",
-        "Application assistance",
-        "Lease negotiation support",
-        "Ongoing tenant support",
-        "Maintenance request handling",
-        "Bond and inspection guidance"
-      ]
+        'Extensive property search',
+        'Application assistance',
+        'Lease negotiation support',
+        'Ongoing tenant support',
+        'Maintenance request handling',
+        'Bond and inspection guidance',
+      ],
     },
     {
-      title: "For Property Owners",
-      description: "Professional property management services to maximize your rental investment returns",
+      title: 'For Property Owners',
+      description: 'Professional property management services to maximize your rental investment returns',
       icon: <Shield className="w-12 h-12" />,
       features: [
-        "Tenant screening and placement",
-        "Rent collection and management",
-        "Property maintenance coordination",
-        "Regular property inspections",
-        "Financial reporting",
-        "Legal compliance management"
-      ]
-    }
+        'Tenant screening and placement',
+        'Rent collection and management',
+        'Property maintenance coordination',
+        'Regular property inspections',
+        'Financial reporting',
+        'Legal compliance management',
+      ],
+    },
   ];
 
   const managementProcess = [
     {
       step: 1,
-      title: "Property Assessment",
-      description: "Comprehensive evaluation of your property to determine optimal rental price and condition",
-      icon: <FileText className="w-8 h-8" />
+      title: 'Property Assessment',
+      description: 'Comprehensive evaluation of your property to determine optimal rental price and condition',
+      icon: <FileText className="w-8 h-8" />,
     },
     {
       step: 2,
-      title: "Marketing & Advertising",
-      description: "Professional photography and listing across all major rental platforms",
-      icon: <Search className="w-8 h-8" />
+      title: 'Marketing & Advertising',
+      description: 'Professional photography and listing across all major rental platforms',
+      icon: <Search className="w-8 h-8" />,
     },
     {
       step: 3,
-      title: "Tenant Screening",
-      description: "Thorough background checks, references, and financial verification of potential tenants",
-      icon: <Users className="w-8 h-8" />
+      title: 'Tenant Screening',
+      description: 'Thorough background checks, references, and financial verification of potential tenants',
+      icon: <Users className="w-8 h-8" />,
     },
     {
       step: 4,
-      title: "Lease Management",
-      description: "Professional lease agreements, condition reports, and bond handling",
-      icon: <CheckCircle className="w-8 h-8" />
+      title: 'Lease Management',
+      description: 'Professional lease agreements, condition reports, and bond handling',
+      icon: <CheckCircle className="w-8 h-8" />,
     },
     {
       step: 5,
-      title: "Ongoing Management",
-      description: "Regular inspections, maintenance coordination, and rent collection",
-      icon: <Calendar className="w-8 h-8" />
-    }
+      title: 'Ongoing Management',
+      description: 'Regular inspections, maintenance coordination, and rent collection',
+      icon: <Calendar className="w-8 h-8" />,
+    },
   ];
 
   const faqs = [
     {
-      question: "How do I apply for a rental property?",
-      answer: "We make the application process simple and transparent. You'll need to provide identification, proof of income, employment verification, and references. We'll guide you through each step and keep you informed about your application status."
+      question: 'How do I apply for a rental property?',
+      answer: 'We make the application process simple and transparent. You\'ll need to provide identification, proof of income, employment verification, and references. We\'ll guide you through each step and keep you informed about your application status.',
     },
     {
-      question: "What areas of Queensland do you manage properties in?",
-      answer: "We manage rental properties across all major Queensland markets including Brisbane, Gold Coast, Sunshine Coast, and surrounding areas. Our local knowledge helps us provide the best service to both tenants and property owners."
+      question: 'What areas of Queensland do you manage properties in?',
+      answer: 'We manage rental properties across all major Queensland markets including Brisbane, Gold Coast, Sunshine Coast, and surrounding areas. Our local knowledge helps us provide the best service to both tenants and property owners.',
     },
     {
-      question: "How much does property management cost?",
-      answer: "Our property management fees are competitive and transparent. We offer different service packages to suit various needs and budgets. Contact us for a detailed discussion about our pricing structure and services."
+      question: 'How much does property management cost?',
+      answer: 'Our property management fees are competitive and transparent. We offer different service packages to suit various needs and budgets. Contact us for a detailed discussion about our pricing structure and services.',
     },
     {
-      question: "What's included in your property management service?",
-      answer: "Our comprehensive service includes tenant placement, rent collection, property inspections, maintenance coordination, financial reporting, and legal compliance. We handle all aspects of property management so you don't have to."
+      question: 'What\'s included in your property management service?',
+      answer: 'Our comprehensive service includes tenant placement, rent collection, property inspections, maintenance coordination, financial reporting, and legal compliance. We handle all aspects of property management so you don\'t have to.',
     },
     {
-      question: "How do you screen potential tenants?",
-      answer: "We conduct thorough tenant screening including credit checks, employment verification, rental history, and personal references. This comprehensive process helps ensure we place reliable, trustworthy tenants in your property."
+      question: 'How do you screen potential tenants?',
+      answer: 'We conduct thorough tenant screening including credit checks, employment verification, rental history, and personal references. This comprehensive process helps ensure we place reliable, trustworthy tenants in your property.',
     },
     {
-      question: "What happens if there are maintenance issues?",
-      answer: "We have a network of trusted contractors and handle all maintenance requests promptly. For routine maintenance, we coordinate and oversee the work. For emergency repairs, we have 24/7 support to ensure tenant safety and property protection."
-    }
+      question: 'What happens if there are maintenance issues?',
+      answer: 'We have a network of trusted contractors and handle all maintenance requests promptly. For routine maintenance, we coordinate and oversee the work. For emergency repairs, we have 24/7 support to ensure tenant safety and property protection.',
+    },
   ];
 
   return (
@@ -171,7 +171,7 @@ export default async function Renting(props: IRentingProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      
+
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center">
@@ -273,16 +273,16 @@ export default async function Renting(props: IRentingProps) {
                 </Typography>
               </div>
             </div>
-            
+
             {/* Services Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {services.map((service, index) => {
                 const bgColors = [
                   { bg: 'bg-gradient-to-br from-blue-50 to-blue-100', hover: 'hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-200', iconBg: 'bg-blue-500' },
-                  { bg: 'bg-gradient-to-br from-emerald-50 to-emerald-100', hover: 'hover:bg-gradient-to-br hover:from-emerald-100 hover:to-emerald-200', iconBg: 'bg-emerald-500' }
+                  { bg: 'bg-gradient-to-br from-emerald-50 to-emerald-100', hover: 'hover:bg-gradient-to-br hover:from-emerald-100 hover:to-emerald-200', iconBg: 'bg-emerald-500' },
                 ];
                 const colorScheme = bgColors[index % bgColors.length] || bgColors[0];
-                
+
                 return (
                   <Paper
                     key={index}
@@ -305,7 +305,7 @@ export default async function Renting(props: IRentingProps) {
                     <Typography variant="body1" className="text-gray-600 leading-relaxed mb-6 text-center">
                       {service.description}
                     </Typography>
-                    
+
                     {/* Features */}
                     <div className="space-y-2">
                       {service.features.map((feature, idx) => (
@@ -342,7 +342,7 @@ export default async function Renting(props: IRentingProps) {
                   </Typography>
                 </div>
               </div>
-              
+
               <div className="space-y-8">
                 {managementProcess.map((step, index) => (
                   <div key={index} className="flex items-start gap-6 group">
@@ -385,33 +385,33 @@ export default async function Renting(props: IRentingProps) {
                 </Typography>
               </div>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
                   icon: <MapPin className="w-8 h-8" />,
-                  title: "Local Expertise",
-                  description: "Deep knowledge of Queensland rental markets, regulations, and best practices across all major regions",
+                  title: 'Local Expertise',
+                  description: 'Deep knowledge of Queensland rental markets, regulations, and best practices across all major regions',
                   bgColor: 'bg-gradient-to-br from-blue-50 to-blue-100',
                   iconBg: 'bg-blue-500',
-                  hoverBg: 'hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-200'
+                  hoverBg: 'hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-200',
                 },
                 {
                   icon: <Shield className="w-8 h-8" />,
-                  title: "Professional Service",
-                  description: "Comprehensive property management with transparent communication and reliable support for all parties",
+                  title: 'Professional Service',
+                  description: 'Comprehensive property management with transparent communication and reliable support for all parties',
                   bgColor: 'bg-gradient-to-br from-emerald-50 to-emerald-100',
                   iconBg: 'bg-emerald-500',
-                  hoverBg: 'hover:bg-gradient-to-br hover:from-emerald-100 hover:to-emerald-200'
+                  hoverBg: 'hover:bg-gradient-to-br hover:from-emerald-100 hover:to-emerald-200',
                 },
                 {
                   icon: <Users className="w-8 h-8" />,
-                  title: "Tenant & Owner Focus",
-                  description: "Balanced approach that protects property owners' investments while providing excellent tenant experiences",
+                  title: 'Tenant & Owner Focus',
+                  description: 'Balanced approach that protects property owners\' investments while providing excellent tenant experiences',
                   bgColor: 'bg-gradient-to-br from-purple-50 to-purple-100',
                   iconBg: 'bg-purple-500',
-                  hoverBg: 'hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200'
-                }
+                  hoverBg: 'hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200',
+                },
               ].map((benefit, index) => (
                 <Paper
                   key={index}
@@ -458,7 +458,7 @@ export default async function Renting(props: IRentingProps) {
                   </Typography>
                 </div>
               </div>
-              
+
               <div className="space-y-8">
                 {faqs.map((faq, index) => (
                   <div key={index} className="border-b border-gray-200 pb-8 last:border-b-0">
@@ -481,10 +481,15 @@ export default async function Renting(props: IRentingProps) {
             <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Ready to Get Started with Rentals?
             </Typography>
-            <Typography variant="h6" className="text-lg md:text-xl text-gray-100 mb-10 font-normal max-w-2xl mx-auto">
-              Whether you're looking for a rental property or need professional property management services, we're here to help
-            </Typography>
-            
+            <div className="flex justify-center w-full">
+              <Typography
+                variant="h6"
+                className="text-lg md:text-xl text-gray-100 mb-10 font-normal max-w-2xl text-center"
+              >
+                Whether you're looking for a rental property or need professional property management services, we're here to help
+              </Typography>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button
                 variant="contained"
@@ -504,7 +509,7 @@ export default async function Renting(props: IRentingProps) {
                 Learn More About Us
               </Button>
             </div>
-            
+
             {/* Contact Info */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-gray-300">
               <div className="flex items-center gap-2">
