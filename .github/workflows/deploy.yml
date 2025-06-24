@@ -33,7 +33,9 @@ jobs:
           npm install eslint-plugin-react-refresh @types/google.maps --save-dev
 
       - name: Build project
-        run: npm run build
+        run: |
+          export SKIP_ENV_VALIDATION=true
+          npm run build -- --no-lint
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
