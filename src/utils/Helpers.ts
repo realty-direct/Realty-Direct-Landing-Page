@@ -31,3 +31,9 @@ export const getI18nPath = (url: string, locale: string) => {
 
   return `/${locale}${url}`;
 };
+
+export const getAssetPath = (path: string) => {
+  // Add base path for GitHub Pages
+  const basePath = process.env.NODE_ENV === 'production' ? '/Realty-Direct-Landing-Page' : '';
+  return `${basePath}${path}`;
+};

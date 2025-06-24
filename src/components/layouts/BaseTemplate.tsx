@@ -1,6 +1,7 @@
 'use client';
 
 import { AppConfig } from '@/utils/AppConfig';
+import { getAssetPath } from '@/utils/Helpers';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -23,7 +24,7 @@ export const BaseTemplate = (props: {
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center gap-1 sm:gap-2">
                 <Image
-                  src="/assets/images/logo.svg"
+                  src={getAssetPath("/assets/images/logo.svg")}
                   alt="Realty Direct Logo"
                   width={40}
                   height={40}

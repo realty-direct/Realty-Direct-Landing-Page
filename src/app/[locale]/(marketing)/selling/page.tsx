@@ -4,6 +4,7 @@ import { ArrowRight, Camera, CheckCircle, DollarSign, FileText, Home, TrendingUp
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
+import { getAssetPath } from '@/utils/Helpers';
 
 type ISellingProps = {
   params: Promise<{ locale: string }>;
@@ -147,7 +148,7 @@ export default async function Selling(props: ISellingProps) {
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/assets/images/lisa-anna-_cglx9xLFqU-unsplash.jpg"
+              src={getAssetPath("/assets/images/lisa-anna-_cglx9xLFqU-unsplash.jpg")}
               alt="Sell Your Queensland Property"
               fill
               className="object-cover"

@@ -1,6 +1,7 @@
 'use client';
 
 import { AddressAutocomplete } from '@/components/common/AddressAutocomplete';
+import { getAssetPath } from '@/utils/Helpers';
 import { Button, Paper, Typography } from '@mui/material';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
@@ -45,7 +46,7 @@ export const PrestigeHero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/assets/images/lisa-anna-_cglx9xLFqU-unsplash.jpg"
+          src={getAssetPath("/assets/images/lisa-anna-_cglx9xLFqU-unsplash.jpg")}
           alt="Queensland property"
           fill
           className="object-cover"

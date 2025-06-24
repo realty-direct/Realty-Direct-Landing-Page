@@ -3,6 +3,7 @@ import { ArrowRight, Calculator, FileCheck, Heart, Key, Mail, MapPin, Phone, Sea
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
+import { getAssetPath } from '@/utils/Helpers';
 
 type IBuyingProps = {
   params: Promise<{ locale: string }>;
@@ -170,7 +171,7 @@ export default async function Buying(props: IBuyingProps) {
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/assets/images/lisa-anna-_cglx9xLFqU-unsplash.jpg"
+              src={getAssetPath("/assets/images/lisa-anna-_cglx9xLFqU-unsplash.jpg")}
               alt="Queensland property for buying"
               fill
               className="object-cover"
