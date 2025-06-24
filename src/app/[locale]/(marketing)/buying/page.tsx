@@ -274,7 +274,7 @@ export default async function Buying(props: IBuyingProps) {
                   { bg: 'bg-gradient-to-br from-blue-50 to-blue-100', hover: 'hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-200', iconBg: 'bg-blue-500' },
                   { bg: 'bg-gradient-to-br from-emerald-50 to-emerald-100', hover: 'hover:bg-gradient-to-br hover:from-emerald-100 hover:to-emerald-200', iconBg: 'bg-emerald-500' },
                 ];
-                const colorScheme = bgColors[index % bgColors.length] || bgColors[0];
+                const colorScheme = bgColors[index % bgColors.length]!;
 
                 return (
                   <Paper
