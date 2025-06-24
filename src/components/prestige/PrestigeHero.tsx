@@ -4,18 +4,20 @@ import { AddressAutocomplete } from '@/components/common/AddressAutocomplete';
 import { Button, Paper, Typography } from '@mui/material';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export const PrestigeHero = () => {
   const [address, setAddress] = useState('');
+  const router = useRouter();
 
   const handleEstimate = (e: React.FormEvent) => {
     e.preventDefault();
     if (address) {
-      // Handle property estimate logic here
-      console.log('Getting estimate for:', address);
-      // You can redirect to an estimate page or show a modal
-      // For now, we'll just log it
+      // Encode the address for URL
+      const encodedAddress = encodeURIComponent(address);
+      // Navigate to estimate page with address as query parameter
+      router.push(`/estimate?address=${encodedAddress}`);
     }
   };
 
