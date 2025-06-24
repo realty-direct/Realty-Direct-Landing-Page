@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { TextField, InputAdornment } from '@mui/material';
 import { MapPin } from 'lucide-react';
 
