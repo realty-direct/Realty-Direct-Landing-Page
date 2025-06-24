@@ -5,6 +5,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 // Define the base Next.js configuration
 const baseConfig: NextConfig = {
+  output: 'export',
   eslint: {
     dirs: ['.'],
   },
@@ -12,6 +13,7 @@ const baseConfig: NextConfig = {
   reactStrictMode: true,
   serverExternalPackages: ['@electric-sql/pglite'],
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
