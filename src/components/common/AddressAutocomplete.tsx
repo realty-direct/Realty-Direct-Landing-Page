@@ -7,7 +7,7 @@ import { MapPin } from 'lucide-react';
 interface AddressAutocompleteProps {
   value: string;
   onChange: (value: string) => void;
-  onPlaceSelected?: (place: google.maps.places.PlaceResult) => void;
+  onPlaceSelected?: (place: any) => void;
   placeholder?: string;
   className?: string;
 }
@@ -20,16 +20,15 @@ export const AddressAutocomplete = ({
   className = ""
 }: AddressAutocompleteProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
+  const autocompleteRef = useRef<any>(null);
 
   useEffect(() => {
     let checkInterval: NodeJS.Timeout;
     
     const tryInitialize = () => {
-      if (typeof window !== 'undefined' && window.google && window.google.maps && window.google.maps.places) {
+      if (typeof window !== 'undefined' && (window as any).google && (window as any).google.maps && (window as any).google.maps.places) {
         console.log('Google Maps API is loaded, initializing autocomplete');
         initializeAutocomplete();
-        setIsLoaded(true);
         return true;
       }
       return false;
@@ -50,8 +49,8 @@ export const AddressAutocomplete = ({
       if (checkInterval) {
         clearInterval(checkInterval);
       }
-      if (autocompleteRef.current && window.google) {
-        google.maps.event.clearInstanceListeners(autocompleteRef.current);
+      if (autocompleteRef.current && (window as any).google) {
+        (window as any).google.maps.event.clearInstanceListeners(autocompleteRef.current);
       }
     };
   }, []);
@@ -64,7 +63,7 @@ export const AddressAutocomplete = ({
 
     try {
       // Create autocomplete instance
-      autocompleteRef.current = new google.maps.places.Autocomplete(inputRef.current, {
+      autocompleteRef.current = new (window as any).google.maps.places.Autocomplete(inputRef.current, {
         componentRestrictions: { country: 'au' }, // Restrict to Australia
         fields: ['address_components', 'geometry', 'formatted_address', 'place_id'],
         types: ['address'] // Focus on addresses

@@ -21,7 +21,7 @@ export const PrestigeHero = () => {
     }
   };
 
-  const handlePlaceSelected = (place: google.maps.places.PlaceResult) => {
+  const handlePlaceSelected = (place: any) => {
     // You can access additional place details here
     console.log('Place selected:', place);
   };
