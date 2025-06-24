@@ -1,6 +1,6 @@
 'use client';
 
-import { Paper, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import {
   Building2,
   Camera,

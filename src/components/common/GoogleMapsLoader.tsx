@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Script from 'next/script';
 
 interface GoogleMapsLoaderProps {
@@ -14,15 +13,6 @@ export const GoogleMapsLoader = ({
   libraries = ['places'], 
   children 
 }: GoogleMapsLoaderProps) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    // Check if already loaded
-    if (typeof window !== 'undefined' && window.google && window.google.maps && window.google.maps.places) {
-      setIsLoaded(true);
-    }
-  }, []);
-
   return (
     <>
       <Script
@@ -30,7 +20,6 @@ export const GoogleMapsLoader = ({
         strategy="afterInteractive"
         onLoad={() => {
           console.log('Google Maps script loaded');
-          setIsLoaded(true);
         }}
         onError={(e) => {
           console.error('Error loading Google Maps:', e);

@@ -21,8 +21,6 @@ export const AddressAutocomplete = ({
 }: AddressAutocompleteProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null);
 
   useEffect(() => {
     let checkInterval: NodeJS.Timeout;

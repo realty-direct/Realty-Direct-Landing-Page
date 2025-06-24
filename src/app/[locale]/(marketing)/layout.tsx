@@ -1,5 +1,5 @@
 import { BaseTemplate } from '@/components/layouts/BaseTemplate';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
 import { StructuredData } from '@/components/common/StructuredData';
 import { organizationSchema, websiteSchema } from '@/utils/structuredData';
@@ -11,10 +11,6 @@ export default async function Layout(props: {
 }) {
   const { locale } = await props.params;
   setRequestLocale(locale);
-  const t = await getTranslations({
-    locale,
-    namespace: 'RootLayout',
-  });
 
   return (
     <BaseTemplate
