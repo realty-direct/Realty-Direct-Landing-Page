@@ -1,5 +1,5 @@
-import { Button, Card, CardContent, Typography } from '@mui/material';
-import { Calendar, CheckCircle, FileText, Home, MapPin, Search, Shield, Users } from 'lucide-react';
+import { Button, Card, CardContent, Paper, Typography } from '@mui/material';
+import { ArrowRight, Calendar, CheckCircle, FileText, Home, Mail, MapPin, Phone, Search, Shield, Users } from 'lucide-react';
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
@@ -174,251 +174,348 @@ export default async function Renting(props: IRentingProps) {
       
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative py-24 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700">
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
+        <section className="relative min-h-screen flex items-center">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/assets/images/lisa-anna-_cglx9xLFqU-unsplash.jpg"
+              alt="Queensland rental properties"
+              fill
+              className="object-cover"
+              priority
+              quality={90}
+            />
+            <div className="absolute inset-0 bg-black/40" />
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 w-full h-full flex items-center justify-center px-4">
+            <div className="max-w-4xl w-full text-center">
+              {/* Main Content Card */}
+              <Paper elevation={0} className="bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-2xl">
+                {/* Main Heading */}
                 <Typography
                   variant="h2"
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6"
                 >
                   Queensland Rental Properties & Management
                 </Typography>
+
+                {/* Subheading */}
                 <Typography
                   variant="h6"
-                  className="text-lg md:text-xl text-slate-100 mb-10 font-normal"
+                  className="text-lg md:text-xl text-slate-600 mb-10 font-normal"
                 >
                   Professional property management and rental services across Brisbane, Gold Coast, and beyond. Find your perfect rental or maximize your investment returns.
                 </Typography>
-                <div className="flex flex-col sm:flex-row gap-4">
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
                   <Button
                     variant="contained"
                     size="large"
                     href="/contact"
-                    className="rounded-full font-semibold px-8 py-3"
-                    style={{
-                      background: 'linear-gradient(90deg, var(--gold-500) 0%, var(--gold-400) 100%)',
-                      color: 'var(--primary-900)',
-                      textTransform: 'none',
-                      fontSize: '1.1rem',
-                    }}
+                    className="rounded-lg font-semibold px-8 py-4"
                   >
                     Find Rental Properties
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                   <Button
                     variant="outlined"
                     size="large"
-                    href="/contact"
-                    className="rounded-full font-semibold px-8 py-3"
-                    style={{
-                      color: 'white',
-                      borderColor: 'white',
-                      textTransform: 'none',
-                      fontSize: '1.1rem',
-                    }}
+                    href="#management"
+                    className="rounded-lg font-semibold px-8 py-4"
                   >
                     Property Management
                   </Button>
                 </div>
-              </div>
-              <div className="relative">
-                <Image
-                  src="/assets/images/rd-hero-illustration.svg"
-                  alt="Queensland Rental Properties"
-                  width={500}
-                  height={400}
-                  className="w-full h-auto"
-                />
-              </div>
+
+                {/* Quick Links */}
+                <Typography variant="body2" className="text-slate-600">
+                  Or explore our other services:
+                  <Button
+                    variant="text"
+                    size="small"
+                    href="/buying"
+                    className="mx-2 text-primary-600 hover:text-primary-700"
+                  >
+                    Buying
+                  </Button>
+                  •
+                  <Button
+                    variant="text"
+                    size="small"
+                    href="/selling"
+                    className="mx-2 text-primary-600 hover:text-primary-700"
+                  >
+                    Selling
+                  </Button>
+                </Typography>
+              </Paper>
             </div>
           </div>
         </section>
 
-        {/* Main Content */}
-        <section className="py-20 bg-gradient-to-b from-slate-100 to-white">
+        {/* Services Overview Section */}
+        <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            {/* Services Overview */}
-            <div className="mb-20">
-              <Typography
-                variant="h2"
-                className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
-              >
+            {/* Section Header */}
+            <div className="mb-16">
+              <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
                 Complete Rental Solutions
               </Typography>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {services.map((service, index) => (
-                  <Card key={index} className="p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow h-full">
-                    <div className="text-center mb-6">
-                      <div className="mb-4 flex justify-center text-primary-700">
-                        {service.icon}
+              <div className="flex justify-center">
+                <Typography
+                  variant="h6"
+                  className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl mx-auto text-center"
+                >
+                  Professional rental and property management services for tenants and property owners
+                </Typography>
+              </div>
+            </div>
+            
+            {/* Services Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {services.map((service, index) => {
+                const bgColors = [
+                  { bg: 'bg-gradient-to-br from-blue-50 to-blue-100', hover: 'hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-200', iconBg: 'bg-blue-500' },
+                  { bg: 'bg-gradient-to-br from-emerald-50 to-emerald-100', hover: 'hover:bg-gradient-to-br hover:from-emerald-100 hover:to-emerald-200', iconBg: 'bg-emerald-500' }
+                ];
+                const colorScheme = bgColors[index % bgColors.length] || bgColors[0];
+                
+                return (
+                  <Paper
+                    key={index}
+                    elevation={0}
+                    className={`p-8 border border-gray-200 transition-all duration-300 group rounded-xl ${colorScheme.bg} ${colorScheme.hover} hover:shadow-lg hover:scale-105 h-full`}
+                  >
+                    {/* Icon */}
+                    <div className="mb-6 text-center">
+                      <div className={`inline-flex p-4 ${colorScheme.iconBg} rounded-full shadow-md group-hover:shadow-lg transition-all duration-300`}>
+                        <div className="text-white transition-colors duration-300">
+                          {service.icon}
+                        </div>
                       </div>
-                      <Typography variant="h5" className="font-bold text-primary-800 mb-4">
-                        {service.title}
-                      </Typography>
-                      <Typography variant="body1" className="text-slate-700 leading-relaxed mb-6">
-                        {service.description}
-                      </Typography>
                     </div>
+
+                    {/* Content */}
+                    <Typography variant="h5" className="font-medium mb-3 text-center">
+                      {service.title}
+                    </Typography>
+                    <Typography variant="body1" className="text-gray-600 leading-relaxed mb-6 text-center">
+                      {service.description}
+                    </Typography>
+                    
+                    {/* Features */}
                     <div className="space-y-2">
                       {service.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0" />
-                          <Typography variant="body2" className="text-slate-600">
+                          <CheckCircle className="w-4 h-4 text-gray-500 flex-shrink-0" />
+                          <Typography variant="body2" className="text-gray-600">
                             {feature}
                           </Typography>
                         </div>
                       ))}
                     </div>
-                  </Card>
-                ))}
-              </div>
+                  </Paper>
+                );
+              })}
             </div>
+          </div>
+        </section>
 
-            {/* Property Management Process */}
-            <Card className="mb-20 rounded-3xl shadow-2xl border-0">
-              <CardContent className="p-12">
-                <Typography
-                  variant="h2"
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
-                >
+        {/* Property Management Process */}
+        <section id="management" className="py-24 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Paper elevation={0} className="p-12 rounded-xl border border-gray-200">
+              <div className="mb-16">
+                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
                   Our Property Management Process
                 </Typography>
-                <div className="space-y-8">
-                  {managementProcess.map((step, index) => (
-                    <div key={index} className="flex items-start gap-6">
-                      <div className="flex-shrink-0">
-                        <div className="w-16 h-16 bg-primary-700 text-white rounded-full flex items-center justify-center text-xl font-bold">
-                          {step.step}
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
-                          {step.title}
-                        </Typography>
-                        <Typography variant="body1" className="text-slate-700 leading-relaxed">
-                          {step.description}
-                        </Typography>
-                      </div>
-                      <div className="flex-shrink-0 text-primary-600">
-                        {step.icon}
-                      </div>
-                    </div>
-                  ))}
+                <div className="flex justify-center">
+                  <Typography
+                    variant="h6"
+                    className="text-gray-600 font-light max-w-2xl"
+                    style={{ textAlign: 'center' }}
+                  >
+                    A comprehensive approach to maximize your investment returns and tenant satisfaction
+                  </Typography>
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* Why Choose Us */}
-            <div className="mb-20">
-              <Typography
-                variant="h2"
-                className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
-              >
-                Why Choose Realty Direct for Rentals?
-              </Typography>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {[
-                  {
-                    icon: <MapPin className="w-10 h-10" />,
-                    title: "Local Expertise",
-                    description: "Deep knowledge of Queensland rental markets, regulations, and best practices across all major regions"
-                  },
-                  {
-                    icon: <Shield className="w-10 h-10" />,
-                    title: "Professional Service",
-                    description: "Comprehensive property management with transparent communication and reliable support for all parties"
-                  },
-                  {
-                    icon: <Users className="w-10 h-10" />,
-                    title: "Tenant & Owner Focus",
-                    description: "Balanced approach that protects property owners' investments while providing excellent tenant experiences"
-                  }
-                ].map((benefit, index) => (
-                  <Card key={index} className="text-center p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow">
-                    <div className="mb-6 flex justify-center text-primary-700">
-                      {benefit.icon}
+              </div>
+              
+              <div className="space-y-8">
+                {managementProcess.map((step, index) => (
+                  <div key={index} className="flex items-start gap-6 group">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 bg-gray-900 text-white rounded-full flex items-center justify-center text-xl font-bold group-hover:bg-gray-800 transition-colors duration-300">
+                        {step.step}
+                      </div>
                     </div>
-                    <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
-                      {benefit.title}
-                    </Typography>
-                    <Typography variant="body2" className="text-slate-600 leading-relaxed">
-                      {benefit.description}
-                    </Typography>
-                  </Card>
+                    <div className="flex-1">
+                      <Typography variant="h6" className="font-medium mb-2 text-gray-900">
+                        {step.title}
+                      </Typography>
+                      <Typography variant="body1" className="text-gray-600 leading-relaxed">
+                        {step.description}
+                      </Typography>
+                    </div>
+                    <div className="flex-shrink-0 text-gray-500 group-hover:text-gray-700 transition-colors duration-300">
+                      {step.icon}
+                    </div>
+                  </div>
                 ))}
               </div>
+            </Paper>
+          </div>
+        </section>
+
+        {/* Why Choose Us */}
+        <section className="py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-16">
+              <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
+                Why Choose Realty Direct for Rentals?
+              </Typography>
+              <div className="flex justify-center">
+                <Typography
+                  variant="h6"
+                  className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl mx-auto text-center"
+                >
+                  Professional rental services with unmatched local expertise and tenant focus
+                </Typography>
+              </div>
             </div>
-
-            {/* FAQ Section */}
-            <Card className="mb-20 rounded-3xl shadow-2xl border-0">
-              <CardContent className="p-12">
-                <Typography
-                  variant="h2"
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center"
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: <MapPin className="w-8 h-8" />,
+                  title: "Local Expertise",
+                  description: "Deep knowledge of Queensland rental markets, regulations, and best practices across all major regions",
+                  bgColor: 'bg-gradient-to-br from-blue-50 to-blue-100',
+                  iconBg: 'bg-blue-500',
+                  hoverBg: 'hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-200'
+                },
+                {
+                  icon: <Shield className="w-8 h-8" />,
+                  title: "Professional Service",
+                  description: "Comprehensive property management with transparent communication and reliable support for all parties",
+                  bgColor: 'bg-gradient-to-br from-emerald-50 to-emerald-100',
+                  iconBg: 'bg-emerald-500',
+                  hoverBg: 'hover:bg-gradient-to-br hover:from-emerald-100 hover:to-emerald-200'
+                },
+                {
+                  icon: <Users className="w-8 h-8" />,
+                  title: "Tenant & Owner Focus",
+                  description: "Balanced approach that protects property owners' investments while providing excellent tenant experiences",
+                  bgColor: 'bg-gradient-to-br from-purple-50 to-purple-100',
+                  iconBg: 'bg-purple-500',
+                  hoverBg: 'hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200'
+                }
+              ].map((benefit, index) => (
+                <Paper
+                  key={index}
+                  elevation={0}
+                  className={`p-8 border border-gray-200 transition-all duration-300 group rounded-xl ${benefit.bgColor} ${benefit.hoverBg} hover:shadow-lg hover:scale-105 text-center`}
                 >
-                  Frequently Asked Questions About Rentals
-                </Typography>
-                <div className="space-y-8">
-                  {faqs.map((faq, index) => (
-                    <div key={index} className="border-b border-accent-600 pb-8 last:border-b-0">
-                      <Typography variant="h6" className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
-                        {faq.question}
-                      </Typography>
-                      <Typography variant="body1" className="text-slate-700 leading-relaxed">
-                        {faq.answer}
-                      </Typography>
+                  {/* Icon */}
+                  <div className="mb-6">
+                    <div className={`inline-flex p-4 ${benefit.iconBg} rounded-full shadow-md group-hover:shadow-lg transition-all duration-300`}>
+                      <div className="text-white transition-colors duration-300">
+                        {benefit.icon}
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                  </div>
 
-            {/* Call to Action */}
-            <Card className="rounded-3xl shadow-2xl border-0 bg-gradient-to-br from-primary-900 to-primary-700">
-              <CardContent className="p-12 text-center">
-                <Typography
-                  variant="h2"
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
-                >
-                  Ready to Get Started?
+                  {/* Content */}
+                  <Typography variant="h5" className="font-medium mb-3">
+                    {benefit.title}
+                  </Typography>
+                  <Typography variant="body1" className="text-gray-600 leading-relaxed">
+                    {benefit.description}
+                  </Typography>
+                </Paper>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-24 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Paper elevation={0} className="p-12 rounded-xl border border-gray-200">
+              <div className="mb-16">
+                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
+                  Frequently Asked Questions
                 </Typography>
-                <Typography variant="body1" className="text-slate-100 text-lg mb-8 max-w-2xl mx-auto">
-                  Whether you're looking for a rental property or need professional property management services, we're here to help.
-                </Typography>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button
-                    variant="contained"
-                    size="large"
-                    href="/contact"
-                    className="rounded-full font-semibold px-8 py-3"
-                    style={{
-                      background: 'linear-gradient(90deg, var(--gold-500) 0%, var(--gold-400) 100%)',
-                      color: 'var(--primary-900)',
-                      textTransform: 'none',
-                      fontSize: '1.1rem',
-                    }}
+                <div className="flex justify-center">
+                  <Typography
+                    variant="h6"
+                    className="text-gray-600 font-light max-w-2xl"
+                    style={{ textAlign: 'center' }}
                   >
-                    Contact Us Today
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    size="large"
-                    href="/about"
-                    className="rounded-full font-semibold px-8 py-3"
-                    style={{
-                      color: 'white',
-                      borderColor: 'white',
-                      textTransform: 'none',
-                      fontSize: '1.1rem',
-                    }}
-                  >
-                    Learn More About Us
-                  </Button>
+                    Common questions about our rental and property management services
+                  </Typography>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+              
+              <div className="space-y-8">
+                {faqs.map((faq, index) => (
+                  <div key={index} className="border-b border-gray-200 pb-8 last:border-b-0">
+                    <Typography variant="h6" className="font-medium text-gray-900 mb-4">
+                      {faq.question}
+                    </Typography>
+                    <Typography variant="body1" className="text-gray-600 leading-relaxed">
+                      {faq.answer}
+                    </Typography>
+                  </div>
+                ))}
+              </div>
+            </Paper>
+          </div>
+        </section>
+
+        {/* Call to Action */}
+        <section className="py-24 bg-gray-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+              Ready to Get Started with Rentals?
+            </Typography>
+            <Typography variant="h6" className="text-lg md:text-xl text-gray-100 mb-10 font-normal max-w-2xl mx-auto">
+              Whether you're looking for a rental property or need professional property management services, we're here to help
+            </Typography>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <Button
+                variant="contained"
+                size="large"
+                href="/contact"
+                className="rounded-lg font-semibold px-8 py-4"
+              >
+                Find Rental Properties
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button
+                variant="outlined"
+                size="large"
+                href="/about"
+                className="rounded-lg font-semibold px-8 py-4 text-white border-white hover:bg-white hover:text-gray-900"
+              >
+                Learn More About Us
+              </Button>
+            </div>
+            
+            {/* Contact Info */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-gray-300">
+              <div className="flex items-center gap-2">
+                <Phone className="h-4 w-4" />
+                <Typography variant="body2">Call us for property management</Typography>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="h-4 w-4" />
+                <Typography variant="body2">Get expert rental advice</Typography>
+              </div>
+            </div>
           </div>
         </section>
       </div>
