@@ -21,7 +21,7 @@ export const MarketingSection = () => {
             className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-3xl text-center"
             style={{ lineHeight: 1.7 }}
           >
-            Realty Direct Queensland is an independent agency built on direct relationships, transparent communication, and genuine service. Experience a new standard of professionalism and results—without the legacy hype.
+            Realty Direct is an independent agency built on direct relationships, transparent communication, and genuine service. Experience a new standard of professionalism and results—without the legacy hype.
           </Typography>
         </div>
 

@@ -3,7 +3,7 @@ export const organizationSchema = {
   '@type': 'RealEstateAgent',
   '@id': 'https://realtydirect.com.au#organization',
   name: 'Realty Direct',
-  legalName: 'Realty Direct Queensland Pty Ltd',
+  legalName: 'Realty Direct Pty Ltd',
   url: 'https://realtydirect.com.au',
   logo: 'https://realtydirect.com.au/logo.png',
   image: 'https://realtydirect.com.au/logo.png',
@@ -117,7 +117,7 @@ export const websiteSchema = {
   '@type': 'WebSite',
   '@id': 'https://realtydirect.com.au#website',
   url: 'https://realtydirect.com.au',
-  name: 'Realty Direct Queensland',
+  name: 'Realty Direct',
   description: 'Queensland\'s most flexible real estate platform',
   publisher: {
     '@id': 'https://realtydirect.com.au#organization',

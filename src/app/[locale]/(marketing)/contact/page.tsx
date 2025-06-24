@@ -1,16 +1,16 @@
-import { Metadata } from 'next';
 import { ContactSection } from '@/components/prestige/ContactSection';
-import { Phone, Mail, Clock } from 'lucide-react';
+import { Clock, Mail, Phone } from 'lucide-react';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Realty Direct Queensland',
+  title: 'Contact Us | Realty Direct',
   description: 'Get in touch with Realty Direct for all your Queensland property needs. Contact our real estate experts for property valuations, sales support, and agent services.',
   keywords: 'contact realty direct, queensland real estate contact, property sale support, real estate help brisbane',
   alternates: {
     canonical: 'https://realtydirect.com.au/contact',
   },
   openGraph: {
-    title: 'Contact Us | Realty Direct Queensland',
+    title: 'Contact Us | Realty Direct',
     description: 'Contact Realty Direct for property valuations, sales support, and expert real estate advice in Queensland.',
     url: 'https://realtydirect.com.au/contact',
     siteName: 'Realty Direct',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         url: 'https://realtydirect.com.au/og-contact.jpg',
         width: 1200,
         height: 630,
-        alt: 'Contact Realty Direct Queensland',
+        alt: 'Contact Realty Direct',
       },
     ],
     locale: 'en_AU',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact Us | Realty Direct Queensland',
+    title: 'Contact Us | Realty Direct',
     description: 'Contact Realty Direct for property valuations and real estate support in Queensland.',
     images: ['https://realtydirect.com.au/og-contact.jpg'],
   },
@@ -106,7 +106,7 @@ export default function Contact() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'ContactPage',
-            'name': 'Contact Realty Direct Queensland',
+            'name': 'Contact Realty Direct',
             'description': 'Contact Realty Direct for property valuations, sales support, and expert real estate advice in Queensland.',
             'url': 'https://realtydirect.com.au/contact',
             'mainEntity': {

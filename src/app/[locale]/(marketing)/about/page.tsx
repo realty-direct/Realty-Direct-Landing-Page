@@ -1,8 +1,8 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import Image from 'next/image';
-import { Button, Typography, Card, CardContent } from '@mui/material';
-import { Users, MapPin, Award, Heart } from 'lucide-react';
+import { Button, Card, CardContent, Typography } from '@mui/material';
+import { Award, Heart, MapPin, Users } from 'lucide-react';
 import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
+import Image from 'next/image';
 
 type IAboutProps = {
   params: Promise<{ locale: string }>;
@@ -12,23 +12,23 @@ export async function generateMetadata(props: IAboutProps): Promise<Metadata> {
   const { locale } = await props.params;
 
   return {
-    title: 'About Realty Direct Queensland | Independent Real Estate Experts',
-    description: 'Discover how Realty Direct Queensland is transforming real estate with direct communication, transparent pricing, and exceptional results. Meet our experienced team of local property professionals.',
+    title: 'About Realty Direct | Independent Real Estate Experts',
+    description: 'Discover how Realty Direct is transforming real estate with direct communication, transparent pricing, and exceptional results. Meet our experienced team of local property professionals.',
     keywords: 'Queensland real estate, independent real estate agents, Brisbane property experts, Gold Coast real estate, transparent property services, Realty Direct team, local real estate knowledge',
     alternates: {
       canonical: 'https://realtydirect.com.au/about',
     },
     openGraph: {
-      title: 'About Realty Direct Queensland | Independent Real Estate Experts',
-      description: 'Discover how Realty Direct Queensland is transforming real estate with direct communication, transparent pricing, and exceptional results.',
+      title: 'About Realty Direct | Independent Real Estate Experts',
+      description: 'Discover how Realty Direct is transforming real estate with direct communication, transparent pricing, and exceptional results.',
       url: 'https://realtydirect.com.au/about',
-      siteName: 'Realty Direct Queensland',
+      siteName: 'Realty Direct',
       images: [
         {
           url: 'https://realtydirect.com.au/og-about.jpg',
           width: 1200,
           height: 630,
-          alt: 'Realty Direct Queensland Team - Independent Real Estate Experts',
+          alt: 'Realty Direct Team - Independent Real Estate Experts',
         },
       ],
       locale: locale === 'en' ? 'en_AU' : locale,
@@ -36,16 +36,16 @@ export async function generateMetadata(props: IAboutProps): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'About Realty Direct Queensland | Independent Real Estate Experts',
-      description: 'Discover how Realty Direct Queensland is transforming real estate with direct communication and transparent pricing.',
+      title: 'About Realty Direct | Independent Real Estate Experts',
+      description: 'Discover how Realty Direct is transforming real estate with direct communication and transparent pricing.',
       images: ['https://realtydirect.com.au/twitter-about.jpg'],
     },
     robots: {
       index: true,
       follow: true,
       googleBot: {
-        index: true,
-        follow: true,
+        'index': true,
+        'follow': true,
         'max-video-preview': -1,
         'max-image-preview': 'large',
         'max-snippet': -1,
@@ -61,19 +61,19 @@ export default async function About(props: IAboutProps) {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
-    'name': 'Realty Direct Queensland',
+    'name': 'Realty Direct',
     'description': 'Independent real estate agency providing transparent, direct communication and exceptional results across Queensland',
     'url': 'https://realtydirect.com.au',
     'logo': 'https://realtydirect.com.au/logo.png',
     'address': {
       '@type': 'PostalAddress',
       'addressRegion': 'Queensland',
-      'addressCountry': 'AU'
+      'addressCountry': 'AU',
     },
     'areaServed': ['Queensland', 'Brisbane', 'Gold Coast', 'Sunshine Coast'],
     'serviceType': ['Property Sales', 'Property Management', 'Property Consultation'],
     'foundingDate': '2023',
-    'slogan': 'Direct communication, exceptional results'
+    'slogan': 'Direct communication, exceptional results',
   };
 
   return (
@@ -82,7 +82,7 @@ export default async function About(props: IAboutProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      
+
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative py-24 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700">
@@ -93,7 +93,7 @@ export default async function About(props: IAboutProps) {
                 variant="h2"
                 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
               >
-                About Realty Direct Queensland
+                About Realty Direct
               </Typography>
               <Typography
                 variant="h6"
@@ -108,7 +108,7 @@ export default async function About(props: IAboutProps) {
         {/* Main Content */}
         <section className="py-20 bg-gradient-to-b from-slate-100 to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+
             {/* Story Section */}
             <Card className="mb-20 rounded-3xl shadow-2xl border-0">
               <CardContent className="p-12">
@@ -123,7 +123,7 @@ export default async function About(props: IAboutProps) {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <div className="text-center lg:text-left">
                     <Typography variant="body1" className="text-lg text-slate-700 mb-8" style={{ lineHeight: 1.8 }}>
-                      Founded on the belief that real estate should be straightforward, honest, and results-driven, Realty Direct Queensland emerged from a simple question: "What if property transactions didn't have to be complicated?"
+                      Founded on the belief that real estate should be straightforward, honest, and results-driven, Realty Direct emerged from a simple question: "What if property transactions didn't have to be complicated?"
                     </Typography>
                     <Typography variant="body1" className="text-lg text-slate-700 mb-10" style={{ lineHeight: 1.8 }}>
                       As Queensland's growing independent real estate company, we've built our reputation on doing things differently. We combine cutting-edge technology with genuine personal service, ensuring every client receives the attention and expertise they deserve.
@@ -140,7 +140,7 @@ export default async function About(props: IAboutProps) {
                   <div className="relative flex justify-center">
                     <Image
                       src="/assets/images/rd-hero-illustration.svg"
-                      alt="Realty Direct Queensland Team"
+                      alt="Realty Direct Team"
                       width={500}
                       height={400}
                       className="w-full h-auto rounded-2xl max-w-md"
@@ -162,24 +162,24 @@ export default async function About(props: IAboutProps) {
                 {[
                   {
                     icon: <Heart className="w-8 h-8" />,
-                    title: "Genuine Care",
-                    description: "We genuinely care about your property goals and work tirelessly to achieve them"
+                    title: 'Genuine Care',
+                    description: 'We genuinely care about your property goals and work tirelessly to achieve them',
                   },
                   {
                     icon: <Users className="w-8 h-8" />,
-                    title: "Local Expertise",
-                    description: "Deep Queensland market knowledge from Brisbane to the Gold Coast"
+                    title: 'Local Expertise',
+                    description: 'Deep Queensland market knowledge from Brisbane to the Gold Coast',
                   },
                   {
                     icon: <Award className="w-8 h-8" />,
-                    title: "Proven Results",
-                    description: "Track record of exceptional outcomes for Queensland families"
+                    title: 'Proven Results',
+                    description: 'Track record of exceptional outcomes for Queensland families',
                   },
                   {
                     icon: <MapPin className="w-8 h-8" />,
-                    title: "Strategic Reach",
-                    description: "Connected network across Queensland's key property markets"
-                  }
+                    title: 'Strategic Reach',
+                    description: 'Connected network across Queensland\'s key property markets',
+                  },
                 ].map((feature, index) => (
                   <Card key={index} className="text-center p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
                     <div className="mb-4 flex justify-center text-primary-700">
@@ -208,21 +208,21 @@ export default async function About(props: IAboutProps) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   {[
                     {
-                      question: "What makes Realty Direct different from other real estate agencies?",
-                      answer: "We're an independent agency focused on direct communication, transparent pricing, and putting our clients in control of their property journey. No corporate constraints, no hidden fees—just honest, results-driven service."
+                      question: 'What makes Realty Direct different from other real estate agencies?',
+                      answer: 'We\'re an independent agency focused on direct communication, transparent pricing, and putting our clients in control of their property journey. No corporate constraints, no hidden fees—just honest, results-driven service.',
                     },
                     {
-                      question: "Which areas of Queensland do you serve?",
-                      answer: "We serve all major Queensland markets including Brisbane, Gold Coast, Sunshine Coast, and surrounding regions. Our team has deep local knowledge across these key property markets."
+                      question: 'Which areas of Queensland do you serve?',
+                      answer: 'We serve all major Queensland markets including Brisbane, Gold Coast, Sunshine Coast, and surrounding regions. Our team has deep local knowledge across these key property markets.',
                     },
                     {
-                      question: "How do your fees compare to traditional agents?",
-                      answer: "Our transparent fee structure is designed to provide exceptional value. We offer competitive rates without sacrificing service quality, and we're always upfront about costs—no surprises."
+                      question: 'How do your fees compare to traditional agents?',
+                      answer: 'Our transparent fee structure is designed to provide exceptional value. We offer competitive rates without sacrificing service quality, and we\'re always upfront about costs—no surprises.',
                     },
                     {
-                      question: "Do you help with both buying and selling?",
-                      answer: "Absolutely! We provide comprehensive services for buyers, sellers, and renters. Whether you're looking to purchase your first home, sell a property, or find the perfect rental, we're here to help."
-                    }
+                      question: 'Do you help with both buying and selling?',
+                      answer: 'Absolutely! We provide comprehensive services for buyers, sellers, and renters. Whether you\'re looking to purchase your first home, sell a property, or find the perfect rental, we\'re here to help.',
+                    },
                   ].map((faq, index) => (
                     <div key={index} className="border-b border-slate-200 pb-8 mb-8 last:border-b-0 last:mb-0">
                       <Typography variant="h6" className="text-lg md:text-xl text-slate-900 mb-6 font-semibold">

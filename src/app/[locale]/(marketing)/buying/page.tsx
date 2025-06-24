@@ -1,8 +1,8 @@
-import { setRequestLocale } from 'next-intl/server';
-import { Button, Typography, Paper } from '@mui/material';
-import { Search, MapPin, Calculator, Key, Shield, Heart, Users, FileCheck, ArrowRight, Phone, Mail } from 'lucide-react';
-import Image from 'next/image';
+import { Button, Paper, Typography } from '@mui/material';
+import { ArrowRight, Calculator, FileCheck, Heart, Key, Mail, MapPin, Phone, Search, Shield, Users } from 'lucide-react';
 import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
+import Image from 'next/image';
 
 type IBuyingProps = {
   params: Promise<{ locale: string }>;
@@ -22,7 +22,7 @@ export async function generateMetadata(props: IBuyingProps): Promise<Metadata> {
       title: 'Buy Property in Queensland | Expert Buyer Agents & Property Search',
       description: 'Find your perfect Queensland property with Realty Direct. Expert buyer agents, property search, and market insights.',
       url: 'https://realtydirect.com.au/buying',
-      siteName: 'Realty Direct Queensland',
+      siteName: 'Realty Direct',
       images: [
         {
           url: 'https://realtydirect.com.au/og-buying.jpg',
@@ -65,7 +65,7 @@ export default async function Buying(props: IBuyingProps) {
     'description': 'Professional property buying services in Queensland including buyer representation, property search, and negotiation',
     'provider': {
       '@type': 'RealEstateAgent',
-      'name': 'Realty Direct Queensland',
+      'name': 'Realty Direct',
       'url': 'https://realtydirect.com.au'
     },
     'areaServed': ['Queensland', 'Brisbane', 'Gold Coast', 'Sunshine Coast'],

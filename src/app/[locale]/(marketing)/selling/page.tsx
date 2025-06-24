@@ -1,9 +1,9 @@
-import { setRequestLocale } from 'next-intl/server';
-import { Button, Typography, Card, CardContent, Paper } from '@mui/material';
-import { Home, DollarSign, Camera, FileText, Calendar, CheckCircle, TrendingUp, Users, ArrowRight } from 'lucide-react';
-import Image from 'next/image';
-import type { Metadata } from 'next';
 import { StructuredData } from '@/components/common/StructuredData';
+import { Button, Card, CardContent, Paper, Typography } from '@mui/material';
+import { ArrowRight, Camera, CheckCircle, DollarSign, FileText, Home, TrendingUp, Users } from 'lucide-react';
+import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
+import Image from 'next/image';
 
 type ISellingProps = {
   params: Promise<{ locale: string }>;
@@ -23,13 +23,13 @@ export async function generateMetadata(props: ISellingProps): Promise<Metadata> 
       title: 'Sell Your Property in Queensland | Expert Real Estate Services',
       description: 'Get the best price for your Queensland property with Realty Direct. Expert valuations, professional marketing, and transparent pricing.',
       url: 'https://realtydirect.com.au/selling',
-      siteName: 'Realty Direct Queensland',
+      siteName: 'Realty Direct',
       images: [
         {
           url: 'https://realtydirect.com.au/og-selling.jpg',
           width: 1200,
           height: 630,
-          alt: 'Sell Your Property with Realty Direct Queensland',
+          alt: 'Sell Your Property with Realty Direct',
         },
       ],
       locale: locale === 'en' ? 'en_AU' : locale,
@@ -66,7 +66,7 @@ export default async function Selling(props: ISellingProps) {
     'description': 'Professional property selling services in Queensland including valuations, marketing, and sales management',
     'provider': {
       '@type': 'RealEstateAgent',
-      'name': 'Realty Direct Queensland',
+      'name': 'Realty Direct',
       'url': 'https://realtydirect.com.au'
     },
     'areaServed': ['Queensland', 'Brisbane', 'Gold Coast', 'Sunshine Coast'],

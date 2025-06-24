@@ -1,8 +1,8 @@
-import { setRequestLocale } from 'next-intl/server';
-import { Button, Typography, Card, CardContent } from '@mui/material';
-import { Home, Shield, Users, Search, Calendar, CheckCircle, FileText, MapPin } from 'lucide-react';
-import Image from 'next/image';
+import { Button, Card, CardContent, Typography } from '@mui/material';
+import { Calendar, CheckCircle, FileText, Home, MapPin, Search, Shield, Users } from 'lucide-react';
 import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
+import Image from 'next/image';
 
 type IRentingProps = {
   params: Promise<{ locale: string }>;
@@ -22,7 +22,7 @@ export async function generateMetadata(props: IRentingProps): Promise<Metadata> 
       title: 'Rental Properties Queensland | Property Management & Tenant Services',
       description: 'Find rental properties and professional property management in Queensland. Expert tenant services and rental management.',
       url: 'https://realtydirect.com.au/renting',
-      siteName: 'Realty Direct Queensland',
+      siteName: 'Realty Direct',
       images: [
         {
           url: 'https://realtydirect.com.au/og-renting.jpg',
@@ -65,7 +65,7 @@ export default async function Renting(props: IRentingProps) {
     'description': 'Professional property rental and management services in Queensland including tenant placement, property maintenance, and rental management',
     'provider': {
       '@type': 'RealEstateAgent',
-      'name': 'Realty Direct Queensland',
+      'name': 'Realty Direct',
       'url': 'https://realtydirect.com.au'
     },
     'areaServed': ['Queensland', 'Brisbane', 'Gold Coast', 'Sunshine Coast'],

@@ -1,5 +1,5 @@
 # Claude AI Development Guidelines
-This document outlines the development standards and best practices for creating a beautiful, highly SEO-optimized real estate website for Realty Direct Queensland.
+This document outlines the development standards and best practices for creating a beautiful, highly SEO-optimized real estate website for Realty Direct.
 
 ## 🎯 Primary Objectives
 
@@ -49,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
         url: 'https://realtydirect.com.au/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Realty Direct Queensland'
+        alt: 'Realty Direct'
       }],
       locale: 'en_AU',
       type: 'website',

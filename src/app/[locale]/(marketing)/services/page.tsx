@@ -1,16 +1,16 @@
-import { Metadata } from 'next';
 import { StructuredData } from '@/components/common/StructuredData';
 import { breadcrumbSchema } from '@/utils/structuredData';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Our Services | Realty Direct Queensland',
+  title: 'Our Services | Realty Direct',
   description: 'Discover Realty Direct\'s flexible real estate services. From do-it-yourself property sales to full-service support, find the perfect option for your Queensland property transaction.',
   keywords: 'real estate services queensland, property sale options, FSBO services, agent listing queensland, hybrid real estate',
   alternates: {
     canonical: 'https://realtydirect.com.au/services',
   },
   openGraph: {
-    title: 'Our Services | Realty Direct Queensland',
+    title: 'Our Services | Realty Direct',
     description: 'Flexible real estate services for Queensland property sellers. Choose from DIY, assisted, hybrid, or professional agent options.',
     url: 'https://realtydirect.com.au/services',
     siteName: 'Realty Direct',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Our Services | Realty Direct Queensland',
+    title: 'Our Services | Realty Direct',
     description: 'Flexible real estate services for Queensland property sellers.',
     images: ['https://realtydirect.com.au/og-services.jpg'],
   },
