@@ -77,7 +77,7 @@ export const ContactSection = () => {
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
           Get In Touch
         </h2>
-        <p className="text-xl text-slate-200 max-w-2xl mx-auto">
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">
           Ready to experience Queensland's premier real estate service? Contact our expert team today.
         </p>
       </div>

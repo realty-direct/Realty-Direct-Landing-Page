@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { TextField, InputAdornment } from '@mui/material';
 import { MapPin } from 'lucide-react';
 
 interface AddressAutocompleteProps {
@@ -89,33 +88,20 @@ export const AddressAutocomplete = ({
 
   return (
     <>
-      <TextField
-        inputRef={inputRef}
-        fullWidth
-        variant="outlined"
-        placeholder={placeholder}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className={className}
-        autoComplete="off"
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <MapPin className="h-5 w-5 text-gray-400" />
-            </InputAdornment>
-          )
-        }}
-        sx={{
-          '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-              borderColor: 'rgba(0, 0, 0, 0.23)',
-            },
-            '&:hover fieldset': {
-              borderColor: 'rgba(0, 0, 0, 0.87)',
-            },
-          },
-        }}
-      />
+      <div className="relative">
+        <input
+          ref={inputRef}
+          type="text"
+          placeholder={placeholder}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className={`w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent ${className}`}
+          autoComplete="off"
+        />
+        <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
+          <MapPin className="h-5 w-5 text-gray-400" />
+        </div>
+      </div>
       {/* Add global styles for Google Autocomplete */}
       <style jsx global>{`
         .pac-container {

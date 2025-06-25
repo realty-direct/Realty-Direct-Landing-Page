@@ -1,5 +1,4 @@
 import { StructuredData } from '@/components/common/StructuredData';
-import { Button, Paper, Typography } from '@mui/material';
 import { ArrowRight, Camera, CheckCircle, DollarSign, FileText, Home, TrendingUp, Users } from 'lucide-react';
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
@@ -162,44 +161,34 @@ export default async function Selling(props: ISellingProps) {
           <div className="relative z-10 w-full h-full flex items-center justify-center px-4">
             <div className="max-w-4xl w-full text-center">
               {/* Main Content Card */}
-              <Paper elevation={0} className="bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-2xl">
+              <div className="bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-2xl">
                 {/* Main Heading */}
-                <Typography
-                  variant="h2"
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6"
-                >
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
                   Sell Your Queensland Property
-                </Typography>
+                </h1>
 
                 {/* Subheading */}
-                <Typography
-                  variant="h6"
-                  className="text-lg md:text-xl text-slate-600 mb-10 font-normal"
-                >
+                <p className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
                   Get the best price with expert marketing, transparent pricing, and professional service from Queensland's most trusted independent agents
-                </Typography>
+                </p>
 
                 {/* CTAs */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-                  <Button
-                    variant="contained"
-                    size="large"
+                  <a
                     href={`/${locale}/contact`}
-                    className="rounded-lg font-semibold px-8 py-4"
+                    className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-white bg-primary-700 hover:bg-primary-800 transition duration-150"
                   >
                     Get Free Appraisal
                     <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    size="large"
+                  </a>
+                  <a
                     href={`/${locale}/about`}
-                    className="rounded-lg font-semibold px-8 py-4"
+                    className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-primary-700 bg-white border-2 border-primary-700 hover:bg-primary-50 transition duration-150"
                   >
                     Learn More About Us
-                  </Button>
+                  </a>
                 </div>
-              </Paper>
+              </div>
             </div>
           </div>
         </section>
@@ -209,19 +198,12 @@ export default async function Selling(props: ISellingProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="mb-16 flex flex-col items-center">
-              <Typography
-                variant="h2"
-                className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 text-center"
-              >
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 text-center">
                 Why Choose Realty Direct to Sell Your Property?
-              </Typography>
-              <Typography
-                variant="h6"
-                className="text-slate-200 font-normal max-w-3xl text-center"
-                style={{ lineHeight: 1.7 }}
-              >
+              </h2>
+              <p className="text-slate-200 font-normal max-w-3xl text-center leading-relaxed">
                 Our expert team combines proven marketing strategies with transparent communication to achieve the best possible price for your Queensland property.
-              </Typography>
+              </p>
             </div>
 
             {/* Benefits Grid */}
@@ -252,10 +234,9 @@ export default async function Selling(props: ISellingProps) {
                   hoverBg: 'hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200',
                 },
               ].map((benefit, index) => (
-                <Paper
+                <div
                   key={index}
-                  elevation={0}
-                  className={`p-8 border border-gray-200 transition-all duration-300 group rounded-xl ${benefit.bgColor} ${benefit.hoverBg} hover:shadow-lg hover:scale-105 text-center`}
+                  className={`p-8 border border-gray-200 transition-all duration-300 group rounded-xl ${benefit.bgColor} ${benefit.hoverBg} hover:shadow-lg hover:scale-105 text-center bg-white shadow-sm`}
                 >
                   <div className="mb-6">
                     <div className={`inline-flex p-4 ${benefit.iconBg} rounded-full shadow-md group-hover:shadow-lg transition-all duration-300`}>
@@ -264,13 +245,13 @@ export default async function Selling(props: ISellingProps) {
                       </div>
                     </div>
                   </div>
-                  <Typography variant="h5" className="font-medium mb-3">
+                  <h3 className="font-medium mb-3 text-lg">
                     {benefit.title}
-                  </Typography>
-                  <Typography variant="body1" className="text-gray-600 leading-relaxed">
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
                     {benefit.description}
-                  </Typography>
-                </Paper>
+                  </p>
+                </div>
               ))}
             </div>
           </div>
@@ -279,19 +260,15 @@ export default async function Selling(props: ISellingProps) {
         {/* Selling Process Section */}
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Paper elevation={0} className="p-12 rounded-xl border border-gray-200">
+            <div className="p-12 rounded-xl border border-gray-200 bg-white shadow-sm">
               <div className="mb-16">
-                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
                   Our 5-Step Selling Process
-                </Typography>
+                </h2>
                 <div className="flex justify-center">
-                  <Typography
-                    variant="h6"
-                    className="text-gray-600 font-light max-w-2xl"
-                    style={{ textAlign: 'center' }}
-                  >
+                  <p className="text-gray-600 font-light max-w-2xl text-center">
                     A proven approach to getting you the best price for your property
-                  </Typography>
+                  </p>
                 </div>
               </div>
 
@@ -304,12 +281,12 @@ export default async function Selling(props: ISellingProps) {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <Typography variant="h6" className="font-medium mb-2 text-gray-900">
+                      <h3 className="font-medium mb-2 text-gray-900 text-lg">
                         {step.title}
-                      </Typography>
-                      <Typography variant="body1" className="text-gray-600 leading-relaxed">
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
                         {step.description}
-                      </Typography>
+                      </p>
                     </div>
                     <div className="flex-shrink-0 text-gray-500 group-hover:text-gray-700 transition-colors duration-300">
                       {step.icon}
@@ -317,7 +294,7 @@ export default async function Selling(props: ISellingProps) {
                   </div>
                 ))}
               </div>
-            </Paper>
+            </div>
           </div>
         </section>
 
@@ -326,29 +303,25 @@ export default async function Selling(props: ISellingProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="p-12 rounded-xl border border-slate-600 bg-primary-800">
               <div className="mb-16">
-                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
                   Frequently Asked Questions About Selling
-                </Typography>
+                </h2>
                 <div className="flex justify-center">
-                  <Typography
-                    variant="h6"
-                    className="text-slate-200 font-light max-w-2xl"
-                    style={{ textAlign: 'center' }}
-                  >
+                  <p className="text-slate-200 font-light max-w-2xl text-center">
                     Common questions about our property selling services
-                  </Typography>
+                  </p>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 {faqs.map((faq, index) => (
                   <div key={index} className="border-b border-slate-600 pb-8 mb-8 last:border-b-0 last:mb-0">
-                    <Typography variant="h6" className="font-medium text-white mb-4">
+                    <h3 className="font-medium text-white mb-4 text-lg">
                       {faq.question}
-                    </Typography>
-                    <Typography variant="body1" className="text-slate-200 leading-relaxed">
+                    </h3>
+                    <p className="text-slate-200 leading-relaxed">
                       {faq.answer}
-                    </Typography>
+                    </p>
                   </div>
                 ))}
               </div>
@@ -359,54 +332,38 @@ export default async function Selling(props: ISellingProps) {
         {/* Call to Action */}
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
               Ready to Sell Your Property?
-            </Typography>
+            </h2>
             <div className="flex justify-center">
-              <Typography
-                variant="h6"
-                className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl leading-relaxed text-center"
-              >
+              <p className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl leading-relaxed text-center">
                 Get started with a free property appraisal and discover how much your Queensland property is worth in today's market.
-              </Typography>
-              {
-                //
-              }
+              </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button
-                variant="contained"
-                size="large"
+              <a
                 href={`/${locale}/contact`}
-                className="rounded-lg font-semibold px-8 py-4"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-white bg-primary-700 hover:bg-primary-800 transition duration-150"
               >
                 Book Free Appraisal
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                variant="outlined"
-                size="large"
+              </a>
+              <a
                 href={`/${locale}/about`}
-                className="rounded-lg font-semibold px-8 py-4 text-slate-900 border-slate-900 hover:bg-slate-900 hover:text-white"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-slate-900 bg-white border-2 border-slate-900 hover:bg-slate-900 hover:text-white transition duration-150"
               >
                 Learn More About Us
-              </Button>
+              </a>
             </div>
 
             {/* Motto */}
             <div className="mt-14 pt-8 border-t border-slate-200">
-              <Typography
-                variant="h6"
-                className="text-slate-700 italic font-light"
-              >
+              <p className="text-slate-700 italic font-light text-lg">
                 "Direct communication, exceptional results"
-              </Typography>
-              <Typography
-                variant="body2"
-                className="text-slate-500 mt-2"
-              >
+              </p>
+              <p className="text-slate-500 mt-2 text-sm">
                 Experience the difference with Realty Direct
-              </Typography>
+              </p>
             </div>
           </div>
         </section>

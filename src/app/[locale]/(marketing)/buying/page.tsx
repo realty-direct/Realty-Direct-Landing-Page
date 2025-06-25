@@ -1,4 +1,3 @@
-import { Button, Paper, Typography } from '@mui/material';
 import { ArrowRight, Calculator, FileCheck, Heart, Key, Mail, MapPin, Phone, Search, Shield, Users } from 'lucide-react';
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
@@ -185,66 +184,52 @@ export default async function Buying(props: IBuyingProps) {
           <div className="relative z-10 w-full h-full flex items-center justify-center px-4">
             <div className="max-w-4xl w-full text-center">
               {/* Main Content Card */}
-              <Paper elevation={0} className="bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-2xl">
+              <div className="bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-2xl">
                 {/* Main Heading */}
-                <Typography
-                  variant="h2"
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6"
-                >
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
                   Buy Your Dream Queensland Property
-                </Typography>
+                </h1>
 
                 {/* Subheading */}
-                <Typography
-                  variant="h6"
-                  className="text-lg md:text-xl text-slate-600 mb-10 font-normal"
-                >
+                <p className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
                   Expert buyer agents helping you find, evaluate, and secure the perfect property in Brisbane, Gold Coast, and beyond
-                </Typography>
+                </p>
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-                  <Button
-                    variant="contained"
-                    size="large"
+                  <a
                     href={`/${locale}/contact`}
-                    className="rounded-lg font-semibold px-8 py-4"
+                    className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-white bg-primary-700 hover:bg-primary-800 transition duration-150"
                   >
                     Start Your Property Search
                     <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    size="large"
+                  </a>
+                  <a
                     href="#process"
-                    className="rounded-lg font-semibold px-8 py-4"
+                    className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-primary-700 bg-white border-2 border-primary-700 hover:bg-primary-50 transition duration-150"
                   >
                     Learn Our Process
-                  </Button>
+                  </a>
                 </div>
 
                 {/* Quick Links */}
-                <Typography variant="body2" className="text-slate-600">
+                <p className="text-slate-600 text-sm">
                   Or explore our other services:
-                  <Button
-                    variant="text"
-                    size="small"
+                  <a
                     href={`/${locale}/selling`}
-                    className="mx-2 text-primary-600 hover:text-primary-700"
+                    className="mx-2 text-primary-600 hover:text-primary-700 underline"
                   >
                     Selling
-                  </Button>
+                  </a>
                   •
-                  <Button
-                    variant="text"
-                    size="small"
+                  <a
                     href={`/${locale}/renting`}
-                    className="mx-2 text-primary-600 hover:text-primary-700"
+                    className="mx-2 text-primary-600 hover:text-primary-700 underline"
                   >
                     Renting
-                  </Button>
-                </Typography>
-              </Paper>
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -254,16 +239,13 @@ export default async function Buying(props: IBuyingProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="mb-16">
-              <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
                 We Help All Types of Buyers
-              </Typography>
+              </h2>
               <div className="flex justify-center">
-                <Typography
-                  variant="h6"
-                  className="text-lg md:text-xl text-slate-200 mb-10 font-normal max-w-2xl mx-auto text-center"
-                >
+                <p className="text-lg md:text-xl text-slate-200 mb-10 font-normal max-w-2xl mx-auto text-center">
                   Professional buyer representation for every type of property purchase
-                </Typography>
+                </p>
               </div>
             </div>
 
@@ -278,10 +260,9 @@ export default async function Buying(props: IBuyingProps) {
                 const colorScheme = bgColors[index % bgColors.length]!;
 
                 return (
-                  <Paper
+                  <div
                     key={index}
-                    elevation={0}
-                    className={`p-8 border border-gray-200 transition-all duration-300 group rounded-xl ${colorScheme.bg} ${colorScheme.hover} hover:shadow-lg hover:scale-105 h-full`}
+                    className={`p-8 border border-gray-200 transition-all duration-300 group rounded-xl ${colorScheme.bg} ${colorScheme.hover} hover:shadow-lg hover:scale-105 h-full bg-white shadow-sm`}
                   >
                     {/* Icon */}
                     <div className="mb-6 text-center">
@@ -293,25 +274,25 @@ export default async function Buying(props: IBuyingProps) {
                     </div>
 
                     {/* Content */}
-                    <Typography variant="h5" className="font-medium mb-3 text-center">
+                    <h3 className="font-medium mb-3 text-center text-lg">
                       {type.title}
-                    </Typography>
-                    <Typography variant="body1" className="text-gray-600 leading-relaxed mb-6 text-center">
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed mb-6 text-center">
                       {type.description}
-                    </Typography>
+                    </p>
 
                     {/* Benefits */}
                     <div className="space-y-2">
                       {type.benefits.map((benefit, idx) => (
                         <div key={idx} className="flex items-center gap-2">
                           <FileCheck className="w-4 h-4 text-gray-500 flex-shrink-0" />
-                          <Typography variant="body2" className="text-gray-600">
+                          <span className="text-gray-600 text-sm">
                             {benefit}
-                          </Typography>
+                          </span>
                         </div>
                       ))}
                     </div>
-                  </Paper>
+                  </div>
                 );
               })}
             </div>
@@ -321,19 +302,15 @@ export default async function Buying(props: IBuyingProps) {
         {/* Buying Process */}
         <section id="process" className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Paper elevation={0} className="p-12 rounded-xl border border-gray-200">
+            <div className="p-12 rounded-xl border border-gray-200 bg-white shadow-sm">
               <div className="mb-16">
-                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
                   Our Proven Buying Process
-                </Typography>
+                </h2>
                 <div className="flex justify-center">
-                  <Typography
-                    variant="h6"
-                    className="text-gray-600 font-light max-w-2xl"
-                    style={{ textAlign: 'center' }}
-                  >
+                  <p className="text-gray-600 font-light max-w-2xl text-center">
                     A structured approach to help you find and secure your perfect property
-                  </Typography>
+                  </p>
                 </div>
               </div>
 
@@ -346,12 +323,12 @@ export default async function Buying(props: IBuyingProps) {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <Typography variant="h6" className="font-medium mb-2 text-gray-900">
+                      <h3 className="font-medium mb-2 text-gray-900 text-lg">
                         {step.title}
-                      </Typography>
-                      <Typography variant="body1" className="text-gray-600 leading-relaxed">
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
                         {step.description}
-                      </Typography>
+                      </p>
                     </div>
                     <div className="flex-shrink-0 text-gray-500 group-hover:text-gray-700 transition-colors duration-300">
                       {step.icon}
@@ -359,7 +336,7 @@ export default async function Buying(props: IBuyingProps) {
                   </div>
                 ))}
               </div>
-            </Paper>
+            </div>
           </div>
         </section>
 
@@ -367,16 +344,13 @@ export default async function Buying(props: IBuyingProps) {
         <section className="py-24 bg-primary-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-16">
-              <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
                 Why Choose Realty Direct?
-              </Typography>
+              </h2>
               <div className="flex justify-center">
-                <Typography
-                  variant="h6"
-                  className="text-lg md:text-xl text-slate-200 mb-10 font-normal max-w-2xl mx-auto text-center"
-                >
+                <p className="text-lg md:text-xl text-slate-200 mb-10 font-normal max-w-2xl mx-auto text-center">
                   Professional buyer representation with unmatched local expertise
-                </Typography>
+                </p>
               </div>
             </div>
 
@@ -407,10 +381,9 @@ export default async function Buying(props: IBuyingProps) {
                   hoverBg: 'hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200',
                 },
               ].map((benefit, index) => (
-                <Paper
+                <div
                   key={index}
-                  elevation={0}
-                  className={`p-8 border border-gray-200 transition-all duration-300 group rounded-xl ${benefit.bgColor} ${benefit.hoverBg} hover:shadow-lg hover:scale-105 text-center`}
+                  className={`p-8 border border-gray-200 transition-all duration-300 group rounded-xl ${benefit.bgColor} ${benefit.hoverBg} hover:shadow-lg hover:scale-105 text-center bg-white shadow-sm`}
                 >
                   {/* Icon */}
                   <div className="mb-6">
@@ -422,13 +395,13 @@ export default async function Buying(props: IBuyingProps) {
                   </div>
 
                   {/* Content */}
-                  <Typography variant="h5" className="font-medium mb-3">
+                  <h3 className="font-medium mb-3 text-lg">
                     {benefit.title}
-                  </Typography>
-                  <Typography variant="body1" className="text-gray-600 leading-relaxed">
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
                     {benefit.description}
-                  </Typography>
-                </Paper>
+                  </p>
+                </div>
               ))}
             </div>
           </div>
@@ -437,81 +410,70 @@ export default async function Buying(props: IBuyingProps) {
         {/* FAQ Section */}
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Paper elevation={0} className="p-12 rounded-xl border border-gray-200">
+            <div className="p-12 rounded-xl border border-gray-200 bg-white shadow-sm">
               <div className="mb-16">
-                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
                   Frequently Asked Questions
-                </Typography>
+                </h2>
                 <div className="flex justify-center">
-                  <Typography
-                    variant="h6"
-                    className="text-gray-600 font-light max-w-2xl"
-                    style={{ textAlign: 'center' }}
-                  >
+                  <p className="text-gray-600 font-light max-w-2xl text-center">
                     Common questions about our buyer representation services
-                  </Typography>
+                  </p>
                 </div>
               </div>
 
               <div className="space-y-8">
                 {faqs.map((faq, index) => (
                   <div key={index} className="border-b border-gray-200 pb-8 last:border-b-0">
-                    <Typography variant="h6" className="font-medium text-gray-900 mb-4">
+                    <h3 className="font-medium text-gray-900 mb-4 text-lg">
                       {faq.question}
-                    </Typography>
-                    <Typography variant="body1" className="text-gray-600 leading-relaxed">
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
                       {faq.answer}
-                    </Typography>
+                    </p>
                   </div>
                 ))}
               </div>
-            </Paper>
+            </div>
           </div>
         </section>
 
         {/* Call to Action */}
         <section className="py-24 bg-primary-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Ready to Find Your Perfect Property?
-            </Typography>
+            </h2>
             <div className="flex justify-center">
-              <Typography
-                variant="h6"
-                className="text-lg md:text-xl text-gray-100 mb-10 font-normal max-w-2xl leading-relaxed text-center"
-              >
+              <p className="text-lg md:text-xl text-gray-100 mb-10 font-normal max-w-2xl leading-relaxed text-center">
                 Start your Queensland property search today with expert guidance from our experienced buyer's agents
-              </Typography>
+              </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button
-                variant="contained"
-                size="large"
+              <a
                 href={`/${locale}/contact`}
-                className="rounded-lg font-semibold px-8 py-4"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-white bg-primary-700 hover:bg-primary-800 transition duration-150"
               >
                 Start Property Search
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                variant="outlined"
-                size="large"
+              </a>
+              <a
                 href={`/${locale}/about`}
-                className="rounded-lg font-semibold px-8 py-4 text-white border-white hover:bg-white hover:text-gray-900"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-white bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 transition duration-150"
               >
                 Learn More About Us
-              </Button>
+              </a>
             </div>
 
             {/* Contact Info */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-gray-300">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <Typography variant="body2">Call us today for a consultation</Typography>
+                <span className="text-sm">Call us today for a consultation</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <Typography variant="body2">Get expert property advice</Typography>
+                <span className="text-sm">Get expert property advice</span>
               </div>
             </div>
           </div>

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { PostHogProvider } from '@/components/analytics/PostHogProvider';
-import { MUIThemeProvider } from '@/components/providers/MUIThemeProvider';
 import { routing } from '@/libs/i18nRouting';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
@@ -43,11 +42,9 @@ export default async function RootLayout(props: {
     <html lang={locale}>
       <body>
         <NextIntlClientProvider>
-          <MUIThemeProvider>
-            <PostHogProvider>
-              {props.children}
-            </PostHogProvider>
-          </MUIThemeProvider>
+          <PostHogProvider>
+            {props.children}
+          </PostHogProvider>
         </NextIntlClientProvider>
       </body>
     </html>

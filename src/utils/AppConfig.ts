@@ -5,7 +5,7 @@ const localePrefix: LocalePrefixMode = 'always';
 export const AppConfig = {
   name: 'Realty Direct',
   description: 'Queensland\'s Flexible Real Estate Platform',
-  locales: ['en', 'fr'],
+  locales: ['en'],
   defaultLocale: 'en',
   localePrefix,
 };

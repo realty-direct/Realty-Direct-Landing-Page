@@ -8,8 +8,6 @@ export { PropertyListing } from './property-listing';
 // Layout Components
 export { BaseTemplate } from './layouts/BaseTemplate';
 
-// Provider Components
-export { MUIThemeProvider } from './providers/MUIThemeProvider';
 
 // Analytics Components
 export { PostHogProvider } from './analytics/PostHogProvider';

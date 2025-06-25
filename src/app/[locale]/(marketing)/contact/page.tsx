@@ -1,5 +1,4 @@
 import { ContactSection } from '@/components/prestige/ContactSection';
-import { Typography } from '@mui/material';
 import { Clock, Mail, Phone } from 'lucide-react';
 import type { Metadata } from 'next';
 
@@ -58,19 +57,13 @@ export default function Contact() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <Typography
-              variant="h2"
-              className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-6"
-            >
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-6">
               Contact Us
-            </Typography>
+            </h1>
             <div className="flex justify-center">
-              <Typography
-                variant="body1"
-                className="text-base md:text-lg text-slate-600 max-w-2xl mb-10 font-normal leading-relaxed text-center"
-              >
+              <p className="text-base md:text-lg text-slate-600 max-w-2xl mb-10 font-normal leading-relaxed text-center">
                 Ready to experience Queensland's premier real estate service? Get in touch with our expert team today.
-              </Typography>
+              </p>
             </div>
 
             {/* Contact Info Cards */}

@@ -2,7 +2,6 @@
 
 import { AddressAutocomplete } from '@/components/common/AddressAutocomplete';
 import { getAssetPath } from '@/utils/Helpers';
-import { Button, Paper, Typography } from '@mui/material';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -63,22 +62,16 @@ export const PrestigeHero = () => {
       <div className="relative z-10 w-full h-full flex items-center justify-center px-4">
         <div className="max-w-4xl w-full text-center">
           {/* Main Content Card */}
-          <Paper elevation={0} className="bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-2xl">
+          <div className="bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-2xl">
             {/* Main Heading */}
-            <Typography
-              variant="h2"
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6"
-            >
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
               Get an Instant Property Estimate
-            </Typography>
+            </h1>
 
             {/* Subheading */}
-            <Typography
-              variant="h6"
-              className="text-lg md:text-xl text-slate-600 mb-10 font-normal"
-            >
+            <p className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
               Discover your property's value with our free, instant estimate tool
-            </Typography>
+            </p>
 
             {/* Address Input Form */}
             <form onSubmit={handleEstimate} className="mb-6 space-y-4">
@@ -89,50 +82,42 @@ export const PrestigeHero = () => {
                 className="bg-white"
               />
               <div className="mt-2">
-                <Button
+                <button
                   type="submit"
-                  variant="contained"
-                  size="large"
-                  className="w-full"
+                  className="w-full px-8 py-4 text-base font-semibold rounded-lg text-white bg-primary-700 hover:bg-primary-800 disabled:bg-gray-400 transition duration-150 inline-flex items-center justify-center"
                   disabled={!address}
                 >
                   Get Estimate
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                </button>
               </div>
             </form>
 
             {/* Additional CTAs */}
-            <Typography variant="body2" className="text-slate-600 mt-8">
+            <p className="text-slate-600 mt-8 text-sm">
               Or explore our services:
-              <Button
-                variant="text"
-                size="small"
+              <a
                 href={getLocalizedHref('/buying', locale)}
-                className="mx-2 text-primary-600 hover:text-primary-700"
+                className="mx-2 text-primary-600 hover:text-primary-700 underline"
               >
                 Buying
-              </Button>
+              </a>
               •
-              <Button
-                variant="text"
-                size="small"
+              <a
                 href={getLocalizedHref('/selling', locale)}
-                className="mx-2 text-primary-600 hover:text-primary-700"
+                className="mx-2 text-primary-600 hover:text-primary-700 underline"
               >
                 Selling
-              </Button>
+              </a>
               •
-              <Button
-                variant="text"
-                size="small"
+              <a
                 href={getLocalizedHref('/renting', locale)}
-                className="mx-2 text-primary-600 hover:text-primary-700"
+                className="mx-2 text-primary-600 hover:text-primary-700 underline"
               >
                 Renting
-              </Button>
-            </Typography>
-          </Paper>
+              </a>
+            </p>
+          </div>
         </div>
       </div>
 

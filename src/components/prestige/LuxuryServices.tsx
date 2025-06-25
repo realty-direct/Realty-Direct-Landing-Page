@@ -1,6 +1,5 @@
 'use client';
 
-import { Typography } from '@mui/material';
 import {
   Building2,
   Camera,
@@ -67,17 +66,13 @@ export const LuxuryServices = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-16">
-          <Typography variant="h2" className="text-4xl md:text-5xl font-light mb-4 text-center text-white">
+          <h2 className="text-4xl md:text-5xl font-light mb-4 text-center text-white">
             Professional Real Estate Services
-          </Typography>
+          </h2>
           <div className="flex justify-center">
-            <Typography
-              variant="h6"
-              className="text-slate-200 font-light max-w-2xl"
-              style={{ textAlign: 'center' }}
-            >
+            <p className="text-slate-200 font-light max-w-2xl text-center">
               Comprehensive property services designed to help you achieve your real estate goals
-            </Typography>
+            </p>
           </div>
         </div>
         {/* Services Grid */}
@@ -97,12 +92,12 @@ export const LuxuryServices = () => {
                 </div>
 
                 {/* Content */}
-                <Typography variant="h5" className="font-medium mb-3 text-white">
+                <h3 className="font-medium mb-3 text-white text-lg">
                   {service.title}
-                </Typography>
-                <Typography variant="body1" className="text-slate-200 leading-relaxed">
+                </h3>
+                <p className="text-slate-200 leading-relaxed">
                   {service.description}
-                </Typography>
+                </p>
               </div>
             );
           })}
@@ -110,9 +105,9 @@ export const LuxuryServices = () => {
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <Typography variant="h6" className="text-slate-200 font-light mb-6">
+          <p className="text-slate-200 font-light mb-6">
             Ready to get started with your property journey? Contact us today
-          </Typography>
+          </p>
           <button className="inline-flex items-center gap-2 px-8 py-3 bg-white text-slate-900 font-medium hover:bg-slate-100 transition-colors duration-300">
             Contact Us Today
           </button>

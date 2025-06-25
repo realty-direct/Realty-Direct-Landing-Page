@@ -1,4 +1,3 @@
-import { Button, Paper, Typography } from '@mui/material';
 import { ArrowRight, Calendar, CheckCircle, FileText, Home, Mail, MapPin, Phone, Search, Shield, Users } from 'lucide-react';
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
@@ -209,66 +208,52 @@ export default async function Renting(props: IRentingProps) {
           <div className="relative z-10 w-full h-full flex items-center justify-center px-4">
             <div className="max-w-4xl w-full text-center">
               {/* Main Content Card */}
-              <Paper elevation={0} className="bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-2xl">
+              <div className="bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-2xl">
                 {/* Main Heading */}
-                <Typography
-                  variant="h2"
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6"
-                >
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
                   Queensland Rental Properties & Management
-                </Typography>
+                </h1>
 
                 {/* Subheading */}
-                <Typography
-                  variant="h6"
-                  className="text-lg md:text-xl text-slate-600 mb-10 font-normal"
-                >
+                <p className="text-lg md:text-xl text-slate-600 mb-10 font-normal">
                   Professional property management and rental services across Brisbane, Gold Coast, and beyond. Find your perfect rental or maximize your investment returns.
-                </Typography>
+                </p>
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-                  <Button
-                    variant="contained"
-                    size="large"
+                  <a
                     href={`/${locale}/contact`}
-                    className="rounded-lg font-semibold px-8 py-4"
+                    className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-white bg-primary-700 hover:bg-primary-800 transition duration-150"
                   >
                     Find Rental Properties
                     <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    size="large"
+                  </a>
+                  <a
                     href="#management"
-                    className="rounded-lg font-semibold px-8 py-4"
+                    className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-primary-700 bg-white border-2 border-primary-700 hover:bg-primary-50 transition duration-150"
                   >
                     Property Management
-                  </Button>
+                  </a>
                 </div>
 
                 {/* Quick Links */}
-                <Typography variant="body2" className="text-slate-600">
+                <p className="text-slate-600 text-sm">
                   Or explore our other services:
-                  <Button
-                    variant="text"
-                    size="small"
+                  <a
                     href={`/${locale}/buying`}
-                    className="mx-2 text-primary-600 hover:text-primary-700"
+                    className="mx-2 text-primary-600 hover:text-primary-700 underline"
                   >
                     Buying
-                  </Button>
+                  </a>
                   •
-                  <Button
-                    variant="text"
-                    size="small"
+                  <a
                     href={`/${locale}/selling`}
-                    className="mx-2 text-primary-600 hover:text-primary-700"
+                    className="mx-2 text-primary-600 hover:text-primary-700 underline"
                   >
                     Selling
-                  </Button>
-                </Typography>
-              </Paper>
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -278,16 +263,13 @@ export default async function Renting(props: IRentingProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="mb-16">
-              <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
                 Complete Rental Solutions
-              </Typography>
+              </h2>
               <div className="flex justify-center">
-                <Typography
-                  variant="h6"
-                  className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl mx-auto text-center"
-                >
+                <p className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl mx-auto text-center">
                   Professional rental and property management services for tenants and property owners
-                </Typography>
+                </p>
               </div>
             </div>
 
@@ -301,10 +283,9 @@ export default async function Renting(props: IRentingProps) {
                 const colorScheme = bgColors[index % bgColors.length]!;
 
                 return (
-                  <Paper
+                  <div
                     key={index}
-                    elevation={0}
-                    className={`p-8 border border-gray-200 transition-all duration-300 group rounded-xl ${colorScheme.bg} ${colorScheme.hover} hover:shadow-lg hover:scale-105 h-full`}
+                    className={`p-8 border border-gray-200 transition-all duration-300 group rounded-xl ${colorScheme.bg} ${colorScheme.hover} hover:shadow-lg hover:scale-105 h-full bg-white shadow-sm`}
                   >
                     {/* Icon */}
                     <div className="mb-6 text-center">
@@ -316,25 +297,25 @@ export default async function Renting(props: IRentingProps) {
                     </div>
 
                     {/* Content */}
-                    <Typography variant="h5" className="font-medium mb-3 text-center">
+                    <h3 className="font-medium mb-3 text-center text-lg">
                       {service.title}
-                    </Typography>
-                    <Typography variant="body1" className="text-gray-600 leading-relaxed mb-6 text-center">
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed mb-6 text-center">
                       {service.description}
-                    </Typography>
+                    </p>
 
                     {/* Features */}
                     <div className="space-y-2">
                       {service.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center gap-2">
                           <CheckCircle className="w-4 h-4 text-gray-500 flex-shrink-0" />
-                          <Typography variant="body2" className="text-gray-600">
+                          <span className="text-gray-600 text-sm">
                             {feature}
-                          </Typography>
+                          </span>
                         </div>
                       ))}
                     </div>
-                  </Paper>
+                  </div>
                 );
               })}
             </div>
@@ -346,17 +327,13 @@ export default async function Renting(props: IRentingProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="p-12 rounded-xl bg-primary-800">
               <div className="mb-16">
-                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
                   Our Property Management Process
-                </Typography>
+                </h2>
                 <div className="flex justify-center">
-                  <Typography
-                    variant="h6"
-                    className="text-slate-200 font-light max-w-2xl"
-                    style={{ textAlign: 'center' }}
-                  >
+                  <p className="text-slate-200 font-light max-w-2xl text-center">
                     A comprehensive approach to maximize your investment returns and tenant satisfaction
-                  </Typography>
+                  </p>
                 </div>
               </div>
 
@@ -369,12 +346,12 @@ export default async function Renting(props: IRentingProps) {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <Typography variant="h6" className="font-medium mb-2 text-white">
+                      <h3 className="font-medium mb-2 text-white text-lg">
                         {step.title}
-                      </Typography>
-                      <Typography variant="body1" className="text-slate-200 leading-relaxed">
+                      </h3>
+                      <p className="text-slate-200 leading-relaxed">
                         {step.description}
-                      </Typography>
+                      </p>
                     </div>
                     <div className="flex-shrink-0 text-slate-300 group-hover:text-white transition-colors duration-300">
                       {getIcon(step.iconName)}
@@ -390,16 +367,13 @@ export default async function Renting(props: IRentingProps) {
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-16">
-              <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
                 Why Choose Realty Direct for Rentals?
-              </Typography>
+              </h2>
               <div className="flex justify-center">
-                <Typography
-                  variant="h6"
-                  className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl mx-auto text-center"
-                >
+                <p className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl mx-auto text-center">
                   Professional rental services with unmatched local expertise and tenant focus
-                </Typography>
+                </p>
               </div>
             </div>
 
@@ -430,10 +404,9 @@ export default async function Renting(props: IRentingProps) {
                   hoverBg: 'hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200',
                 },
               ].map((benefit, index) => (
-                <Paper
+                <div
                   key={index}
-                  elevation={0}
-                  className={`p-8 border border-gray-200 transition-all duration-300 group rounded-xl ${benefit.bgColor} ${benefit.hoverBg} hover:shadow-lg hover:scale-105 text-center`}
+                  className={`p-8 border border-gray-200 transition-all duration-300 group rounded-xl ${benefit.bgColor} ${benefit.hoverBg} hover:shadow-lg hover:scale-105 text-center bg-white shadow-sm`}
                 >
                   {/* Icon */}
                   <div className="mb-6">
@@ -445,13 +418,13 @@ export default async function Renting(props: IRentingProps) {
                   </div>
 
                   {/* Content */}
-                  <Typography variant="h5" className="font-medium mb-3">
+                  <h3 className="font-medium mb-3 text-lg">
                     {benefit.title}
-                  </Typography>
-                  <Typography variant="body1" className="text-gray-600 leading-relaxed">
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
                     {benefit.description}
-                  </Typography>
-                </Paper>
+                  </p>
+                </div>
               ))}
             </div>
           </div>
@@ -462,29 +435,25 @@ export default async function Renting(props: IRentingProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="p-12 rounded-xl bg-primary-800">
               <div className="mb-16">
-                <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
                   Frequently Asked Questions
-                </Typography>
+                </h2>
                 <div className="flex justify-center">
-                  <Typography
-                    variant="h6"
-                    className="text-slate-200 font-light max-w-2xl"
-                    style={{ textAlign: 'center' }}
-                  >
+                  <p className="text-slate-200 font-light max-w-2xl text-center">
                     Common questions about our rental and property management services
-                  </Typography>
+                  </p>
                 </div>
               </div>
 
               <div className="space-y-8">
                 {faqs.map((faq, index) => (
                   <div key={index} className="border-b border-slate-600 pb-8 last:border-b-0">
-                    <Typography variant="h6" className="font-medium text-white mb-4">
+                    <h3 className="font-medium text-white mb-4 text-lg">
                       {faq.question}
-                    </Typography>
-                    <Typography variant="body1" className="text-slate-200 leading-relaxed">
+                    </h3>
+                    <p className="text-slate-200 leading-relaxed">
                       {faq.answer}
-                    </Typography>
+                    </p>
                   </div>
                 ))}
               </div>
@@ -495,47 +464,40 @@ export default async function Renting(props: IRentingProps) {
         {/* Call to Action */}
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
               Ready to Get Started with Rentals?
-            </Typography>
+            </h2>
             <div className="flex justify-center w-full">
-              <Typography
-                variant="h6"
-                className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl text-center"
-              >
+              <p className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl text-center">
                 Whether you're looking for a rental property or need professional property management services, we're here to help
-              </Typography>
+              </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button
-                variant="contained"
-                size="large"
+              <a
                 href={`/${locale}/contact`}
-                className="rounded-lg font-semibold px-8 py-4"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-white bg-primary-700 hover:bg-primary-800 transition duration-150"
               >
                 Find Rental Properties
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                variant="outlined"
-                size="large"
+              </a>
+              <a
                 href={`/${locale}/about`}
-                className="rounded-lg font-semibold px-8 py-4 text-slate-700 border-slate-300 hover:bg-slate-100 hover:text-slate-900"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-slate-700 bg-white border-2 border-slate-300 hover:bg-slate-100 hover:text-slate-900 transition duration-150"
               >
                 Learn More About Us
-              </Button>
+              </a>
             </div>
 
             {/* Contact Info */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-slate-600">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <Typography variant="body2">Call us for property management</Typography>
+                <span className="text-sm">Call us for property management</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <Typography variant="body2">Get expert rental advice</Typography>
+                <span className="text-sm">Get expert rental advice</span>
               </div>
             </div>
           </div>

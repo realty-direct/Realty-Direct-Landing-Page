@@ -1,6 +1,5 @@
 import { StructuredData } from '@/components/common/StructuredData';
 import { breadcrumbSchema } from '@/utils/structuredData';
-import { Typography } from '@mui/material';
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 
@@ -161,10 +160,10 @@ export default async function Services(props: IServicesProps) {
       <StructuredData data={breadcrumbSchema(breadcrumbs)} />
       <StructuredData data={servicesListSchema} />
       <div className="text-center mb-12">
-        <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Our Services</Typography>
-        <Typography variant="h6" className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Our Services</h1>
+        <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
           Choose the perfect level of support for your Queensland property sale. From complete DIY freedom to full-service agent representation, we have a solution that fits your needs and budget.
-        </Typography>
+        </p>
       </div>
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-16">
@@ -197,7 +196,7 @@ export default async function Services(props: IServicesProps) {
       </div>
 
       <section className="bg-gray-50 rounded-lg p-8 mb-16">
-        <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Why Choose Realty Direct?</Typography>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Why Choose Realty Direct?</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-lg font-semibold text-blue-600 mb-3">Flexible Options</h3>
@@ -221,7 +220,7 @@ export default async function Services(props: IServicesProps) {
       </section>
 
       <section className="text-center">
-        <Typography variant="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Ready to sell your property?</Typography>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Ready to sell your property?</h2>
         <p className="text-gray-700 mb-6">
           Get started with a free property valuation and discover which service option is right for you.
         </p>
