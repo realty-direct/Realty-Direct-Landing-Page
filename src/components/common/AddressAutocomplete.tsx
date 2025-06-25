@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { MapPin } from 'lucide-react';
+import Script from 'next/script';
 
 interface AddressAutocompleteProps {
   value: string;
@@ -20,12 +21,19 @@ export const AddressAutocomplete = ({
 }: AddressAutocompleteProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const autocompleteRef = useRef<any>(null);
+  const [scriptsLoaded, setScriptsLoaded] = useState(false);
+  const [shouldLoadMaps, setShouldLoadMaps] = useState(false);
+
+  // Load Google Maps when component becomes active (user clicks on input)
+  const handleInputFocus = () => {
+    setShouldLoadMaps(true);
+  };
 
   useEffect(() => {
     let checkInterval: NodeJS.Timeout;
     
     const tryInitialize = () => {
-      if (typeof window !== 'undefined' && (window as any).google && (window as any).google.maps && (window as any).google.maps.places) {
+      if (scriptsLoaded && typeof window !== 'undefined' && (window as any).google && (window as any).google.maps && (window as any).google.maps.places) {
         if (process.env.NODE_ENV === 'development') {
           console.log('Google Maps API is loaded, initializing autocomplete');
         }
@@ -35,17 +43,19 @@ export const AddressAutocomplete = ({
       return false;
     };
 
-    // Try immediately
-    if (!tryInitialize()) {
-      if (process.env.NODE_ENV === 'development') {
-        console.log('Google Maps API not loaded yet, waiting...');
-      }
-      // If not loaded, wait for it
-      checkInterval = setInterval(() => {
-        if (tryInitialize() && checkInterval) {
-          clearInterval(checkInterval);
+    // Only initialize after scripts are loaded and Google Maps should be loaded
+    if (scriptsLoaded && shouldLoadMaps) {
+      if (!tryInitialize()) {
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Google Maps API not loaded yet, waiting...');
         }
-      }, 100);
+        // If not loaded, wait for it
+        checkInterval = setInterval(() => {
+          if (tryInitialize() && checkInterval) {
+            clearInterval(checkInterval);
+          }
+        }, 100);
+      }
     }
 
     return () => {
@@ -56,7 +66,7 @@ export const AddressAutocomplete = ({
         (window as any).google.maps.event.clearInstanceListeners(autocompleteRef.current);
       }
     };
-  }, []);
+  }, [scriptsLoaded, shouldLoadMaps]);
 
   const initializeAutocomplete = () => {
     if (!inputRef.current) {
@@ -98,8 +108,29 @@ export const AddressAutocomplete = ({
     }
   };
 
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
   return (
     <>
+      {/* Conditionally load Google Maps Scripts */}
+      {shouldLoadMaps && apiKey && (
+        <Script
+          src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`}
+          strategy="afterInteractive"
+          onLoad={() => {
+            setScriptsLoaded(true);
+            if (process.env.NODE_ENV === 'development') {
+              console.log('Google Maps script loaded');
+            }
+          }}
+          onError={(e) => {
+            if (process.env.NODE_ENV === 'development') {
+              console.error('Error loading Google Maps:', e);
+            }
+          }}
+        />
+      )}
+      
       <div className="relative">
         <input
           ref={inputRef}
@@ -107,6 +138,7 @@ export const AddressAutocomplete = ({
           placeholder={placeholder}
           value={value}
           onChange={(e) => onChange(e.target.value)}
+          onFocus={handleInputFocus}
           className={`w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent ${className}`}
           autoComplete="off"
         />

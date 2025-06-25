@@ -5,7 +5,7 @@ import { getAssetPath } from '@/utils/Helpers';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useLocale } from 'next-intl';
 import { getLocalizedHref } from '@/components/common/LocaleLink';
 
@@ -46,15 +46,48 @@ export const PrestigeHero = () => {
 
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={getAssetPath("/assets/images/lisa-anna-_cglx9xLFqU-unsplash.jpg")}
-          alt="Queensland property"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-          onLoad={() => setImageLoaded(true)}
-        />
+        <picture>
+          {/* WebP sources for modern browsers */}
+          <source 
+            media="(max-width: 768px)" 
+            srcSet={getAssetPath("/assets/images/lisa-anna-hero-800.webp")}
+            type="image/webp"
+          />
+          <source 
+            media="(max-width: 1200px)" 
+            srcSet={getAssetPath("/assets/images/lisa-anna-hero-1200.webp")}
+            type="image/webp"
+          />
+          <source 
+            srcSet={getAssetPath("/assets/images/lisa-anna-hero-1920.webp")}
+            type="image/webp"
+          />
+          
+          {/* JPEG fallbacks */}
+          <source 
+            media="(max-width: 768px)" 
+            srcSet={getAssetPath("/assets/images/lisa-anna-hero-800.jpg")}
+            type="image/jpeg"
+          />
+          <source 
+            media="(max-width: 1200px)" 
+            srcSet={getAssetPath("/assets/images/lisa-anna-hero-1200.jpg")}
+            type="image/jpeg"
+          />
+          
+          <Image
+            src={getAssetPath("/assets/images/lisa-anna-hero-1920.jpg")}
+            alt="Queensland property"
+            fill
+            className="object-cover"
+            priority
+            quality={90}
+            onLoad={() => setImageLoaded(true)}
+            sizes="100vw"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+          />
+        </picture>
         <div className="absolute inset-0 bg-black/40" />
       </div>
 

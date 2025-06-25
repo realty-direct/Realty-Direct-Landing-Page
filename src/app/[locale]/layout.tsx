@@ -40,6 +40,33 @@ export default async function RootLayout(props: {
 
   return (
     <html lang={locale}>
+      <head>
+        {/* Preload critical hero images */}
+        <link 
+          rel="preload" 
+          as="image" 
+          type="image/webp"
+          href="/images/lisa-anna-hero-800.webp"
+          media="(max-width: 768px)"
+        />
+        <link 
+          rel="preload" 
+          as="image" 
+          type="image/webp"
+          href="/images/lisa-anna-hero-1200.webp"
+          media="(max-width: 1200px)"
+        />
+        <link 
+          rel="preload" 
+          as="image" 
+          type="image/webp"
+          href="/images/lisa-anna-hero-1920.webp"
+          media="(min-width: 1201px)"
+        />
+        {/* DNS prefetch for external resources */}
+        <link rel="dns-prefetch" href="//maps.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+      </head>
       <body>
         <NextIntlClientProvider>
           <PostHogProvider>

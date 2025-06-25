@@ -3,7 +3,6 @@ import { setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
 import { StructuredData } from '@/components/common/StructuredData';
 import { organizationSchema, websiteSchema } from '@/utils/structuredData';
-import { GoogleMapsLoader } from '@/components/common/GoogleMapsLoader';
 
 export default async function Layout(props: {
   children: React.ReactNode;
@@ -60,16 +59,8 @@ export default async function Layout(props: {
     >
       <StructuredData data={organizationSchema} />
       <StructuredData data={websiteSchema} />
-      {process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ? (
-        <GoogleMapsLoader apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
-          {props.children}
-        </GoogleMapsLoader>
-      ) : (
-        <>
-          {console.warn('Google Maps API key not found. Please add NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to your .env.local file')}
-          {props.children}
-        </>
-      )}
+      {/* Google Maps loaded conditionally only when needed */}
+      {props.children}
     </BaseTemplate>
   );
 }
