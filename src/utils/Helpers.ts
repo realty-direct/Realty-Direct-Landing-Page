@@ -5,9 +5,9 @@ export const getBaseUrl = () => {
     return process.env.NEXT_PUBLIC_APP_URL;
   }
 
-  // GitHub Pages
+  // GitHub Pages with custom domain
   if (process.env.GITHUB_ACTIONS) {
-    return 'https://realty-direct.github.io/Realty-Direct-Landing-Page';
+    return 'https://realtydirect.com.au';
   }
 
   if (
@@ -33,7 +33,6 @@ export const getI18nPath = (url: string, locale: string) => {
 };
 
 export const getAssetPath = (path: string) => {
-  // Add base path for GitHub Pages
-  const basePath = process.env.NODE_ENV === 'production' ? '/Realty-Direct-Landing-Page' : '';
-  return `${basePath}${path}`;
+  // No base path needed for custom domain
+  return path;
 };
