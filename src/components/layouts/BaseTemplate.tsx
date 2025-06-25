@@ -27,7 +27,7 @@ export const BaseTemplate = (props: {
             <div className="flex-shrink-0 flex items-center">
               <Link href={`/${locale}/`} className="flex items-center gap-1 sm:gap-2">
                 <Image
-                  src={getAssetPath("/assets/images/logo.svg")}
+                  src={getAssetPath("/images/logo.svg")}
                   alt="Realty Direct Logo"
                   width={40}
                   height={40}

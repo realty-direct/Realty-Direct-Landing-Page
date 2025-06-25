@@ -170,7 +170,7 @@ export default async function Buying(props: IBuyingProps) {
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <Image
-              src={getAssetPath("/assets/images/lisa-anna-_cglx9xLFqU-unsplash.jpg")}
+              src={getAssetPath("/images/lisa-anna-_cglx9xLFqU-unsplash.jpg")}
               alt="Queensland property for buying"
               fill
               className="object-cover"

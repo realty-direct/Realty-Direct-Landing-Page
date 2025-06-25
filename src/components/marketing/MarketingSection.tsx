@@ -68,7 +68,7 @@ export const MarketingSection = () => {
               <div className="flex-1 flex items-center justify-center min-w-0 md:pl-8">
                 <div className="relative w-full max-w-lg aspect-[3/2] rounded-2xl overflow-hidden shadow-xl border border-accent-600 bg-accent-500/10">
                   <Image
-                    src={getAssetPath("/assets/images/home.jpg")}
+                    src={getAssetPath("/images/home.jpg")}
                     alt="Luxury Queensland Property"
                     fill
                     className="object-cover"

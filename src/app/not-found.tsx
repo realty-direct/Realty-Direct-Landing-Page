@@ -13,7 +13,7 @@ export default function NotFound() {
         <div className="mb-8">
           <Link href="/en/" className="inline-flex items-center gap-2">
             <Image
-              src={getAssetPath("/assets/images/logo.svg")}
+              src={getAssetPath("/images/logo.svg")}
               alt="Realty Direct Logo"
               width={50}
               height={50}

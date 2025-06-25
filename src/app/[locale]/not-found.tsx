@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { getAssetPath } from '@/utils/Helpers';
 import { Home, ArrowLeft } from 'lucide-react';
 import { useLocale } from 'next-intl';
+import '@/styles/global.css';
 
 export default function NotFound() {
   const locale = useLocale();
@@ -16,7 +17,7 @@ export default function NotFound() {
         <div className="mb-8">
           <Link href={`/${locale}/`} className="inline-flex items-center gap-2">
             <Image
-              src={getAssetPath("/assets/images/logo.svg")}
+              src={getAssetPath("/images/logo.svg")}
               alt="Realty Direct Logo"
               width={50}
               height={50}

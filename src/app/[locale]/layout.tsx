@@ -45,21 +45,18 @@ export default async function RootLayout(props: {
         <link 
           rel="preload" 
           as="image" 
-          type="image/webp"
           href="/images/lisa-anna-hero-800.webp"
           media="(max-width: 768px)"
         />
         <link 
           rel="preload" 
           as="image" 
-          type="image/webp"
           href="/images/lisa-anna-hero-1200.webp"
           media="(max-width: 1200px)"
         />
         <link 
           rel="preload" 
           as="image" 
-          type="image/webp"
           href="/images/lisa-anna-hero-1920.webp"
           media="(min-width: 1201px)"
         />

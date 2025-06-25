@@ -50,33 +50,33 @@ export const PrestigeHero = () => {
           {/* WebP sources for modern browsers */}
           <source 
             media="(max-width: 768px)" 
-            srcSet={getAssetPath("/assets/images/lisa-anna-hero-800.webp")}
+            srcSet={getAssetPath("/images/lisa-anna-hero-800.webp")}
             type="image/webp"
           />
           <source 
             media="(max-width: 1200px)" 
-            srcSet={getAssetPath("/assets/images/lisa-anna-hero-1200.webp")}
+            srcSet={getAssetPath("/images/lisa-anna-hero-1200.webp")}
             type="image/webp"
           />
           <source 
-            srcSet={getAssetPath("/assets/images/lisa-anna-hero-1920.webp")}
+            srcSet={getAssetPath("/images/lisa-anna-hero-1920.webp")}
             type="image/webp"
           />
           
           {/* JPEG fallbacks */}
           <source 
             media="(max-width: 768px)" 
-            srcSet={getAssetPath("/assets/images/lisa-anna-hero-800.jpg")}
+            srcSet={getAssetPath("/images/lisa-anna-hero-800.jpg")}
             type="image/jpeg"
           />
           <source 
             media="(max-width: 1200px)" 
-            srcSet={getAssetPath("/assets/images/lisa-anna-hero-1200.jpg")}
+            srcSet={getAssetPath("/images/lisa-anna-hero-1200.jpg")}
             type="image/jpeg"
           />
           
           <Image
-            src={getAssetPath("/assets/images/lisa-anna-hero-1920.jpg")}
+            src={getAssetPath("/images/lisa-anna-hero-1920.jpg")}
             alt="Queensland property"
             fill
             className="object-cover"
