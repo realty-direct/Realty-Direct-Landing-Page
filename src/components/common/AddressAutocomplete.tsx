@@ -26,7 +26,9 @@ export const AddressAutocomplete = ({
     
     const tryInitialize = () => {
       if (typeof window !== 'undefined' && (window as any).google && (window as any).google.maps && (window as any).google.maps.places) {
-        console.log('Google Maps API is loaded, initializing autocomplete');
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Google Maps API is loaded, initializing autocomplete');
+        }
         initializeAutocomplete();
         return true;
       }
@@ -35,7 +37,9 @@ export const AddressAutocomplete = ({
 
     // Try immediately
     if (!tryInitialize()) {
-      console.log('Google Maps API not loaded yet, waiting...');
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Google Maps API not loaded yet, waiting...');
+      }
       // If not loaded, wait for it
       checkInterval = setInterval(() => {
         if (tryInitialize() && checkInterval) {
@@ -56,7 +60,9 @@ export const AddressAutocomplete = ({
 
   const initializeAutocomplete = () => {
     if (!inputRef.current) {
-      console.error('Input ref not available');
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Input ref not available');
+      }
       return;
     }
 
@@ -68,12 +74,16 @@ export const AddressAutocomplete = ({
         types: ['address'] // Focus on addresses
       });
 
-      console.log('Autocomplete instance created successfully');
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Autocomplete instance created successfully');
+      }
 
       // Add place changed listener
       autocompleteRef.current.addListener('place_changed', () => {
         const place = autocompleteRef.current?.getPlace();
-        console.log('Place selected:', place);
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Place selected:', place);
+        }
         if (place && place.formatted_address) {
           onChange(place.formatted_address);
           if (onPlaceSelected) {
@@ -82,7 +92,9 @@ export const AddressAutocomplete = ({
         }
       });
     } catch (error) {
-      console.error('Error initializing autocomplete:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Error initializing autocomplete:', error);
+      }
     }
   };
 

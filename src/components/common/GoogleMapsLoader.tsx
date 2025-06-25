@@ -19,10 +19,14 @@ export const GoogleMapsLoader = ({
         src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=${libraries.join(',')}`}
         strategy="afterInteractive"
         onLoad={() => {
-          console.log('Google Maps script loaded');
+          if (process.env.NODE_ENV === 'development') {
+            console.log('Google Maps script loaded');
+          }
         }}
         onError={(e) => {
-          console.error('Error loading Google Maps:', e);
+          if (process.env.NODE_ENV === 'development') {
+            console.error('Error loading Google Maps:', e);
+          }
         }}
       />
       {children}

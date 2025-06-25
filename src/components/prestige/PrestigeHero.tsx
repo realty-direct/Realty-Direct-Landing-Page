@@ -11,6 +11,7 @@ import { getLocalizedHref } from '@/components/common/LocaleLink';
 
 export const PrestigeHero = () => {
   const [address, setAddress] = useState('');
+  const [imageLoaded, setImageLoaded] = useState(false);
   const router = useRouter();
   const locale = useLocale();
 
@@ -26,25 +27,23 @@ export const PrestigeHero = () => {
 
   const handlePlaceSelected = (place: any) => {
     // You can access additional place details here
-    console.log('Place selected:', place);
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Place selected:', place);
+    }
   };
-
-  // Debug: Check if Google Maps is loaded
-  useEffect(() => {
-    const checkGoogleMaps = () => {
-      if (typeof window !== 'undefined') {
-        console.log('Google Maps loaded:', !!(window as any).google);
-        console.log('Places library loaded:', !!((window as any).google?.maps?.places));
-      }
-    };
-
-    checkGoogleMaps();
-    // Check again after a delay
-    setTimeout(checkGoogleMaps, 2000);
-  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center">
+      {/* Loading State */}
+      {!imageLoaded && (
+        <div className="absolute inset-0 bg-slate-100 flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-700 mx-auto mb-4"></div>
+            <p className="text-slate-600">Loading...</p>
+          </div>
+        </div>
+      )}
+
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -54,12 +53,13 @@ export const PrestigeHero = () => {
           className="object-cover"
           priority
           quality={90}
+          onLoad={() => setImageLoaded(true)}
         />
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full h-full flex items-center justify-center px-4">
+      <div className={`relative z-10 w-full h-full flex items-center justify-center px-4 transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="max-w-4xl w-full text-center">
           {/* Main Content Card */}
           <div className="bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-2xl">

@@ -68,10 +68,12 @@ export const PropertyListing = () => {
   // Handle final form submission
   const handleSubmit = () => {
     // In a real application, you would submit the data to the server here
-    console.log('Submitting property listing:', {
-      propertyDetails,
-      selectedAgentId,
-    });
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Submitting property listing:', {
+        propertyDetails,
+        selectedAgentId,
+      });
+    }
   };
   
   return (
