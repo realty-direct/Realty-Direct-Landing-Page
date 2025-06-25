@@ -2,11 +2,14 @@
 
 import { ArrowRight, Phone, Search } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { useState } from 'react';
+import { getLocalizedHref } from '@/components/common/LocaleLink';
 
 export const CallToAction = () => {
   const t = useTranslations('CallToAction');
+  const locale = useLocale();
   const [propertyAddress, setPropertyAddress] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -37,7 +40,7 @@ export const CallToAction = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link
-                  href="/sell-your-property/"
+                  href={getLocalizedHref('/sell-your-property/', locale)}
                   className="inline-flex items-center justify-center px-6 py-4 border border-transparent text-base font-medium rounded-md shadow-md bg-yellow-500 hover:bg-yellow-600 text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 transition-colors duration-200"
                 >
                   {t('cta_button')}

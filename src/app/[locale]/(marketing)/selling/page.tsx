@@ -184,7 +184,7 @@ export default async function Selling(props: ISellingProps) {
                   <Button
                     variant="contained"
                     size="large"
-                    href="/contact"
+                    href={`/${locale}/contact`}
                     className="rounded-lg font-semibold px-8 py-4"
                   >
                     Get Free Appraisal
@@ -193,7 +193,7 @@ export default async function Selling(props: ISellingProps) {
                   <Button
                     variant="outlined"
                     size="large"
-                    href="/about"
+                    href={`/${locale}/about`}
                     className="rounded-lg font-semibold px-8 py-4"
                   >
                     Learn More About Us
@@ -377,7 +377,7 @@ export default async function Selling(props: ISellingProps) {
               <Button
                 variant="contained"
                 size="large"
-                href="/contact"
+                href={`/${locale}/contact`}
                 className="rounded-lg font-semibold px-8 py-4"
               >
                 Book Free Appraisal
@@ -386,7 +386,7 @@ export default async function Selling(props: ISellingProps) {
               <Button
                 variant="outlined"
                 size="large"
-                href="/about"
+                href={`/${locale}/about`}
                 className="rounded-lg font-semibold px-8 py-4 text-slate-900 border-slate-900 hover:bg-slate-900 hover:text-white"
               >
                 Learn More About Us

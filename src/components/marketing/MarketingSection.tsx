@@ -4,8 +4,12 @@ import { Button, Card, CardContent, Typography } from '@mui/material';
 import { ArrowRight, MapPin, MonitorSmartphone, Users } from 'lucide-react';
 import Image from 'next/image';
 import { getAssetPath } from '@/utils/Helpers';
+import { useLocale } from 'next-intl';
+import { getLocalizedHref } from '@/components/common/LocaleLink';
 
 export const MarketingSection = () => {
+  const locale = useLocale();
+  
   return (
     <section className="pt-14 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
@@ -66,7 +70,7 @@ export const MarketingSection = () => {
                   <Button
                     variant="contained"
                     size="large"
-                    href="/contact"
+                    href={getLocalizedHref('/contact', locale)}
                     className="rounded-full font-semibold shadow-md px-8 py-3"
                     style={{
                       background: 'linear-gradient(90deg, var(--primary-900) 0%, var(--primary-700) 100%)',
@@ -81,7 +85,7 @@ export const MarketingSection = () => {
                   <Button
                     variant="outlined"
                     size="large"
-                    href="/about"
+                    href={getLocalizedHref('/about', locale)}
                     className="rounded-full font-semibold border border-primary-700 px-8 py-3"
                     style={{
                       color: 'var(--primary-700)',

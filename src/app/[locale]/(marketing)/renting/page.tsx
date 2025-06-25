@@ -231,7 +231,7 @@ export default async function Renting(props: IRentingProps) {
                   <Button
                     variant="contained"
                     size="large"
-                    href="/contact"
+                    href={`/${locale}/contact`}
                     className="rounded-lg font-semibold px-8 py-4"
                   >
                     Find Rental Properties
@@ -253,7 +253,7 @@ export default async function Renting(props: IRentingProps) {
                   <Button
                     variant="text"
                     size="small"
-                    href="/buying"
+                    href={`/${locale}/buying`}
                     className="mx-2 text-primary-600 hover:text-primary-700"
                   >
                     Buying
@@ -262,7 +262,7 @@ export default async function Renting(props: IRentingProps) {
                   <Button
                     variant="text"
                     size="small"
-                    href="/selling"
+                    href={`/${locale}/selling`}
                     className="mx-2 text-primary-600 hover:text-primary-700"
                   >
                     Selling
@@ -511,7 +511,7 @@ export default async function Renting(props: IRentingProps) {
               <Button
                 variant="contained"
                 size="large"
-                href="/contact"
+                href={`/${locale}/contact`}
                 className="rounded-lg font-semibold px-8 py-4"
               >
                 Find Rental Properties
@@ -520,7 +520,7 @@ export default async function Renting(props: IRentingProps) {
               <Button
                 variant="outlined"
                 size="large"
-                href="/about"
+                href={`/${locale}/about`}
                 className="rounded-lg font-semibold px-8 py-4 text-slate-700 border-slate-300 hover:bg-slate-100 hover:text-slate-900"
               >
                 Learn More About Us

@@ -7,10 +7,13 @@ import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useLocale } from 'next-intl';
+import { getLocalizedHref } from '@/components/common/LocaleLink';
 
 export const PrestigeHero = () => {
   const [address, setAddress] = useState('');
   const router = useRouter();
+  const locale = useLocale();
 
   const handleEstimate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,7 +21,7 @@ export const PrestigeHero = () => {
       // Encode the address for URL
       const encodedAddress = encodeURIComponent(address);
       // Navigate to estimate page with address as query parameter
-      router.push(`/estimate?address=${encodedAddress}`);
+      router.push(getLocalizedHref(`/estimate?address=${encodedAddress}`, locale));
     }
   };
 
@@ -105,7 +108,7 @@ export const PrestigeHero = () => {
               <Button
                 variant="text"
                 size="small"
-                href="/buying"
+                href={getLocalizedHref('/buying', locale)}
                 className="mx-2 text-primary-600 hover:text-primary-700"
               >
                 Buying
@@ -114,7 +117,7 @@ export const PrestigeHero = () => {
               <Button
                 variant="text"
                 size="small"
-                href="/selling"
+                href={getLocalizedHref('/selling', locale)}
                 className="mx-2 text-primary-600 hover:text-primary-700"
               >
                 Selling
@@ -123,7 +126,7 @@ export const PrestigeHero = () => {
               <Button
                 variant="text"
                 size="small"
-                href="/renting"
+                href={getLocalizedHref('/renting', locale)}
                 className="mx-2 text-primary-600 hover:text-primary-700"
               >
                 Renting

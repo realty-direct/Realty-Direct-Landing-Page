@@ -207,7 +207,7 @@ export default async function Buying(props: IBuyingProps) {
                   <Button
                     variant="contained"
                     size="large"
-                    href="/contact"
+                    href={`/${locale}/contact`}
                     className="rounded-lg font-semibold px-8 py-4"
                   >
                     Start Your Property Search
@@ -229,7 +229,7 @@ export default async function Buying(props: IBuyingProps) {
                   <Button
                     variant="text"
                     size="small"
-                    href="/selling"
+                    href={`/${locale}/selling`}
                     className="mx-2 text-primary-600 hover:text-primary-700"
                   >
                     Selling
@@ -238,7 +238,7 @@ export default async function Buying(props: IBuyingProps) {
                   <Button
                     variant="text"
                     size="small"
-                    href="/renting"
+                    href={`/${locale}/renting`}
                     className="mx-2 text-primary-600 hover:text-primary-700"
                   >
                     Renting
@@ -487,7 +487,7 @@ export default async function Buying(props: IBuyingProps) {
               <Button
                 variant="contained"
                 size="large"
-                href="/contact"
+                href={`/${locale}/contact`}
                 className="rounded-lg font-semibold px-8 py-4"
               >
                 Start Property Search
@@ -496,7 +496,7 @@ export default async function Buying(props: IBuyingProps) {
               <Button
                 variant="outlined"
                 size="large"
-                href="/about"
+                href={`/${locale}/about`}
                 className="rounded-lg font-semibold px-8 py-4 text-white border-white hover:bg-white hover:text-gray-900"
               >
                 Learn More About Us

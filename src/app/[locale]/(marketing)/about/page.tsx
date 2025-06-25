@@ -107,7 +107,7 @@ export default async function About(props: IAboutProps) {
                 <Button
                   variant="contained"
                   size="large"
-                  href="/contact"
+                  href={`/${locale}/contact`}
                   className="rounded-lg font-semibold px-8 py-4"
                 >
                   Work With Us
@@ -312,7 +312,7 @@ export default async function About(props: IAboutProps) {
               <Button
                 variant="contained"
                 size="large"
-                href="/contact"
+                href={`/${locale}/contact`}
                 className="rounded-lg font-semibold px-8 py-4"
               >
                 Get Started Today
@@ -321,7 +321,7 @@ export default async function About(props: IAboutProps) {
               <Button
                 variant="outlined"
                 size="large"
-                href="/services"
+                href={`/${locale}/services`}
                 className="rounded-lg font-semibold px-8 py-4 text-slate-900 border-slate-900 hover:bg-slate-900 hover:text-white"
               >
                 Explore Our Services

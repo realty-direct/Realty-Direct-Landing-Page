@@ -3,15 +3,18 @@
 import { AppConfig } from '@/utils/AppConfig';
 import { getAssetPath } from '@/utils/Helpers';
 import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { getLocalizedHref } from '@/components/common/LocaleLink';
 
 export const BaseTemplate = (props: {
   navItems?: React.ReactNode;
   children: React.ReactNode;
 }) => {
   const t = useTranslations('BaseTemplate');
+  const locale = useLocale();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -22,7 +25,7 @@ export const BaseTemplate = (props: {
           {/* Main navigation bar */}
           <div className="flex justify-between items-center h-16 sm:h-20">
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="flex items-center gap-1 sm:gap-2">
+              <Link href={`/${locale}/`} className="flex items-center gap-1 sm:gap-2">
                 <Image
                   src={getAssetPath("/assets/images/logo.svg")}
                   alt="Realty Direct Logo"
@@ -92,11 +95,11 @@ export const BaseTemplate = (props: {
             <div>
               <h3 className="text-lg font-semibold mb-4">{t('quick_links')}</h3>
               <ul className="space-y-2">
-                <li><Link href="/buying" className="text-gray-300 hover:text-white">Buying</Link></li>
-                <li><Link href="/selling" className="text-gray-300 hover:text-white">Selling</Link></li>
-                <li><Link href="/renting" className="text-gray-300 hover:text-white">Renting</Link></li>
-                <li><Link href="/about" className="text-gray-300 hover:text-white">About</Link></li>
-                <li><Link href="/contact" className="text-gray-300 hover:text-white">Contact</Link></li>
+                <li><Link href={getLocalizedHref('/buying', locale)} className="text-gray-300 hover:text-white">Buying</Link></li>
+                <li><Link href={getLocalizedHref('/selling', locale)} className="text-gray-300 hover:text-white">Selling</Link></li>
+                <li><Link href={getLocalizedHref('/renting', locale)} className="text-gray-300 hover:text-white">Renting</Link></li>
+                <li><Link href={getLocalizedHref('/about', locale)} className="text-gray-300 hover:text-white">About</Link></li>
+                <li><Link href={getLocalizedHref('/contact', locale)} className="text-gray-300 hover:text-white">Contact</Link></li>
               </ul>
             </div>
             <div>

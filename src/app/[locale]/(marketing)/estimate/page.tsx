@@ -5,9 +5,12 @@ import { motion } from 'framer-motion';
 import { CheckCircle, Mail, Phone, User, ArrowLeft, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
+import { useLocale } from 'next-intl';
+import { getLocalizedHref } from '@/components/common/LocaleLink';
 
 function EstimateForm() {
   const searchParams = useSearchParams();
+  const locale = useLocale();
   const addressParam = searchParams.get('address');
   const [address, setAddress] = useState('');
   const [formData, setFormData] = useState({
@@ -86,7 +89,7 @@ function EstimateForm() {
               transition={{ delay: 0.5 }}
             >
               <Link
-                href="/"
+                href={getLocalizedHref('/', locale)}
                 className="inline-flex items-center justify-center px-6 py-3 bg-primary-700 text-white font-semibold rounded-lg hover:bg-primary-800 transition-colors duration-200"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />

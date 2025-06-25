@@ -1,6 +1,6 @@
 import type { LocalePrefixMode } from 'next-intl/routing';
 
-const localePrefix: LocalePrefixMode = 'never';
+const localePrefix: LocalePrefixMode = 'always';
 
 export const AppConfig = {
   name: 'Realty Direct',

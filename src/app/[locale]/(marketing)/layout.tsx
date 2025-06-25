@@ -17,7 +17,7 @@ export default async function Layout(props: {
       navItems={(
         <>
           <Link
-            href="/buying/"
+            href={`/${locale}/buying/`}
             className="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-blue-700 font-medium transition-colors md:inline-block md:py-2 md:hover:bg-transparent md:relative md:group"
           >
             Buying
@@ -25,7 +25,7 @@ export default async function Layout(props: {
           </Link>
           
           <Link
-            href="/selling/"
+            href={`/${locale}/selling/`}
             className="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-blue-700 font-medium transition-colors md:inline-block md:py-2 md:hover:bg-transparent md:relative md:group"
           >
             Selling
@@ -33,7 +33,7 @@ export default async function Layout(props: {
           </Link>
           
           <Link
-            href="/renting/"
+            href={`/${locale}/renting/`}
             className="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-blue-700 font-medium transition-colors md:inline-block md:py-2 md:hover:bg-transparent md:relative md:group"
           >
             Renting
@@ -41,7 +41,7 @@ export default async function Layout(props: {
           </Link>
           
           <Link
-            href="/about/"
+            href={`/${locale}/about/`}
             className="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-blue-700 font-medium transition-colors md:inline-block md:py-2 md:hover:bg-transparent md:relative md:group"
           >
             About
@@ -49,7 +49,7 @@ export default async function Layout(props: {
           </Link>
           
           <Link
-            href="/contact/"
+            href={`/${locale}/contact/`}
             className="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-blue-700 font-medium transition-colors md:inline-block md:py-2 md:hover:bg-transparent md:relative md:group"
           >
             Contact

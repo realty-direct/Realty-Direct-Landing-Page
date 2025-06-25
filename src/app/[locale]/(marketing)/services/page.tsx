@@ -2,6 +2,7 @@ import { StructuredData } from '@/components/common/StructuredData';
 import { breadcrumbSchema } from '@/utils/structuredData';
 import { Typography } from '@mui/material';
 import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
 
 export const metadata: Metadata = {
   title: 'Our Services | Realty Direct',
@@ -45,7 +46,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Services() {
+type IServicesProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function Services(props: IServicesProps) {
+  const { locale } = await props.params;
+  setRequestLocale(locale);
   const services = [
     {
       title: 'Do It Yourself (Full FSBO)',
@@ -220,13 +227,13 @@ export default function Services() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/sell-your-property"
+            href={`/${locale}/sell-your-property`}
             className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition duration-150"
           >
             Get Started
           </a>
           <a
-            href="/contact"
+            href={`/${locale}/contact`}
             className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-blue-600 bg-white border-2 border-blue-600 hover:bg-blue-50 transition duration-150"
           >
             Contact Us
