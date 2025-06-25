@@ -28,6 +28,16 @@ const baseConfig: NextConfig = {
       },
     ],
   },
+  // Redirects (Note: These don't work with static exports, but useful for development)
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/en',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 // Initialize the Next-Intl plugin
