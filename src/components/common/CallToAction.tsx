@@ -41,7 +41,7 @@ export const CallToAction = () => {
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link
                   href={getLocalizedHref('/sell-your-property/', locale)}
-                  className="inline-flex items-center justify-center px-6 py-4 border border-transparent text-base font-medium rounded-md shadow-md bg-yellow-500 hover:bg-yellow-600 text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 transition-colors duration-200"
+                  className="inline-flex items-center justify-center px-6 py-4 border border-transparent text-base font-medium rounded-md shadow-lg hover:shadow-xl bg-yellow-500 hover:bg-yellow-600 text-gray-900 focus:outline-none focus:ring-4 focus:ring-yellow-200 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
                 >
                   {t('cta_button')}
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -49,7 +49,7 @@ export const CallToAction = () => {
 
                 <Link
                   href="tel:1300123456"
-                  className="inline-flex items-center justify-center px-6 py-4 border border-white text-base font-medium rounded-md shadow-md bg-transparent hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors duration-200"
+                  className="inline-flex items-center justify-center px-6 py-4 border border-white text-base font-medium rounded-md shadow-lg hover:shadow-xl bg-transparent hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-white/20 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   {t('contact_number')}
@@ -90,7 +90,7 @@ export const CallToAction = () => {
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+                  className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-lg hover:shadow-xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
                 >
                   {t('valuation_button')}
                   <Search className="ml-2 h-5 w-5" />

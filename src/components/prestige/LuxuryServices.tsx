@@ -108,7 +108,7 @@ export const LuxuryServices = () => {
           <p className="text-slate-200 font-light mb-6">
             Ready to get started with your property journey? Contact us today
           </p>
-          <button className="inline-flex items-center gap-2 px-8 py-3 bg-white text-slate-900 font-medium hover:bg-slate-100 transition-colors duration-300">
+          <button className="inline-flex items-center gap-2 px-8 py-3 bg-white text-slate-900 font-medium hover:bg-slate-100 focus:ring-4 focus:ring-white/20 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200">
             Contact Us Today
           </button>
         </div>

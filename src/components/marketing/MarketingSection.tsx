@@ -51,14 +51,14 @@ export const MarketingSection = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
                     href={getLocalizedHref('/contact', locale)}
-                    className="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold rounded-full text-white bg-gradient-to-r from-primary-900 to-primary-700 hover:from-primary-800 hover:to-primary-600 shadow-md transition duration-150"
+                    className="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold rounded-full text-white bg-gradient-to-r from-primary-900 to-primary-700 hover:from-primary-800 hover:to-primary-600 shadow-lg hover:shadow-xl transition-all duration-200 focus:ring-4 focus:ring-primary-200 transform hover:-translate-y-0.5 active:translate-y-0"
                   >
                     Book an Appraisal
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
                   <a
                     href={getLocalizedHref('/about', locale)}
-                    className="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold rounded-full text-primary-700 bg-transparent border-2 border-primary-700 hover:bg-primary-50 transition duration-150"
+                    className="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold rounded-full text-primary-700 bg-transparent border-2 border-primary-700 hover:bg-primary-50 shadow-lg hover:shadow-xl transition-all duration-200 focus:ring-4 focus:ring-primary-200 transform hover:-translate-y-0.5 active:translate-y-0"
                   >
                     Learn More
                   </a>

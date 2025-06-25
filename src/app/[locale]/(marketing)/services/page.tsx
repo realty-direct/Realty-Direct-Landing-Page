@@ -227,13 +227,13 @@ export default async function Services(props: IServicesProps) {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href={`/${locale}/sell-your-property`}
-            className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition duration-150"
+            className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 focus:ring-4 focus:ring-blue-200 transition-all duration-200"
           >
             Get Started
           </a>
           <a
             href={`/${locale}/contact`}
-            className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-blue-600 bg-white border-2 border-blue-600 hover:bg-blue-50 transition duration-150"
+            className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-blue-600 bg-white border-2 border-blue-600 hover:bg-blue-50 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 focus:ring-4 focus:ring-blue-200 transition-all duration-200"
           >
             Contact Us
           </a>

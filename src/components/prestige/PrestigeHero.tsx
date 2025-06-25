@@ -84,7 +84,7 @@ export const PrestigeHero = () => {
               <div className="mt-2">
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 text-base font-semibold rounded-lg text-white bg-primary-700 hover:bg-primary-800 disabled:bg-gray-400 transition duration-150 inline-flex items-center justify-center"
+                  className="w-full px-8 py-4 text-base font-semibold rounded-lg text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-200 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-200 inline-flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0"
                   disabled={!address}
                 >
                   Get Estimate
