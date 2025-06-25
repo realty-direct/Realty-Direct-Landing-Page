@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+// Create the redirect HTML content
+const redirectHTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +12,6 @@
     <meta name="keywords" content="Queensland real estate, Brisbane properties, Gold Coast homes, property listings, real estate agent">
     <meta http-equiv="refresh" content="0; url=/en/">
     <link rel="canonical" href="https://realtydirect.com.au/en/">
-    <link rel="icon" href="/Realty-Direct-Landing-Page/favicon.ico">
     
     <!-- Open Graph -->
     <meta property="og:title" content="Realty Direct | Queensland Real Estate Platform">
@@ -150,4 +153,29 @@
         window.location.replace('/en/');
     </script>
 </body>
-</html>
+</html>`;
+
+// Write the redirect file to the out directory root
+const outDir = path.join(process.cwd(), 'out');
+const redirectPath = path.join(outDir, 'index.html');
+
+try {
+    // Ensure the out directory exists
+    if (!fs.existsSync(outDir)) {
+        console.error('Error: out directory does not exist. Make sure to run this after next build.');
+        process.exit(1);
+    }
+
+    // Write the redirect file
+    fs.writeFileSync(redirectPath, redirectHTML);
+    console.log('✅ Created root redirect file at:', redirectPath);
+
+    // Also copy CNAME file to root
+    const cnamePath = path.join(outDir, 'CNAME');
+    fs.writeFileSync(cnamePath, 'realtydirect.com.au');
+    console.log('✅ Created CNAME file at:', cnamePath);
+
+} catch (error) {
+    console.error('Error creating redirect file:', error);
+    process.exit(1);
+}
