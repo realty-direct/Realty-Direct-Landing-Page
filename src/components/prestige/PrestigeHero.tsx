@@ -3,15 +3,15 @@
 import { AddressAutocomplete } from '@/components/common/AddressAutocomplete';
 import { getAssetPath } from '@/utils/Helpers';
 import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocale } from 'next-intl';
 import { getLocalizedHref } from '@/components/common/LocaleLink';
 
 export const PrestigeHero = () => {
   const [address, setAddress] = useState('');
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
   const router = useRouter();
   const locale = useLocale();
 
@@ -32,10 +32,22 @@ export const PrestigeHero = () => {
     }
   };
 
+  // Timeout fallback to prevent infinite loading
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (!imageLoaded) {
+        setImageLoaded(true);
+        setImageError(true);
+      }
+    }, 5000); // 5 second timeout
+
+    return () => clearTimeout(timeout);
+  }, [imageLoaded]);
+
   return (
     <section className="relative min-h-screen flex items-center">
       {/* Loading State */}
-      {!imageLoaded && (
+      {!imageLoaded && !imageError && (
         <div className="absolute inset-0 bg-slate-100 flex items-center justify-center">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-700 mx-auto mb-4"></div>
@@ -44,48 +56,49 @@ export const PrestigeHero = () => {
         </div>
       )}
 
+      {/* Error State - Show content anyway */}
+      {imageError && (
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900 to-primary-700"></div>
+      )}
+
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <picture>
-          {/* WebP sources for modern browsers */}
+        {/* Responsive image with WebP support */}
+        <picture className="absolute inset-0">
           <source 
             media="(max-width: 768px)" 
-            srcSet={getAssetPath("/images/lisa-anna-hero-800.webp")}
+            srcSet={`${getAssetPath("/images/lisa-anna-hero-800.webp")}`}
             type="image/webp"
           />
           <source 
             media="(max-width: 1200px)" 
-            srcSet={getAssetPath("/images/lisa-anna-hero-1200.webp")}
+            srcSet={`${getAssetPath("/images/lisa-anna-hero-1200.webp")}`}
             type="image/webp"
           />
           <source 
-            srcSet={getAssetPath("/images/lisa-anna-hero-1920.webp")}
+            srcSet={`${getAssetPath("/images/lisa-anna-hero-1920.webp")}`}
             type="image/webp"
           />
-          
-          {/* JPEG fallbacks */}
           <source 
             media="(max-width: 768px)" 
-            srcSet={getAssetPath("/images/lisa-anna-hero-800.jpg")}
+            srcSet={`${getAssetPath("/images/lisa-anna-hero-800.jpg")}`}
             type="image/jpeg"
           />
           <source 
             media="(max-width: 1200px)" 
-            srcSet={getAssetPath("/images/lisa-anna-hero-1200.jpg")}
+            srcSet={`${getAssetPath("/images/lisa-anna-hero-1200.jpg")}`}
             type="image/jpeg"
           />
-          
-          <Image
+          <img
             src={getAssetPath("/images/lisa-anna-hero-1920.jpg")}
             alt="Queensland property"
-            fill
-            className="object-cover"
-            priority
-            quality={90}
+            className="absolute inset-0 w-full h-full object-cover"
             onLoad={() => setImageLoaded(true)}
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+            onError={() => {
+              setImageError(true);
+              setImageLoaded(true);
+            }}
+            loading="eager"
           />
         </picture>
         <div className="absolute inset-0 bg-black/40" />

@@ -55,7 +55,7 @@ try {
         'en',
         'fr',
         '_next',
-        'assets'
+        'images'
     ];
 
     // Copy files
