@@ -39,9 +39,8 @@ export default {
         }
       },
       fontFamily: {
-        'sans': ['var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        'display': ['var(--font-playfair)', 'Georgia', 'serif'],
-        'primary': ['var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        'display': ['Playfair Display', 'Georgia', 'serif'],
+        'primary': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
     },
   },
