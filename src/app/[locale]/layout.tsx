@@ -1,10 +1,27 @@
 import type { Metadata } from 'next';
+import { Inter, Playfair_Display } from 'next/font/google';
 import { PostHogProvider } from '@/components/analytics/PostHogProvider';
+import { CriticalStyles } from '@/components/CriticalStyles';
 import { routing } from '@/libs/i18nRouting';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import '@/styles/global.css';
+
+// Optimize font loading with next/font
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+  preload: true,
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair',
+  preload: true,
+});
 
 export const metadata: Metadata = {
   title: 'Realty Direct | Queensland Real Estate Platform',
@@ -39,8 +56,11 @@ export default async function RootLayout(props: {
   setRequestLocale(locale);
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={`${inter.variable} ${playfair.variable}`}>
       <head>
+        {/* Critical CSS for above-the-fold content */}
+        <CriticalStyles />
+        
         {/* Preload critical hero images */}
         <link 
           rel="preload" 
@@ -62,9 +82,8 @@ export default async function RootLayout(props: {
         />
         {/* DNS prefetch for external resources */}
         <link rel="dns-prefetch" href="//maps.googleapis.com" />
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
       </head>
-      <body>
+      <body className="font-sans">
         <NextIntlClientProvider>
           <PostHogProvider>
             {props.children}
