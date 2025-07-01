@@ -1,8 +1,7 @@
 import type { NextConfig } from 'next';
-import createNextIntlPlugin from 'next-intl/plugin';
 
 // Define the base Next.js configuration
-const baseConfig: NextConfig = {
+const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true,
   eslint: {
@@ -45,6 +44,4 @@ const baseConfig: NextConfig = {
   // },
 };
 
-// Initialize the Next-Intl plugin
-const nextConfig = createNextIntlPlugin('./src/libs/i18n.ts')(baseConfig);
 export default nextConfig;

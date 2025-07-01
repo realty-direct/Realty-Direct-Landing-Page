@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
 
 import { StepByStep } from './StepByStep';
 import { PropertyDetailsForm } from './PropertyDetailsForm';
@@ -20,7 +19,6 @@ type PropertyDetailsValues = {
 };
 
 export const PropertyListing = () => {
-  const t = useTranslations('PropertyListing');
   
   const [currentStep, setCurrentStep] = useState(1);
   const [propertyDetails, setPropertyDetails] = useState<PropertyDetailsValues>({
@@ -39,18 +37,18 @@ export const PropertyListing = () => {
   const steps = [
     {
       id: 1,
-      title: t('step_1_title'),
-      description: t('step_1_description'),
+      title: 'Property Details',
+      description: 'Enter your property information',
     },
     {
       id: 2,
-      title: t('step_2_title'),
-      description: t('step_2_description'),
+      title: 'Agent Selection',
+      description: 'Choose your preferred agent',
     },
     {
       id: 3,
-      title: t('step_3_title'),
-      description: t('step_3_description'),
+      title: 'Review & Submit',
+      description: 'Review and confirm your listing',
     },
   ];
   
@@ -81,13 +79,13 @@ export const PropertyListing = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <p className="text-blue-600 text-sm font-semibold tracking-wider uppercase mb-3">
-            {t('caption')}
+            List Your Property
           </p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
-            {t('title')}
+            Sell Your Property
           </h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            {t('subtitle')}
+            Get started with our simple 3-step process to list your property with Queensland's leading real estate professionals.
           </p>
         </div>
         

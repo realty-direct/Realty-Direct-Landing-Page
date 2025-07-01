@@ -1,6 +1,3 @@
-'use client';
-
-import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { forwardRef } from 'react';
 
@@ -11,22 +8,8 @@ interface LocaleLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> 
 
 export const LocaleLink = forwardRef<HTMLAnchorElement, LocaleLinkProps>(
   ({ href, children, ...props }, ref) => {
-    const locale = useLocale();
-    
-    // If href already includes locale or is external, use as-is
-    if (href.startsWith('http') || href.startsWith(`/${locale}`)) {
-      return (
-        <Link ref={ref} href={href} {...props}>
-          {children}
-        </Link>
-      );
-    }
-    
-    // Otherwise, prepend locale
-    const localizedHref = `/${locale}${href}`;
-    
     return (
-      <Link ref={ref} href={localizedHref} {...props}>
+      <Link ref={ref} href={href} {...props}>
         {children}
       </Link>
     );
@@ -35,10 +18,7 @@ export const LocaleLink = forwardRef<HTMLAnchorElement, LocaleLinkProps>(
 
 LocaleLink.displayName = 'LocaleLink';
 
-// Helper function to get locale-aware href
-export const getLocalizedHref = (href: string, locale: string): string => {
-  if (href.startsWith('http') || href.startsWith(`/${locale}`)) {
-    return href;
-  }
-  return `/${locale}${href}`;
+// Helper function to get href (no longer needs localization)
+export const getLocalizedHref = (href: string): string => {
+  return href;
 };

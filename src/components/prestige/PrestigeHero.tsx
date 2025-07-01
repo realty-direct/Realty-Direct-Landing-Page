@@ -5,15 +5,12 @@ import { getAssetPath } from '@/utils/Helpers';
 import { ArrowRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { useLocale } from 'next-intl';
-import { getLocalizedHref } from '@/components/common/LocaleLink';
 
 export const PrestigeHero = () => {
   const [address, setAddress] = useState('');
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
   const router = useRouter();
-  const locale = useLocale();
 
   const handleEstimate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,7 +18,7 @@ export const PrestigeHero = () => {
       // Encode the address for URL
       const encodedAddress = encodeURIComponent(address);
       // Navigate to estimate page with address as query parameter
-      router.push(getLocalizedHref(`/estimate?address=${encodedAddress}`, locale));
+      router.push(`/estimate?address=${encodedAddress}`);
     }
   };
 
@@ -143,21 +140,21 @@ export const PrestigeHero = () => {
             <p className="text-slate-600 mt-8 text-sm">
               Or explore our services:
               <a
-                href={getLocalizedHref('/buying', locale)}
+                href="/buying"
                 className="mx-2 text-primary-600 hover:text-primary-700 underline"
               >
                 Buying
               </a>
               •
               <a
-                href={getLocalizedHref('/selling', locale)}
+                href="/selling"
                 className="mx-2 text-primary-600 hover:text-primary-700 underline"
               >
                 Selling
               </a>
               •
               <a
-                href={getLocalizedHref('/renting', locale)}
+                href="/renting"
                 className="mx-2 text-primary-600 hover:text-primary-700 underline"
               >
                 Renting
