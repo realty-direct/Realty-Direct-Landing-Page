@@ -1,31 +1,31 @@
 'use client';
 
+import { getAssetPath } from '@/utils/Helpers';
 import { ArrowRight, MapPin, MonitorSmartphone, Users } from 'lucide-react';
 import Image from 'next/image';
-import { getAssetPath } from '@/utils/Helpers';
 
 export const MarketingSection = () => {
   
   return (
-    <section className="pt-14 bg-white">
+    <section className="py-20 bg-primary-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <div className="mb-16 flex flex-col items-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
             A Fresh Approach to Queensland Real Estate
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-3xl text-center leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-200 mb-10 font-normal max-w-3xl text-center leading-relaxed">
             Realty Direct is an independent agency built on direct relationships, transparent communication, and genuine service. Experience a new standard of professionalism and results—without the legacy hype.
           </p>
         </div>
 
         {/* Main Card */}
-        <div className="relative max-w-6xl mx-auto rounded-3xl shadow-2xl border-0 bg-white/90 backdrop-blur-lg">
+        <div className="relative max-w-6xl mx-auto rounded-3xl shadow-2xl bg-white">
           <div className="p-8 md:p-14 lg:p-20">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10 md:gap-16">
               {/* Left: Value Proposition */}
               <div className="flex-1 min-w-0 md:pr-8">
-                <h3 className="font-display text-3xl md:text-4xl font-bold text-primary-800 mb-6">
+                <h3 className="font-display text-3xl md:text-4xl font-bold text-primary-900 mb-6">
                   Your Queensland Real Estate Journey Starts Here
                 </h3>
                 <p className="text-slate-700 text-lg mb-8 leading-relaxed">
@@ -48,14 +48,22 @@ export const MarketingSection = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
                     href="/contact"
-                    className="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold rounded-full text-white bg-gradient-to-r from-primary-900 to-primary-700 hover:from-primary-800 hover:to-primary-600 shadow-lg hover:shadow-xl transition-all duration-200 focus:ring-4 focus:ring-primary-200 transform hover:-translate-y-0.5 active:translate-y-0"
+                    className="inline-flex items-center justify-center px-7 py-2.5 text-base font-semibold rounded-full text-white bg-primary-700 hover:bg-primary-800 shadow transition-all duration-150 focus:ring-2 focus:ring-primary-300 focus:outline-none"
+                    style={{
+                      boxShadow: '0 2px 16px 0 rgba(16, 112, 202, 0.10)',
+                      letterSpacing: '0.01em'
+                    }}
                   >
                     Book an Appraisal
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
                   <a
                     href="/about"
-                    className="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold rounded-full text-primary-700 bg-transparent border-2 border-primary-700 hover:bg-primary-50 shadow-lg hover:shadow-xl transition-all duration-200 focus:ring-4 focus:ring-primary-200 transform hover:-translate-y-0.5 active:translate-y-0"
+                    className="inline-flex items-center justify-center px-7 py-2.5 text-base font-semibold rounded-full text-primary-700 border border-primary-700 bg-white hover:bg-primary-50 hover:text-primary-900 shadow transition-all duration-150 focus:ring-2 focus:ring-primary-200 focus:outline-none"
+                    style={{
+                      boxShadow: '0 2px 16px 0 rgba(16, 112, 202, 0.06)',
+                      letterSpacing: '0.01em'
+                    }}
                   >
                     Learn More
                   </a>
@@ -77,46 +85,50 @@ export const MarketingSection = () => {
               </div>
             </div>
             {/* Motto */}
-            <div className="mt-14 pt-8 border-t border-accent-200 text-center">
-              <p className="text-lg md:text-xl text-slate-600 mb-10 font-normal italic">
+            <div className="mt-14 pt-8 border-t border-slate-200 text-center">
+              <p className="text-lg md:text-xl text-slate-700  font-normal italic">
                 "Direct communication, exceptional results"
               </p>
-              <p className="text-slate-600 mt-2 text-sm">
-                This is what makes us Naturally Direct
-              </p>
+              
             </div>
           </div>
         </div>
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-6xl mx-auto">
-          <div className="flex flex-col items-center text-center p-8 shadow-md rounded-2xl border-0 bg-white/95">
+          <div className="flex flex-col items-center text-center p-8 rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/20">
             <div className="mb-4">
-              <MapPin className="w-10 h-10 text-primary-700" />
+              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
+                <MapPin className="w-8 h-8 text-primary-700" />
+              </div>
             </div>
-            <h3 className="text-lg md:text-xl text-slate-600 mb-10 font-normal tracking-wide">
+            <h3 className="text-lg md:text-xl text-slate-900 mb-4 font-semibold">
               Local Expertise
             </h3>
             <p className="text-slate-600 text-base">
               Deep Queensland market knowledge and insight
             </p>
           </div>
-          <div className="flex flex-col items-center text-center p-8 shadow-md rounded-2xl border-0 bg-white/95">
+          <div className="flex flex-col items-center text-center p-8 rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/20">
             <div className="mb-4">
-              <Users className="w-10 h-10 text-primary-700" />
+              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
+                <Users className="w-8 h-8 text-primary-700" />
+              </div>
             </div>
-            <h3 className="text-lg md:text-xl text-slate-600 mb-10 font-normal tracking-wide">
+            <h3 className="text-lg md:text-xl text-slate-900 mb-4 font-semibold">
               Strategic Reach
             </h3>
             <p className="text-slate-600 text-base">
               Connected across Brisbane, Gold Coast, and beyond
             </p>
           </div>
-          <div className="flex flex-col items-center text-center p-8 shadow-md rounded-2xl border-0 bg-white/95">
+          <div className="flex flex-col items-center text-center p-8 rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/20">
             <div className="mb-4">
-              <MonitorSmartphone className="w-10 h-10 text-primary-700" />
+              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
+                <MonitorSmartphone className="w-8 h-8 text-primary-700" />
+              </div>
             </div>
-            <h3 className="text-lg md:text-xl text-slate-600 mb-10 font-normal tracking-wide">
+            <h3 className="text-lg md:text-xl text-slate-900 mb-4 font-semibold">
               Tech-Enabled
             </h3>
             <p className="text-slate-600 text-base">

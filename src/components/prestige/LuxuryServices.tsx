@@ -62,15 +62,15 @@ const services = [
 
 export const LuxuryServices = () => {
   return (
-    <section className="py-24 bg-primary-900">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-light mb-4 text-center text-white">
+          <h2 className="text-4xl md:text-5xl font-light mb-4 text-center text-slate-900">
             Professional Real Estate Services
           </h2>
           <div className="flex justify-center">
-            <p className="text-slate-200 font-light max-w-2xl text-center">
+            <p className="text-slate-600 font-light max-w-2xl text-center">
               Comprehensive property services designed to help you achieve your real estate goals
             </p>
           </div>
@@ -82,7 +82,7 @@ export const LuxuryServices = () => {
             return (
               <div
                 key={index}
-                className={`p-8 border border-slate-600 transition-all duration-300 group rounded-xl bg-slate-800 hover:bg-slate-700 hover:shadow-lg hover:scale-105`}
+                className={`p-8 border border-slate-200 transition-all duration-300 group rounded-xl ${service.bgColor} ${service.hoverBg} shadow-lg hover:shadow-xl hover:scale-105`}
               >
                 {/* Icon */}
                 <div className="mb-6">
@@ -92,10 +92,10 @@ export const LuxuryServices = () => {
                 </div>
 
                 {/* Content */}
-                <h3 className="font-medium mb-3 text-white text-lg">
+                <h3 className="font-semibold mb-3 text-slate-900 text-lg">
                   {service.title}
                 </h3>
-                <p className="text-slate-200 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed">
                   {service.description}
                 </p>
               </div>
@@ -105,12 +105,12 @@ export const LuxuryServices = () => {
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <p className="text-slate-200 font-light mb-6">
+          <p className="text-slate-600 mb-6">
             Ready to get started with your property journey? Contact us today
           </p>
-          <button className="inline-flex items-center gap-2 px-8 py-3 bg-white text-slate-900 font-medium hover:bg-slate-100 focus:ring-4 focus:ring-white/20 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200">
+          <a href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-primary-700 text-white font-semibold rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200">
             Contact Us Today
-          </button>
+          </a>
         </div>
       </div>
     </section>

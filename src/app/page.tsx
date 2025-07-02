@@ -79,7 +79,9 @@ export default function Index() {
       <PrestigeHero />
       <MarketingSection />
       <LuxuryServices />
-      <ContactSection />
+      <section className="py-24 bg-primary-900">
+        <ContactSection />
+      </section>
     </>
   );
 };

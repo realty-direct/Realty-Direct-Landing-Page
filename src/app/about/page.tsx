@@ -271,7 +271,7 @@ export default function About() {
             </h2>
             <div className="flex justify-center">
               <p className="text-lg md:text-xl text-slate-600 mb-10 font-normal max-w-2xl leading-relaxed text-center">
-                Join Queensland families who've chosen Realty Direct for their property journey. Experience what naturally direct really means.
+                Join Queensland families who've chosen Realty Direct for their property journey. Experience what realty direct really means.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">

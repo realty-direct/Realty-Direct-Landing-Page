@@ -77,7 +77,7 @@ export const ContactSection = () => {
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
           Get In Touch
         </h2>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+        <p className="text-xl text-slate-100 max-w-2xl mx-auto">
           Ready to experience Queensland's premier real estate service? Contact our expert team today.
         </p>
       </div>
@@ -192,7 +192,7 @@ export const ContactSection = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600 disabled:transform-none disabled:shadow-lg"
+                className="inline-flex items-center gap-2 px-6 py-2 bg-primary-700 text-white font-medium rounded-full hover:bg-primary-800 focus:ring-2 focus:ring-primary-300 shadow transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting
                   ? (
