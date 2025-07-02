@@ -24,16 +24,38 @@ export const AddressAutocomplete = ({
   const [scriptsLoaded, setScriptsLoaded] = useState(false);
   const [shouldLoadMaps, setShouldLoadMaps] = useState(false);
 
+  // Check if Google Maps is already loaded
+  const isGoogleMapsLoaded = () => {
+    return typeof window !== 'undefined' && 
+           (window as any).google && 
+           (window as any).google.maps && 
+           (window as any).google.maps.places;
+  };
+
   // Load Google Maps when component becomes active (user clicks on input)
   const handleInputFocus = () => {
-    setShouldLoadMaps(true);
+    if (isGoogleMapsLoaded()) {
+      // If already loaded, initialize immediately
+      setScriptsLoaded(true);
+      setShouldLoadMaps(true);
+    } else {
+      // If not loaded, trigger loading
+      setShouldLoadMaps(true);
+    }
   };
+
+  // Check on mount if Google Maps is already available
+  useEffect(() => {
+    if (isGoogleMapsLoaded()) {
+      setScriptsLoaded(true);
+    }
+  }, []);
 
   useEffect(() => {
     let checkInterval: NodeJS.Timeout;
     
     const tryInitialize = () => {
-      if (scriptsLoaded && typeof window !== 'undefined' && (window as any).google && (window as any).google.maps && (window as any).google.maps.places) {
+      if (isGoogleMapsLoaded() && !autocompleteRef.current) {
         if (process.env.NODE_ENV === 'development') {
           console.log('Google Maps API is loaded, initializing autocomplete');
         }
@@ -43,18 +65,23 @@ export const AddressAutocomplete = ({
       return false;
     };
 
-    // Only initialize after scripts are loaded and Google Maps should be loaded
-    if (scriptsLoaded && shouldLoadMaps) {
-      if (!tryInitialize()) {
-        if (process.env.NODE_ENV === 'development') {
-          console.log('Google Maps API not loaded yet, waiting...');
-        }
-        // If not loaded, wait for it
-        checkInterval = setInterval(() => {
-          if (tryInitialize() && checkInterval) {
-            clearInterval(checkInterval);
+    // Initialize if Google Maps is available and we should load maps
+    if (shouldLoadMaps) {
+      if (isGoogleMapsLoaded()) {
+        // Google Maps is already loaded, initialize immediately
+        tryInitialize();
+      } else if (scriptsLoaded) {
+        // Scripts were loaded but Google Maps might not be ready yet, wait for it
+        if (!tryInitialize()) {
+          if (process.env.NODE_ENV === 'development') {
+            console.log('Google Maps API not loaded yet, waiting...');
           }
-        }, 100);
+          checkInterval = setInterval(() => {
+            if (tryInitialize() && checkInterval) {
+              clearInterval(checkInterval);
+            }
+          }, 100);
+        }
       }
     }
 
@@ -72,6 +99,14 @@ export const AddressAutocomplete = ({
     if (!inputRef.current) {
       if (process.env.NODE_ENV === 'development') {
         console.error('Input ref not available');
+      }
+      return;
+    }
+
+    // Prevent double initialization
+    if (autocompleteRef.current) {
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Autocomplete already initialized');
       }
       return;
     }
@@ -113,7 +148,7 @@ export const AddressAutocomplete = ({
   return (
     <>
       {/* Conditionally load Google Maps Scripts */}
-      {shouldLoadMaps && apiKey && (
+      {shouldLoadMaps && apiKey && !isGoogleMapsLoaded() && (
         <Script
           src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`}
           strategy="afterInteractive"
