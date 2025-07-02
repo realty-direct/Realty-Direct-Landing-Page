@@ -63,13 +63,14 @@ export const MarketingSection = () => {
               </div>
               {/* Right: Visual */}
               <div className="flex-1 flex items-center justify-center min-w-0 md:pl-8">
-                <div className="relative w-full max-w-lg aspect-[3/2] rounded-2xl overflow-hidden shadow-xl border border-accent-600 bg-accent-500/10">
+                <div className="relative w-full aspect-[3/2] rounded-2xl overflow-hidden shadow-xl border border-accent-600 bg-accent-500/10">
                   <Image
                     src={getAssetPath("/images/home.jpg")}
                     alt="Luxury Queensland Property"
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                    priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary-900/40 via-transparent to-transparent" />
                 </div>

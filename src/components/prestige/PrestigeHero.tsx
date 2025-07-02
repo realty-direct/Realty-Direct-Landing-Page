@@ -102,7 +102,7 @@ export const PrestigeHero = () => {
       </div>
 
       {/* Content */}
-      <div className={`relative z-10 w-full h-full flex items-center justify-center px-4 transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div className="relative z-10 w-full h-full flex items-center justify-center px-4">
         <div className="max-w-4xl w-full text-center">
           {/* Main Content Card */}
           <div className="bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-2xl">
