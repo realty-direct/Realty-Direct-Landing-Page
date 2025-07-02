@@ -146,7 +146,7 @@ export default function Selling() {
               priority
               quality={90}
             />
-            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 bg-black/40" />
           </div>
 
           {/* Content */}
