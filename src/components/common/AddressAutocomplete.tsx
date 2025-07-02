@@ -124,12 +124,9 @@ export const AddressAutocomplete = ({
         types: ['address'] // Focus on addresses
       });
 
-      console.log('Google Places Autocomplete initialized successfully');
-
       // Add place changed listener
       autocompleteRef.current.addListener('place_changed', () => {
         const place = autocompleteRef.current?.getPlace();
-        console.log('Place selected:', place?.formatted_address);
         if (place && place.formatted_address) {
           onChange(place.formatted_address);
           if (onPlaceSelected) {
@@ -139,12 +136,6 @@ export const AddressAutocomplete = ({
       });
     } catch (error) {
       console.error('Error initializing Google Places autocomplete:', error);
-      console.error('Google Maps availability:', {
-        google: !!(window as any).google,
-        maps: !!(window as any).google?.maps,
-        places: !!(window as any).google?.maps?.places,
-        Autocomplete: !!(window as any).google?.maps?.places?.Autocomplete
-      });
     }
   };
 
@@ -153,39 +144,19 @@ export const AddressAutocomplete = ({
   // Fallback for missing API key in production
   const effectiveApiKey = apiKey || 'AIzaSyC1-DPGwZgccZMJDStZicFyXFw-TZhLurI';
 
-  // Enhanced error logging for production debugging
-  useEffect(() => {
-    console.log('Google Places Debug:', {
-      hasApiKey: !!effectiveApiKey,
-      shouldLoadMaps,
-      scriptsLoaded,
-      isGoogleLoaded: isGoogleMapsLoaded(),
-      domain: typeof window !== 'undefined' ? window.location.hostname : 'unknown',
-      protocol: typeof window !== 'undefined' ? window.location.protocol : 'unknown'
-    });
-  }, [effectiveApiKey, shouldLoadMaps, scriptsLoaded]);
 
   return (
     <>
-      {/* Enhanced error handling */}
-      {!effectiveApiKey && (
-        <div className="w-full px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
-          Address autocomplete unavailable - API configuration missing
-        </div>
-      )}
-      
-      {/* Conditionally load Google Maps Scripts with enhanced error handling */}
+      {/* Conditionally load Google Maps Scripts */}
       {shouldLoadMaps && effectiveApiKey && !isGoogleMapsLoaded() && (
         <Script
           src={`https://maps.googleapis.com/maps/api/js?key=${effectiveApiKey}&libraries=places`}
           strategy="afterInteractive"
           onLoad={() => {
             setScriptsLoaded(true);
-            console.log('Google Maps script loaded successfully');
           }}
           onError={(e) => {
             console.error('Error loading Google Maps script:', e);
-            console.error('Script URL:', `https://maps.googleapis.com/maps/api/js?key=${effectiveApiKey}&libraries=places`);
           }}
         />
       )}
@@ -194,7 +165,7 @@ export const AddressAutocomplete = ({
         <input
           ref={inputRef}
           type="text"
-          placeholder={effectiveApiKey ? placeholder : "Enter your address (autocomplete unavailable)"}
+          placeholder={placeholder}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onFocus={handleInputFocus}
@@ -204,11 +175,6 @@ export const AddressAutocomplete = ({
         <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
           <MapPin className="h-5 w-5 text-gray-400" />
         </div>
-        {!effectiveApiKey && (
-          <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-            <span className="text-xs text-red-500">No autocomplete</span>
-          </div>
-        )}
       </div>
       {/* Add global styles for Google Autocomplete */}
       <style jsx global>{`
