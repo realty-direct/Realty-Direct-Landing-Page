@@ -4,6 +4,7 @@ import { PrestigeHero } from '@/components/prestige/PrestigeHero';
 import { MarketingSection } from '@/components/marketing/MarketingSection';
 import { LuxuryServices } from '@/components/prestige/LuxuryServices';
 import { ContactSection } from '@/components/prestige/ContactSection';
+import { GoogleMapsTest } from '@/components/test/GoogleMapsTest';
 
 export async function generateMetadata() {
   return {
@@ -81,6 +82,12 @@ export default function Index() {
       <LuxuryServices />
       <section className="py-24 bg-primary-900">
         <ContactSection />
+      </section>
+      {/* Temporary debug component for production testing */}
+      <section className="py-8 bg-yellow-50">
+        <div className="max-w-4xl mx-auto px-4">
+          <GoogleMapsTest />
+        </div>
       </section>
     </>
   );
