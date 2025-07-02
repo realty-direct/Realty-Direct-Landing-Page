@@ -50,12 +50,6 @@ const navItems = (
       Renting
     </LocaleLink>
     <LocaleLink
-      href="/services"
-      className="block px-3 py-2 text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-md text-sm md:text-base font-medium transition-colors"
-    >
-      Services
-    </LocaleLink>
-    <LocaleLink
       href="/about"
       className="block px-3 py-2 text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-md text-sm md:text-base font-medium transition-colors"
     >

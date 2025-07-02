@@ -283,10 +283,10 @@ export default function About() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
               <a
-                href="/services"
+                href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-slate-900 border-2 border-slate-900 hover:bg-slate-900 hover:text-white transition duration-150"
               >
-                Explore Our Services
+                Contact Us
               </a>
             </div>
 

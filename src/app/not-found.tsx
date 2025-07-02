@@ -11,7 +11,7 @@ export default function NotFound() {
       <div className="max-w-2xl w-full text-center">
         {/* Logo */}
         <div className="mb-8">
-          <Link href="/en/" className="inline-flex items-center gap-2">
+          <Link href="/" className="inline-flex items-center gap-2">
             <Image
               src={getAssetPath("/images/logo.svg")}
               alt="Realty Direct Logo"
@@ -38,14 +38,14 @@ export default function NotFound() {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Link
-            href="/en/"
+            href="/"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-700 text-white font-semibold rounded-lg hover:bg-blue-800 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 focus:ring-4 focus:ring-blue-200 transition-all duration-200"
           >
             <Home className="w-5 h-5" />
             Go to Homepage
           </Link>
           <Link
-            href="/en/properties/"
+            href="/properties"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-blue-700 text-blue-700 font-semibold rounded-lg hover:bg-blue-50 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 focus:ring-4 focus:ring-blue-200 transition-all duration-200"
           >
             <Search className="w-5 h-5" />
@@ -58,25 +58,25 @@ export default function NotFound() {
           <p className="text-slate-600 mb-4">Quick Links:</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
-              href="/en/buying/"
+              href="/buying"
               className="text-blue-700 hover:text-blue-800 underline"
             >
               Buying
             </Link>
             <Link
-              href="/en/selling/"
+              href="/selling"
               className="text-blue-700 hover:text-blue-800 underline"
             >
               Selling
             </Link>
             <Link
-              href="/en/renting/"
+              href="/renting"
               className="text-blue-700 hover:text-blue-800 underline"
             >
               Renting
             </Link>
             <Link
-              href="/en/contact/"
+              href="/contact"
               className="text-blue-700 hover:text-blue-800 underline"
             >
               Contact Us

@@ -52,10 +52,15 @@ try {
     ];
 
     const dirsToCopy = [
-        'en',
-        'fr',
         '_next',
-        'images'
+        'images',
+        'about',
+        'buying',
+        'selling',
+        'renting',
+        'contact',
+        'estimate',
+        'sell-your-property'
     ];
 
     // Copy files
